@@ -1,20 +1,14 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.DependencyInjection;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.SessionState;
 
-namespace JlueTaxSystemHuNanBS.Code
+namespace JlueTaxSystemBeiJingBS.Code
 {
     public class CurrentUser
     {
         private static CurrentUser singleton;
-
-        public static IHttpContextAccessor hca;
-
-        private ISession session => hca.HttpContext.Session;
-
         private CurrentUser()
         {
         }
@@ -33,70 +27,70 @@ namespace JlueTaxSystemHuNanBS.Code
         /// </summary>
         public string GetReportCode
         {
-            get { return hca.HttpContext.Session.GetString("reportCode"); }
+            get { return System.Web.HttpContext.Current.Session["reportCode"].ToString(); }
         }
         /// <summary>
         /// 获取当前用户id
         /// </summary>
         public string GetCurrentUserId
         {
-            get { return session.GetString("userId"); }
+            get { return System.Web.HttpContext.Current.Session["userId"].ToString(); }
         }
         /// <summary>
         /// 获取当前用户登录名
         /// </summary>
         public string GetCurrentUserName
         {
-            get { return session.GetString("username"); }
+            get { return System.Web.HttpContext.Current.Session["username"].ToString(); }
         }
         /// <summary>
         /// 获取当前用户ClassId，题库用
         /// </summary>
         public string GetCurrentClassId
         {
-            get { return session.GetString("classId"); }
+            get { return System.Web.HttpContext.Current.Session["classId"].ToString(); }
         }
         /// <summary>
         /// 获取当前用户CourseId，题库用
         /// </summary>
         public string GetCurrentCourseId
         {
-            get { return session.GetString("courseId"); }
+            get { return System.Web.HttpContext.Current.Session["courseId"].ToString(); }
         }
         /// <summary>
         /// 获取当前用户sortid，题库用
         /// </summary>
         public string GetCurrentSortid
         {
-            get { return session.GetString("sortid"); }
+            get { return System.Web.HttpContext.Current.Session["sortid"].ToString(); }
         }
         /// <summary>
         /// 获取当前用户共享的题目questionId
         /// </summary>
         public string GetCurrentQuestionId
         {
-            get { return session.GetString("questionId"); }
+            get { return System.Web.HttpContext.Current.Session["questionId"].ToString(); }
         }
         /// <summary>
         /// 获取当前用户的题目questionId
         /// </summary>
         public string GetCurrentUserQuestionId
         {
-            get { return session.GetString("userquestionId"); }
+            get { return System.Web.HttpContext.Current.Session["userquestionId"].ToString(); }
         }
         /// <summary>
         /// 获取当前用户发生日期
         /// </summary>
         public string GetCurrentHappenDate
         {
-            get { return session.GetString("happenDate"); }
+            get { return System.Web.HttpContext.Current.Session["happenDate"].ToString(); }
         }
         /// <summary>
         /// 获取当前用户操作公司id
         /// </summary>
         public string GetCurrentCompanyId
         {
-            get { return session.GetString("companyId"); }
+            get { return System.Web.HttpContext.Current.Session["companyId"].ToString(); }
         }
 
         /// <summary>
@@ -104,7 +98,7 @@ namespace JlueTaxSystemHuNanBS.Code
         /// </summary>
         public string GetCurrentCompanyName
         {
-            get { return session.GetString("companyName"); }
+            get { return System.Web.HttpContext.Current.Session["companyName"].ToString(); }
         }
 
         /// <summary>
@@ -112,7 +106,7 @@ namespace JlueTaxSystemHuNanBS.Code
         /// </summary>
         public string GetCurrentCompanyNSRSBH
         {
-            get { return session.GetString("companyNSRSBH"); }
+            get { return System.Web.HttpContext.Current.Session["companyNSRSBH"].ToString(); }
         }
 
         /// <summary>
@@ -120,7 +114,7 @@ namespace JlueTaxSystemHuNanBS.Code
         /// </summary>
         public string GetCurrentQuestionSKSSQQ
         {
-            get { return session.GetString("skssqq"); }
+            get { return System.Web.HttpContext.Current.Session["skssqq"].ToString(); }
         }
 
         /// <summary>
@@ -128,7 +122,7 @@ namespace JlueTaxSystemHuNanBS.Code
         /// </summary>
         public string GetCurrentQuestionSKSSQZ
         {
-            get { return session.GetString("skssqz"); }
+            get { return System.Web.HttpContext.Current.Session["skssqz"].ToString(); }
         }
 
         /// <summary>
@@ -136,7 +130,7 @@ namespace JlueTaxSystemHuNanBS.Code
         /// </summary>
         public string GetCurrentQuestionSBQX
         {
-            get { return session.GetString("sbqx"); }
+            get { return System.Web.HttpContext.Current.Session["sbqx"].ToString(); }
         }
 
         /// <summary>
@@ -144,7 +138,7 @@ namespace JlueTaxSystemHuNanBS.Code
         /// </summary>
         public string GetCurrentQuestionHappenDate
         {
-            get { return session.GetString("happenDate"); }
+            get { return System.Web.HttpContext.Current.Session["happenDate"].ToString(); }
         }
 
         /// <summary>
@@ -152,7 +146,7 @@ namespace JlueTaxSystemHuNanBS.Code
         /// </summary>
         public string GetCurrentUserYSBQCId
         {
-            get { return session.GetString("userYSBQCId"); }
+            get { return System.Web.HttpContext.Current.Session["userYSBQCId"].ToString(); }
         }
 
         /// <summary>
@@ -160,7 +154,7 @@ namespace JlueTaxSystemHuNanBS.Code
         /// </summary>
         public string GetCurrentYSBQCId
         {
-            get { return session.GetString("ysbqcId"); }
+            get { return System.Web.HttpContext.Current.Session["ysbqcId"].ToString(); }
         }
         #endregion
     }

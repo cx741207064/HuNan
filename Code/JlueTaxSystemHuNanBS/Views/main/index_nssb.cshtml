@@ -1,6 +1,6 @@
-@using JlueTaxSystemHuNanBS.Code
+﻿@using JlueTaxSystemHuNanBS.Code
 @model List<GDTXUserYSBQC>
-@inject YsbqcSetting set
+@{YsbqcSetting set = new YsbqcSetting(); } 
 
 <script>
   $(function(){
@@ -105,9 +105,9 @@
                     </td>
                     <td>
 
-                        @if (qc.BDDM == set.BDDM.Fjs)
+                        @if (qc.BDDM == set.BDDM.Fjs || qc.BDDM == set.BDDM.Qysds)
                         {
-                            @if (qc.SBZT == set.SBZT.WTX)
+                            if (qc.SBZT == set.SBZT.WTX)
                             {
                                 <a href="javascript:void(0)" onclick="editsbb('@qc.BDDM','4530AC05336C499392C971212D7C6BDF')"><i class="iconfont c-nephritis">&#xe72e;</i> 填写</a>
                             }
@@ -141,7 +141,7 @@
                         }
                         else if (qc.BDDM == set.BDDM.YbnsrZzs)
                         {
-                            @if (qc.SBZT == set.SBZT.WTX)
+                            if (qc.SBZT == set.SBZT.WTX)
                             {
                                 <a href="javascript:void(0)" onclick="editsbb('@qc.BDDM','4530AC05336C499392C971212D7C6BDF')"><i class="iconfont c-nephritis">&#xe72e;</i> 填写</a>
                             }
@@ -179,7 +179,7 @@
                         }
                         else if (qc.BDDM == set.BDDM.Yhs)
                         {
-                            @if (qc.SBZT == set.SBZT.WTX)
+                            if (qc.SBZT == set.SBZT.WTX)
                             {
                                 <a href="javascript:void(0)" onclick="toDsPage('sb','10111','101110101',null,null,'2019-04-01','2019-04-30','0')"><i class="iconfont c-nephritis">&#xe72e;</i> 填写</a>
                             }

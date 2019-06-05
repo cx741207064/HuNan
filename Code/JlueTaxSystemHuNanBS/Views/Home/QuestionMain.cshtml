@@ -92,207 +92,207 @@
     </style>
     <script>
 
-        var json;
-        var userId = getQueryString("userid");
-        var username = getQueryString("username");
-        var ClassId = getQueryString("classid");
-        var courseid = '@AppConfigurtaionServices.Configuration["appSettings:CourseId"]';
-        var sortid = getQueryString("sortid");
-        $(document).ready(function () {
-            $.ajax({
-                url: "/VideoManage/GetVideo.ashx?CourseId=" + courseid,
-                type: "GET",
-                dataType: "text",
-                async: false,
-                success: function (result) {
-                    json = JSON.parse(JSON.parse(result).Data);
+    var json;
+    var userId = getQueryString("userid");
+    var username = getQueryString("username");
+    var ClassId = getQueryString("classid");
+    var courseid = '@System.Web.Configuration.WebConfigurationManager.AppSettings["CourseId"]';
+    var sortid = getQueryString("sortid");
+    $(document).ready(function () {
+        $.ajax({
+            url: "/VideoManage/GetVideo.ashx?CourseId=" + courseid,
+            type: "GET",
+            dataType: "text",
+            async: false,
+            success: function (result) {
+                json = JSON.parse(JSON.parse(result).Data);
+                $.each(json, function (i, v) {
+                    if (v.VideoID != null && v.VideoID != "") {
+                        $("#videoa").show();
+                    }
+                    else {
+                    }
+                });
+            }
+        })
+    });
+    @{
+        string userid = Request.QueryString["userid"].ToString();
+            string username = Request.QueryString["username"].ToString();
+            string classid = Request.QueryString["classid"].ToString();
+            string courseid = Request.QueryString["courseid"].ToString();
+            string sortid = Request.QueryString["sortid"].ToString();
+
+                publicmethod p = new publicmethod();
+                string questionstr = p.HttpGetFunction(System.Web.Configuration.WebConfigurationManager.AppSettings["tikupath"] + "/GTX/GTXUserQuestion/GetQID?classid=" + classid + "&userid=" + userid + "&sortid=" + sortid);
+            }
+    var dfdsa = '@questionstr';
+    var questionarrary = dfdsa.split(',');
+
+    $(document).ready(function () {
+        $.ajax({
+            url: '@System.Web.Configuration.WebConfigurationManager.AppSettings["tikupath"]' + GetTaxList,
+            type: "post",
+            dataType: "jsonp",
+            data: {
+                CourseId: courseid,
+                classid: ClassId,
+                userid: userId,
+                sortid: sortid
+            },
+            async: false,
+            success: function (result) {
+                if (typeof (result.Data) == "string") {
+
+                    var json = JSON.parse(result.Data);
                     $.each(json, function (i, v) {
-                        if (v.VideoID != null && v.VideoID != "") {
-                            $("#videoa").show();
+                        var a = $.inArray(String(v.QuestionId), questionarrary);
+                        var downpath = '@System.Web.Configuration.WebConfigurationManager.AppSettings["Practicepath"]';
+                        var QuestionTypeName;
+                        if (v.QuestionType == 2) {
+                            QuestionTypeName = "申报类";
+                        }
+                        var Gtxpath = "wsbs/toMainIndex.do?userid=" + userId + "&username=" + username + "&classid=" + ClassId + "&courseid=" + courseid + "&sortid=" + sortid + "&questionId=" + v.QuestionId + "&userquestionId=" + v.Id + "&CompanyId=" + v.CompanyId + "&Name=" + encodeURIComponent(v.Name) + "&rand=" + new Date().getTime();
+                        var Dtxpath = '<%=System.Web.Configuration.WebConfigurationManager.AppSettings["Dtxpath"]%>' + "/MainAction.php?sessionId=" + v.NSRSBH + ";timestamp&questionid=" + v.QuestionId + "&happenddate=" + v.HappenDate + "&userid=" + userId + "&classid=" + ClassId + "&CompanyId=" + v.CompanyId;
+                        debugger;
+                        var FPpath = "GotoFP.ashx?sessionId=" + v.NSRSBH + ";timestamp&questionId=" + v.QuestionId + "&happenDate=" + v.HappenDate + "&userId=" + userId + "&classId=" + ClassId + "&companyId=" + v.CompanyId + "&sortid=" + sortid;
+                        debugger;
+                        var str = '<li class="ksmc-sj5"><div class="ksmc-sj1-title">';
+                        str += '<table class="fulltable">';
+                        str += '<tbody>';
+                        str += '<tr>';
+                        str += '<td class="td1">' + v.Name + '</td>';
+                        str += '<td class="td2">' + QuestionTypeName + '</td>';
+                        str += '<td class="td3">' + v.Description + '</td>';
+                        var Gtxvideopath = "Video/Video.aspx?Id=" + v.QuestionId + "&CourseId=" + v.CourseId + "&VideoID=" + v.VideoID + "&ClassId=" + ClassId + "&userId=" + userId + "&model=0";
+                        var Dtxvideopath = "Video/Video.aspx?Id=" + v.QuestionId + "&CourseId=" + v.CourseId + "&VideoID=" + v.VideoID + "&ClassId=" + ClassId + "&userId=" + userId + "&model=1";
+                        str += '<th class="td5"><a target="_blank" onclick="checkvideo(\'' + Gtxvideopath + '\',\'' + v.VideoID + '\',\'国\')" style="display:none">国税</a><a target="_blank" onclick="checkvideo(\'' + Dtxvideopath + '\',\'' + v.VideoID + '\',\'地\')" style="display:none">地税</a></th>';
+                        str += '<th class="td6"><div class="practice"><a onclick="togglearea(\'oper' + v.QuestionId + '\',this)">开始练习</a></th>';
+                        str += '</tr>';
+                        str += '</tbody>';
+                        str += '</table>';
+                        str += '</div>';
+                        if (v.VideoID) {
+                            str += '<div id="oper' + v.QuestionId + '" style="display: none" class="oper_area"><a class="radius box-shadow ksmc-sj1-tanchuti"  onclick="checkpath(\'' + downpath + '\',\'' + v.FilePath + '\')" target="_blank" style="display:none">下载材料</a><a class="radius box-shadow ksmc-sj1-tanchuti" href="' + Gtxpath + '" target="_blank" onclick="closeareaGTX(' + v.QuestionId + ');">纳税申报</a>';
+                            if (a >= 0) {
+                                str += '<a class="radius box-shadow ksmc-sj1-tanchuti" href="' + FPpath + '" target="_blank" onclick="closeareaGTX(' + v.QuestionId + ');">发票勾选平台</a>';
+                            }
+                            str += '<a target="_blank" class="radius box-shadow ksmc-sj1-tanchuti" onclick="checkvideo(\'' + Gtxvideopath + '\',\'' + v.VideoID + '\',\'国\')" >国税视频</a><a class="radius box-shadow ksmc-sj1-tanchuti" target="_blank" onclick="checkvideo(\'' + Dtxvideopath + '\',\'' + v.VideoID + '\',\'地\')">地税视频</a></div>';
                         }
                         else {
+                            str += '<div id="oper' + v.QuestionId + '" style="display: none" class="oper_area"><a class="radius box-shadow ksmc-sj1-tanchuti"  onclick="checkpath(\'' + downpath + '\',\'' + v.FilePath + '\')" target="_blank" style="display:none">下载材料</a><a class="radius box-shadow ksmc-sj1-tanchuti" href="' + Gtxpath + '" target="_blank" onclick="closeareaGTX(' + v.QuestionId + ');">纳税申报</a>';
+                            if (a >= 0) {
+                                str += '<a class="radius box-shadow ksmc-sj1-tanchuti" href="' + FPpath + '" target="_blank" onclick="closeareaGTX(' + v.QuestionId + ');">发票勾选平台</a>';
+                            }
+                            str += '</div>';
+
+                        }
+                        str += '</li>'
+                        $("#ulTax").append(str);
+                    });
+                }
+                else {
+                    $.ajax({
+                        url: "ChuShiHua.ashx?Method=Clear&ClassId=" + ClassId + "&userId=" + userId + "&sortid=" + sortid + "&t=" + Math.random(),
+                        type: "GET",
+                        dataType: "text",
+                        async: false,
+                        success: function (result) {
+                            debugger;
+                            var na = JSON.parse(result);
+                            if (na.IsSuccess) {
+                                location.reload();
+                            }
+                            else {
+
+                            }
                         }
                     });
                 }
-            })
+            }
         });
-        @{ 
-                string userid = Html.ViewContext.HttpContext.Request.Query["userid"].FirstOrDefault();
-                string username = Html.ViewContext.HttpContext.Request.Query["username"].FirstOrDefault();
-                string classid = Html.ViewContext.HttpContext.Request.Query["classid"].FirstOrDefault();
-                string courseid = Html.ViewContext.HttpContext.Request.Query["courseid"].FirstOrDefault();
-                string sortid = Html.ViewContext.HttpContext.Request.Query["sortid"].FirstOrDefault();
+    });
 
-                publicmethod p = new publicmethod();
-                string questionstr = p.HttpGetFunction(AppConfigurtaionServices.Configuration["appSettings:tikupath"] + "/GTX/GTXUserQuestion/GetQID?classid=" + classid + "&userid=" + userid + "&sortid=" + sortid);
+    function checkvideo(path, videopath, name) {
+        var v = videopath.split(",").length;
+        if (name == '国') {
+            if (videopath[0]) {
+                window.open(path);
             }
-            var dfdsa = '@questionstr';
-            var questionarrary = dfdsa.split(',');
-
-        $(document).ready(function () {
-            $.ajax({
-                url: '@AppConfigurtaionServices.Configuration["appSettings:tikupath"]' + GetTaxList,
-                type: "post",
-                dataType: "jsonp",
-                data: {
-                    CourseId: courseid,
-                    classid: ClassId,
-                    userid: userId,
-                    sortid: sortid
-                },
-                async: false,
-                success: function (result) {
-                        if (typeof (result.Data) == "string") {
-
-                            var json = JSON.parse(result.Data);
-                        $.each(json, function (i, v) {
-                                var a = $.inArray(String(v.QuestionId), questionarrary);
-                                var downpath = '@AppConfigurtaionServices.Configuration["appSettings:Practicepath"]';
-                                var QuestionTypeName;
-                                if (v.QuestionType == 2) {
-                                    QuestionTypeName = "申报类";
-                                }
-                                var Gtxpath = "wsbs/toMainIndex.do?userid=" + userId + "&username=" + username + "&classid=" + ClassId + "&courseid=" + courseid + "&sortid=" + sortid + "&questionId=" + v.QuestionId + "&userquestionId=" + v.Id + "&CompanyId=" + v.CompanyId + "&Name=" + encodeURIComponent(v.Name) + "&rand=" + new Date().getTime();
-                                var Dtxpath = '<%=System.Web.Configuration.WebConfigurationManager.AppSettings["Dtxpath"]%>' + "/MainAction.php?sessionId=" + v.NSRSBH + ";timestamp&questionid=" + v.QuestionId + "&happenddate=" + v.HappenDate + "&userid=" + userId + "&classid=" + ClassId + "&CompanyId=" + v.CompanyId;
-                                debugger;
-                                var FPpath = "GotoFP.ashx?sessionId=" + v.NSRSBH + ";timestamp&questionId=" + v.QuestionId + "&happenDate=" + v.HappenDate + "&userId=" + userId + "&classId=" + ClassId + "&companyId=" + v.CompanyId + "&sortid=" + sortid;
-                                debugger;
-                                var str = '<li class="ksmc-sj5"><div class="ksmc-sj1-title">';
-                                str += '<table class="fulltable">';
-                                str += '<tbody>';
-                                str += '<tr>';
-                                str += '<td class="td1">' + v.Name + '</td>';
-                                str += '<td class="td2">' + QuestionTypeName + '</td>';
-                                str += '<td class="td3">' + v.Description + '</td>';
-                                var Gtxvideopath = "Video/Video.aspx?Id=" + v.QuestionId + "&CourseId=" + v.CourseId + "&VideoID=" + v.VideoID + "&ClassId=" + ClassId + "&userId=" + userId + "&model=0";
-                                var Dtxvideopath = "Video/Video.aspx?Id=" + v.QuestionId + "&CourseId=" + v.CourseId + "&VideoID=" + v.VideoID + "&ClassId=" + ClassId + "&userId=" + userId + "&model=1";
-                                str += '<th class="td5"><a target="_blank" onclick="checkvideo(\'' + Gtxvideopath + '\',\'' + v.VideoID + '\',\'国\')" style="display:none">国税</a><a target="_blank" onclick="checkvideo(\'' + Dtxvideopath + '\',\'' + v.VideoID + '\',\'地\')" style="display:none">地税</a></th>';
-                                str += '<th class="td6"><div class="practice"><a onclick="togglearea(\'oper' + v.QuestionId + '\',this)">开始练习</a></th>';
-                                str += '</tr>';
-                                str += '</tbody>';
-                                str += '</table>';
-                                str += '</div>';
-                                if (v.VideoID) {
-                                    str += '<div id="oper' + v.QuestionId + '" style="display: none" class="oper_area"><a class="radius box-shadow ksmc-sj1-tanchuti"  onclick="checkpath(\'' + downpath + '\',\'' + v.FilePath + '\')" target="_blank" style="display:none">下载材料</a><a class="radius box-shadow ksmc-sj1-tanchuti" href="' + Gtxpath + '" target="_blank" onclick="closeareaGTX(' + v.QuestionId + ');">纳税申报</a>';
-                                    if (a >= 0) {
-                                        str += '<a class="radius box-shadow ksmc-sj1-tanchuti" href="' + FPpath + '" target="_blank" onclick="closeareaGTX(' + v.QuestionId + ');">发票勾选平台</a>';
-                                    }
-                                    str += '<a target="_blank" class="radius box-shadow ksmc-sj1-tanchuti" onclick="checkvideo(\'' + Gtxvideopath + '\',\'' + v.VideoID + '\',\'国\')" >国税视频</a><a class="radius box-shadow ksmc-sj1-tanchuti" target="_blank" onclick="checkvideo(\'' + Dtxvideopath + '\',\'' + v.VideoID + '\',\'地\')">地税视频</a></div>';
-                                }
-                                else {
-                                    str += '<div id="oper' + v.QuestionId + '" style="display: none" class="oper_area"><a class="radius box-shadow ksmc-sj1-tanchuti"  onclick="checkpath(\'' + downpath + '\',\'' + v.FilePath + '\')" target="_blank" style="display:none">下载材料</a><a class="radius box-shadow ksmc-sj1-tanchuti" href="' + Gtxpath + '" target="_blank" onclick="closeareaGTX(' + v.QuestionId + ');">纳税申报</a>';
-                                    if (a >= 0) {
-                                        str += '<a class="radius box-shadow ksmc-sj1-tanchuti" href="' + FPpath + '" target="_blank" onclick="closeareaGTX(' + v.QuestionId + ');">发票勾选平台</a>';
-                                    }
-                                    str += '</div>';
-
-                                }
-                                str += '</li>'
-                            $("#ulTax").append(str);
-                            });
-                        }
-                        else {
-                        $.ajax({
-                            url: "ChuShiHua.ashx?Method=Clear&ClassId=" + ClassId + "&userId=" + userId + "&sortid=" + sortid + "&t=" + Math.random(),
-                            type: "GET",
-                            dataType: "text",
-                            async: false,
-                            success: function (result) {
-                                    debugger;
-                                    var na = JSON.parse(result);
-                                    if (na.IsSuccess) {
-                                        location.reload();
-                                    }
-                                    else {
-
-                                    }
-                                }
-                            });
-                        }
-                    }
-                });
-            });
-
-        function checkvideo(path, videopath, name) {
-                var v = videopath.split(",").length;
-                if (name == '国') {
-                    if (videopath[0]) {
-                        window.open(path);
-                    }
-                    else {
-                        alert('暂无视频');
-                    }
-                }
-                else {
-                    if (v == 2 && videopath[1]) {
-                        window.open(path);
-                    }
-                    else {
-                        alert('暂无视频');
-                    }
-                }
+            else {
+                alert('暂无视频');
             }
-
-            function checkpath(downpath, filepath) {
-                if (filepath) {
-                    window.open(downpath + filepath);
-                }
-                else {
-                    alert('暂无材料');
-                }
-            }
-
-            //获取国地税做题状态
-            function togglearea(id, obj) {
-                var show = $('#' + id).is(':hidden');
-                if (show) {
-                $('#' + id).slideDown('slow');
-                }
-                else {
-                $('#' + id).slideUp('slow');
-                }
-            }
-
-            //重做所有题目
-            function DeleteAllTax() {
-            $.ajax({
-                url: "ChuShiHua.ashx?Method=Clear&ClassId=" + ClassId + "&userId=" + userId + "&SortId=" + sortid + "&t=" + Math.random(),
-                type: "GET",
-                dataType: "text",
-                async: false,
-                success: function (result) {
-                        debugger
-                        var na = JSON.parse(result);
-                        if (na.IsSuccess) {
-                            debugger;
-                            alert("初始化成功");
-                            location.reload();
-                        }
-                        else {
-                            alert("初始化失败");
-                        }
-                    }
-                })
         }
+        else {
+            if (v == 2 && videopath[1]) {
+                window.open(path);
+            }
+            else {
+                alert('暂无视频');
+            }
+        }
+    }
 
-            //关闭显示部分
-            function closeareaGTX(Id) {
-            $('#oper' + Id).slideUp('slow');
-            }
-            function closeareaDTX() {
-            $('#oper' + Id).slideUp('slow');
-            }
+    function checkpath(downpath, filepath) {
+        if (filepath) {
+            window.open(downpath + filepath);
+        }
+        else {
+            alert('暂无材料');
+        }
+    }
 
-            function showRight(id) {
-                showOverlay();
-            $('#rights').html('<div class="close" style="position:static"><a href="javascript:void(0);" onclick="closerights()">关闭</a></div><iframe src="/VideoManage/VideoManage.aspx" width="100%" height="100%" frameborder="0"></iframe>');
-                adjust("#rights");
-            $('#rights').show();
+    //获取国地税做题状态
+    function togglearea(id, obj) {
+        var show = $('#' + id).is(':hidden');
+        if (show) {
+            $('#' + id).slideDown('slow');
+        }
+        else {
+            $('#' + id).slideUp('slow');
+        }
+    }
+
+    //重做所有题目
+    function DeleteAllTax() {
+        $.ajax({
+            url: "ChuShiHua.ashx?Method=Clear&ClassId=" + ClassId + "&userId=" + userId + "&SortId=" + sortid + "&t=" + Math.random(),
+            type: "GET",
+            dataType: "text",
+            async: false,
+            success: function (result) {
+                debugger
+                var na = JSON.parse(result);
+                if (na.IsSuccess) {
+                    debugger;
+                    alert("初始化成功");
+                    location.reload();
+                }
+                else {
+                    alert("初始化失败");
+                }
             }
-            function closerights() {
-            $('#rights').hide();
-                hideOverlay();
-            }
+        })
+    }
+
+    //关闭显示部分
+    function closeareaGTX(Id) {
+        $('#oper' + Id).slideUp('slow');
+    }
+    function closeareaDTX() {
+        $('#oper' + Id).slideUp('slow');
+    }
+
+    function showRight(id) {
+        showOverlay();
+        $('#rights').html('<div class="close" style="position:static"><a href="javascript:void(0);" onclick="closerights()">关闭</a></div><iframe src="/VideoManage/VideoManage.aspx" width="100%" height="100%" frameborder="0"></iframe>');
+        adjust("#rights");
+        $('#rights').show();
+    }
+    function closerights() {
+        $('#rights').hide();
+        hideOverlay();
+    }
 
     </script>
 </head>

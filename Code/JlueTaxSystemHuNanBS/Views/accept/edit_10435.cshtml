@@ -1,0 +1,2646 @@
+﻿@using JlueTaxSystemHuNanBS.Models
+@model QysdsYjdAModel
+
+<html>
+<head>
+  <title>报表填写</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <link rel="stylesheet" type="text/css" href="/web-accept/static/css/main/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="/web-accept/static/css/sbb/iconfont.css">
+  <link rel="stylesheet" type="text/css" href="/web-accept/static/css/sbb/select2custom.css">
+  <link rel="stylesheet" type="text/css" href="/web-accept/static/css/sbb/style.css">
+  <link rel="stylesheet" type="text/css" href="/web-accept/static/css/sbb/leftmenu.css">
+  <link rel="stylesheet" type="text/css" href="/web-accept/static/css/sbb/sbbedit.css">
+  <link rel="stylesheet" type="text/css" href="/web-accept/static/css/sbb/jquery.abc.css">
+  <link rel="stylesheet" type="text/css" href="/web-accept/static/css/icheck/green.css">
+
+
+  
+  
+<script src="/web-accept/wssb/static/js.html?ver=084C5312A4960D8AC34B63B3B9109506&p=2&dm=10435&fs=QTIwMDAwMCxBMjAxMDEwLEEyMDEwMjAsQTIwMTAzMCxqc2NnZHlteHh4LHh4YmdiLA=="></script>
+    <script src="/web-accept/static/js/layer/layer.js"></script>
+
+  <script>
+    var cwbbsqsinitfinish = "0";// 0、初始状态 1、方法开始执行 2、获取完成
+    $(function () {
+        ;
+      showLoadding();
+      setTimeout(sbbPageInit,1000);
+
+    });
+    /**
+     * 页面初始化方法
+     */
+    function sbbPageInit() {
+      try {
+        //加载上期数
+        if ('10435' == '19804') {
+          setXqyBnlj('');
+        }
+
+        var hdxxvojsons = {"abcNsrHdxxSbzlList":[{"hdxxid":"20181008102526106936","sbzlcode":"10435","sbzlmc":"中华人民共和国企业所得税月（季）度预缴纳税申报表（A类，2018年版）","zsxmbm":"10104","zsxmmc":"企业所得税","sbqx":"2018-10-24","hdfs":"1"}],"abcNsrHdxxLsxxList":[{"code":"TDYWJS_YJZSDE","hdxxid":"20181008102526106936","sbzlcode":"10435","name":"特定业务预缴（征）所得税额本年累计金额--上期累计金额","value":"0.00","qdsybz":"Y"},{"code":"TDYWJS_YNSSDE","hdxxid":"20181008102526106936","sbzlcode":"10435","name":"特定业务计算的应纳税所得额本年累计金额--上期累计金额","value":"0.00","qdsybz":"Y"}],"abcNsrHdxxWsxxList":[{"code":"BQYJ","hdxxid":"20181008102526106936","sbzlcode":"10435","name":"本期预缴（实际已预缴税额）","value":"0.00","qdsybz":"Y"},{"code":"DJRQ","hdxxid":"20181008102526106936","sbzlcode":"10435","name":"登记日期","value":"20131118","qdsybz":"Y"},{"code":"FDCNSRBZ","hdxxid":"20181008102526106936","sbzlcode":"10435","name":"房地产开发等特定业务企业纳税人标志","value":"N","qdsybz":"Y"},{"code":"FSHYDM","hdxxid":"20181008102526106936","sbzlcode":"10435","name":"附属行业代码","value":"52,52","qdsybz":"Y"},{"code":"FSHYDM1","hdxxid":"20181008102526106936","sbzlcode":"10435","name":"附属行业代码1","value":"525,526","qdsybz":"Y"},{"code":"FZJGFPBSBBZ","hdxxid":"20181008102526106936","sbzlcode":"10435","name":"分支机构分配表申报标志","value":"N","qdsybz":"Y"},{"code":"FZJGYJBL","hdxxid":"20181008102526106936","sbzlcode":"10435","name":"分支机构分摊比例","value":"0.5","qdsybz":"Y"},{"code":"HDXXZTBZ","hdxxid":"20181008102526106936","sbzlcode":"10435","name":"状态标志","value":"0","qdsybz":"Y"},{"code":"HDXXZTXX","hdxxid":"20181008102526106936","sbzlcode":"10435","name":"状态信息","value":"正常","qdsybz":"Y"},{"code":"HJBLJD","hdxxid":"20181008102526106936","sbzlcode":"10435","name":"就地汇缴比例","value":"0","qdsybz":"Y"},{"code":"HJQYBZ","hdxxid":"20181008102526106936","sbzlcode":"10435","name":"汇缴企业标志","value":"0","qdsybz":"Y"},{"code":"HYDM","hdxxid":"20181008102526106936","sbzlcode":"10435","name":"行业代码","value":"5261","qdsybz":"Y"},{"code":"HYMC","hdxxid":"20181008102526106936","sbzlcode":"10435","name":"行业名称","value":"汽车新车零售","qdsybz":"Y"},{"code":"HZNSQYLBDM","hdxxid":"20181008102526106936","sbzlcode":"10435","name":"汇总纳税企业类别代码","value":"空","qdsybz":"Y"},{"code":"HZNSRDLSCBMBZ","hdxxid":"20181008102526106936","sbzlcode":"10435","name":"独立生产经营部门标志","value":"N","qdsybz":"N"},{"code":"KDQSSZYQYBZ","hdxxid":"20181008102526106936","sbzlcode":"10435","name":"跨地区税收转移企业标志","value":"空","qdsybz":"Y"},{"code":"MBYQNDKS","hdxxid":"20181008102526106936","sbzlcode":"10435","name":"弥补以前年度亏损","value":"282249.34","qdsybz":"Y"},{"code":"QYLX","hdxxid":"20181008102526106936","sbzlcode":"10435","name":"企业类型","value":"0","qdsybz":"Y"},{"code":"SFSCSB","hdxxid":"20181008102526106936","sbzlcode":"10435","name":"是否首次申报","value":"Y","qdsybz":"Y"},{"code":"SFXWQYBZ","hdxxid":"20181008102526106936","sbzlcode":"10435","name":"是否小微企业标志","value":"2","qdsybz":"Y"},{"code":"SFXYSBFZJGB","hdxxid":"20181008102526106936","sbzlcode":"10435","name":"是否需要申报分支机构表","value":"N","qdsybz":"Y"},{"code":"SFZYHY","hdxxid":"20181008102526106936","sbzlcode":"10435","name":"是否重要行业","value":"N","qdsybz":"Y"},{"code":"TDYWYYJSK","hdxxid":"20181008102526106936","sbzlcode":"10435","name":"特定业务预缴（征）所得税额","value":"0.00","qdsybz":"Y"},{"code":"TSNSRLX","hdxxid":"20181008102526106936","sbzlcode":"10435","name":"特殊纳税人类型","qdsybz":"Y"},{"code":"YJFS","hdxxid":"20181008102526106936","sbzlcode":"10435","name":"预缴方式","value":"1","qdsybz":"Y"},{"code":"ZJGYJBL","hdxxid":"20181008102526106936","sbzlcode":"10435","name":"总机构分摊比例","value":"0.25","qdsybz":"Y"},{"code":"ZSBBJNBZ","hdxxid":"20181008102526106936","sbzlcode":"10435","name":"只申报不缴纳标志","value":"N","qdsybz":"Y"},{"code":"ZYCZYJBL","hdxxid":"20181008102526106936","sbzlcode":"10435","name":"财政集中分摊比例","value":"0.25","qdsybz":"Y"},{"code":"ZYHYMC","hdxxid":"20181008102526106936","sbzlcode":"10435","name":"重要行业名称","qdsybz":"Y"}],"abcNsrHdxxSbzlZspmsList":[],"code":"00","msg":"成功"};
+        setHdxxObj(hdxxvojsons);
+        setBbzt('1', '正常');
+        
+        var tbl = null;
+        
+        tbl = $("#A200000");
+        if (tbl.get(0) != undefined) {
+          var sbbcheckjs;
+          try {
+            sbbcheckjs = null;//火狐存在bug
+            if (A200000check) {
+              sbbcheckjs = A200000check;
+            }
+          } catch (e) {
+          }
+          var $sheet = tbl.sheet(sbbcheckjs, {
+            tableName: 'A200000企业所得税月（季）度预缴纳税申报表（A类）',
+            
+            
+            enterNav: "V"
+            
+          });
+        }
+
+        
+        tbl = $("#A201010");
+        if (tbl.get(0) != undefined) {
+          var sbbcheckjs;
+          try {
+            sbbcheckjs = null;//火狐存在bug
+            if (A201010check) {
+              sbbcheckjs = A201010check;
+            }
+          } catch (e) {
+          }
+          var $sheet = tbl.sheet(sbbcheckjs, {
+            tableName: 'A201010免税收入、减计收入、所得减免等优惠明细表',
+            
+            
+            enterNav: "V"
+            
+          });
+        }
+
+        
+        tbl = $("#A201020");
+        if (tbl.get(0) != undefined) {
+          var sbbcheckjs;
+          try {
+            sbbcheckjs = null;//火狐存在bug
+            if (A201020check) {
+              sbbcheckjs = A201020check;
+            }
+          } catch (e) {
+          }
+          var $sheet = tbl.sheet(sbbcheckjs, {
+            tableName: 'A201020固定资产加速折旧(扣除)优惠明细表',
+            
+            
+            enterNav: "V"
+            
+          });
+        }
+
+        
+        tbl = $("#A201030");
+        if (tbl.get(0) != undefined) {
+          var sbbcheckjs;
+          try {
+            sbbcheckjs = null;//火狐存在bug
+            if (A201030check) {
+              sbbcheckjs = A201030check;
+            }
+          } catch (e) {
+          }
+          var $sheet = tbl.sheet(sbbcheckjs, {
+            tableName: 'A201030  减免所得税优惠明细表',
+            
+            
+            enterNav: "V"
+            
+          });
+        }
+
+        
+        tbl = $("#jscgdymxxx");
+        if (tbl.get(0) != undefined) {
+          var sbbcheckjs;
+          try {
+            sbbcheckjs = null;//火狐存在bug
+            if (jscgdymxxxcheck) {
+              sbbcheckjs = jscgdymxxxcheck;
+            }
+          } catch (e) {
+          }
+          var $sheet = tbl.sheet(sbbcheckjs, {
+            tableName: '技术成果投资入股企业所得税递延纳税备案表',
+            
+            
+            enterNav: "H"
+            
+          });
+        }
+
+        
+        tbl = $("#xxbgb1");
+        if (tbl.get(0) != undefined) {
+          var sbbcheckjs;
+          try {
+            sbbcheckjs = null;//火狐存在bug
+            if (xxbgbcheck) {
+              sbbcheckjs = xxbgbcheck;
+            }
+          } catch (e) {
+          }
+          var $sheet = tbl.sheet(sbbcheckjs, {
+            tableName: '居民企业参股外国企业信息报告表(1)',
+            
+            
+            enterNav: "V"
+            
+          });
+        }
+
+        
+
+        //初始化表数据
+        for (var i = 0; i < $.sheet.tables.length; i++) {
+          $.sheet.tables[i].initTable();
+        }
+        setTimeout(checkPageFinish,500);
+      } catch (e) {
+        closeLoadding();
+        showErrorMsg("系统异常，初始化申报表失败，请联系系统管理员");
+      }
+    }
+
+    /**
+     * 页面初始化方法
+     */
+    function checkPageFinish() {
+      //判断初始化表数据是否存在错误
+      for (var i = 0; i < $.sheet.tables.length; i++) {
+        if($.sheet.tables[i].isExitsError()){
+          closeLoadding();
+          showErrorMsg("申报表公式执行失败，请联系系统管理员");
+          return ;
+        }
+      }
+
+      //判断初始化表数据是否完成
+      for (var i = 0; i < $.sheet.tables.length; i++) {
+        if(!$.sheet.tables[i].isInitFinsh()){
+          setTimeout(checkPageFinish,200);
+          return ;
+        }
+      }
+
+      ////加载上期数
+      //if (('10435' == '19804' || '10435' == '19805' || '10435' == '19810') && '1' == '1') {
+      //  if(cwbbsqsinitfinish == "0"){
+      //    //报表打开 加载上期数
+      //    huoqusqs('/web-accept','10435','F6F48341C33E41B691A9DC083FC2F149')
+      //    setTimeout(checkPageFinish,1000);
+      //    return ;
+      //  }
+      //  if(cwbbsqsinitfinish == "1"){
+      //    setTimeout(checkPageFinish,1000);
+      //    return ;
+      //  }
+      //}
+
+      addSafeClick("savebtn",function(){
+        save("2","1")
+      });
+      addSafeClick("verifyBtn",verify);
+
+      addSafeClick("ybjcBtn",ybjc.ybjcData);
+
+      addSafeClick("zszxxBtn",function(){
+        getZszxx('10435');
+      });
+
+      $("#outlookdivin0 a").click(openSbb);
+      openSbb('A200000');
+
+      setQysdsData()
+
+      closeLoadding();
+    }
+
+    //点击左边列表切换申报表
+    var currSbb = 'blankdiv';
+    function openSbb(bn) {
+      var sbbname =null;
+      try{
+        sbbname =$(this).attr("fbbc");
+      }catch (e){}
+      if(!sbbname){
+        sbbname = bn;
+      }
+      if (sbbname == currSbb) {
+        return;
+      }
+      $("#sbbdiv").scrollTop(0);
+      $("#" + sbbname).css('display', 'block');
+      if (currSbb != null) {
+        $("#" + currSbb).css("display", "none");
+      }
+      currSbb = sbbname;
+      //提交当前处于编辑状态的单元格
+      submitCurrSbb();
+
+      //检测是否需要提示用户
+      try{
+        var checkobj = eval(sbbname+"check");
+        if(checkobj&&checkobj.noticeFun){
+          checkobj.noticeFun(sbbname);
+        }
+      }catch (e){
+        console.info(e)
+      }
+      return;
+    }
+
+    var ybjc={
+      autoaddTableArrays:"",
+      ybjcData:function(){
+        showLoadding();
+        var sbzldm = $("#sbzldm").val();
+        var skssqq = $("#skssqq").val();
+        var skssqz = $("#skssqz").val();
+        skssqq=skssqq||"";
+        skssqz=skssqz||"";
+        sbzldm=sbzldm||"10104";
+        var ybjcAjax=$.ajax({
+          type: "POST",
+          url: '/web-accept/wssb/main/getYbjcData.html',
+          timeout : 50000,
+          async:true,
+          data:{"sbzldm":sbzldm,"skssqq":skssqq,"skssqz":skssqz},
+          dataType: 'html',
+          complete : function(XMLHttpRequest,status){ //请求完成后最终执行参数
+            if(status=='timeout'){//超时,status还有success,error等值的情况
+              ybjcAjax.abort();
+              showErrorMsg('请求服务超时，请稍后重试！');
+            }
+          },
+          success: function (data) {
+            closeLoadding();
+            data = JSON.parse(data);
+
+            if(data.code == '200')
+            {
+              autoaddTableArrays="";
+              try {
+                showLoadding();
+                var keyArray = ybjc.returnKeyArray(data.map);
+                data.idx_x = 0;
+                data.idx_y = 0;
+                setTimeout(function(){ybjc.ybjcSetValue(keyArray,data)},0);
+              }catch (e){
+                showErrorMsg('数据填充失败，请稍后重试！');
+              }
+            }else if(data.code == '700'){
+              showErrorMsg('没有查询到归集完成的发票数据！');
+            }else{
+              showErrorMsg('数据获取失败，请稍后重试！');
+            }
+
+          }, error: function (request, error, status) {
+            showErrorMsg('数据获取异常，请稍后重试！');
+            closeLoadding();
+          }
+        });
+      },
+      ybjcSetValue : function(keyArray,data){
+        try{
+          var datamap = data.map;
+          var idx_x = data.idx_x;
+          var tablename=keyArray[idx_x];//表名
+          var datas = datamap[tablename];//数据
+          var datalen = datas.length;
+          if(datalen === 0 ){
+            data.idx_x = data.idx_x +1;
+            ybjc.ybjcSetValue(keyArray,data)
+            return;
+          }
+          var sidx = data.idx_y;//开始索引
+          var eidx = data.idx_y+20;//结束索引
+          if(eidx >=datalen){
+            eidx = datalen;
+            //移动到下一个表
+            data.idx_x = data.idx_x + 1;
+            data.idx_y = 0;
+          }else{
+            //移动数据索引
+            data.idx_y = data.idx_y+20;
+          }
+          ybjc.setVal(tablename,datas,sidx,eidx );
+
+          if(keyArray.length > data.idx_x){
+            setTimeout(function(){ybjc.ybjcSetValue(keyArray,data);},1);
+          }else{
+            closeLoadding();
+            showMsg("获取数据成功，请核对报表数据！");
+          }
+        }catch (e){
+          closeLoadding();
+          showMsg("填充数据失败！");
+        }
+
+      },
+      returnKeyArray:function(jsonObj){
+        var jsonArray=new Array();
+        for(var key in jsonObj){
+          jsonArray.push(key);
+        }
+        return jsonArray;
+      },
+
+      setVal:function (tablename,lsxxs,sidx,eidx){
+        var self = this;
+        var tableobj = getTableObj(tablename);
+        if(!tableobj) return;
+        if(lsxxs)
+        {
+          for (var i = sidx; i < eidx; i++)
+          {
+            var col = lsxxs[i];
+            var tdindex = col.rowindex;
+            var tdvalue = col.val;
+            if(!tdvalue) continue;
+            var name = col.colname;
+            var autorownum=col.autoRowNum;
+            var addid = col.addid;
+            if(autorownum&&addid){
+              if(this.autoaddTableArrays.indexOf(addid)<0){
+                this.autoaddTableArrays=this.autoaddTableArrays+"|"+addid;
+                for(var addrowi=0;addrowi<autorownum;addrowi++){
+                  $("#"+addid).click();
+                }
+              }
+            }
+            var isText = col.isText;
+            var td = getTdObj(tableobj, name, tdindex);
+            if (td&&td.isEditable&&td.isEditable!="false")
+            {
+              if(!isText) {setTdNumberValue(td, convertNumber(tdvalue))}
+              else{
+                if(isText=="list"){
+                  var text = col.listText;
+                  var value = col.listValue;
+                  if(value){
+                    if(tablename=="ygzsffxcsmxb"||tablename=="jmssbmxb") {
+                      setTdNumberValue(td, value);
+                      td.obj.text(text);
+                    }else{
+                      setTdNumberValue(td, value);
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    };
+
+    //校验按钮的执行方法
+    function verify() {
+      showLoadding();
+      try{
+        warnTables = {};
+        if (!submitCurrSbb()) {
+          return;
+        }
+        var isverifyallsheet = $.sheet.FCT.verifyAllSheet();
+        if(isverifyallsheet){
+          save("3","0");
+        }else{
+          showErrorMsg($.sheet.FCT.getVerifyMsg());
+          closeLoadding();
+        }
+      }catch (e){
+        showErrorMsg("系统异常，校验存在错误，请联系系统管理员");
+        closeLoadding();
+      }
+    }
+
+
+    //保存
+    function save(bbzt,type) {
+      if (!submitCurrSbb()) {
+        return;
+      }
+
+      //判断页面是否要保存
+      var editTables = getEditTable();
+      if(type == "1"){
+        if (editTables.length == 0 && !deleteFbs) {
+          showMsg("没有表格被更新不需要保存");
+          return;
+        }
+      }
+
+      try {
+        showLoadding();
+        var table;
+        var tablejsons = "[";
+        var sbuuid = "F6F48341C33E41B691A9DC083FC2F149";
+        var sbzl = "10435";
+        if(editTables.length == 0){
+          var jsonArray = [];
+          tablejsons += '{"sbbname":"' + "" + '","bbzt":"'+bbzt+'","sbuuid":"'+sbuuid+'","isUserEditable":' + "false" + ',"data":' + $.toJSON(jsonArray) + '}';
+        }else{
+          for (var i = 0; i < editTables.length; i++) {
+            table = editTables[i];
+            tablejsons += '{"sbbname":"' + table.name + '","bbzt":"'+bbzt+'","sbuuid":"'+sbuuid+'","isUserEditable":' + table.isUserEditable() + ',"data":' +
+            table.getJson() + '}';
+            if (i != editTables.length - 1) {
+              tablejsons += ",";
+            }
+          }
+        }
+        tablejsons += "]";
+        var casignstr = "";
+        if($("#isCALogin").val() == "Y"){
+          casignstr = caSign(tablejsons,function(){
+            save(bbzt,type);
+          });
+          if(casignstr == "errorkey"){
+            return;
+          }
+        }
+        $.ajax({
+          type: "POST",
+          url: '/web-accept/wssb/10435e/saveSbb.html',
+          data: {'tablejsons': tablejsons,'casignstr':casignstr,'deleteFbs':deleteFbs,'gz':''},
+          async:true,
+          dataType: 'json',
+          success: function (data) {
+            var result = eval(data);
+            if (result.code == '00') {
+              //设置表格的编辑状态为false
+              for (var i = 0; i < editTables.length; i++) {
+                table = editTables[i];
+                table.isEdited = false;
+                table.isUserEdited = false;
+
+                var  ytwtdiv = $("#" + table.name+'ytwtdiv');
+                ytwtdiv.css('background', '#078324');
+                ytwtdiv.html("已填");
+              }
+              $("[name='common.tbrq']").html(result.tbrq);
+//              showMsg("保存成功！");
+              if(bbzt == "3"){
+                var qtTsxx = "";
+                try{
+                  if("10435" == '10435'){
+                    qtTsxx = A200000check.tip_xwjm();
+                  }else if("10436" == '10435'){
+                    qtTsxx = B100000check.tip_xwjm();
+                  }
+                }catch(e){}
+
+                if($.isEmptyObject(warnTables)){
+                  validateAndCloseMsg(qtTsxx+"校验成功，请及时提交申报",sbzl,true,'');
+                }else {
+                  var warnMsg = "以下申报表存在警告信息,请核实：<br>";
+                  for (var i in warnTables) {
+                    warnMsg += warnTables[i] + "<br>"
+                  }
+                  checkAndCloseMsg(qtTsxx+warnMsg,sbzl,true,'');
+                }
+              }else{
+                showMsg("保存成功！");
+              }
+            } else {
+              showErrorMsg('保存失败：'+result.msg);
+            }
+            deleteFbs = "";
+            closeLoadding();
+          }, error: function (request, error, status) {
+            showErrorMsg('保存失败：' + error);
+            closeLoadding();
+          }
+        });
+      }
+      catch (err) {
+        showErrorMsg('保存失败：系统异常');
+        closeLoadding();
+      }
+
+    }
+
+    //获取税种信息
+    function getZszxx(sbzldm){
+      var ctx = $("#ctx").val();
+      var rquesturl = ctx+"/wssb/main/getzszsbxx.html";
+      showLoadding();
+      $.ajax({
+        type: "GET",
+        url: rquesturl,
+        data: {sbzldm:sbzldm},
+        dataType: "html",
+        cache:false,
+        complete : function(XMLHttpRequest, textStatus) {
+          closeLoadding();
+          var sessionstatus = XMLHttpRequest.getResponseHeader("sessionstatus"); // 通过XMLHttpRequest取得响应头sessionstatus，
+          if (sessionstatus == "timeout") {
+            //如果超时就处理 ，指定要跳转的页面
+            showMsg('您还未登录或登录超时，请重新登录系统！');
+            setTimeout("window.location.href = '"+ctx+"/timeout.jsp'",2000);
+          }
+        },
+        success: function (data) {
+          var index = layer.open({
+            type: 1,
+            shade: 0.3,
+            title: "附加税主税种信息", //不显示标题
+            content: data,
+            area: ['950px', '400px'],
+            cancel: function(index){
+              layer.close(index);
+            }
+          });
+        },
+        error: function (request, error, status){
+          showMsg('系统异常：连接到服务器失败');
+        }
+      })
+    }
+
+
+
+  </script>
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?31201bd2a4e2880495b0477f39e5f19f";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+    <script>
+        function setQysdsData() {
+            var json=@Html.Raw(Model.reportData)
+            $.each(json,function(index,sbb){
+               $.each(sbb.data,function(i,obj){
+                   var idx=obj.idx
+                   var name=obj.name
+                   var value=obj.value
+
+                   var td=$.sheet.FCT.getSheet(sbb.sbbname).getTd(name,idx)
+                   if(td==null)
+                   {
+                       console.log("name:"+name+",index:"+idx)
+                   }
+                   else if(value!==undefined)
+                   {
+                       if(td.type=="list"){
+                           td.list.val(value)
+                           td.setValue(value)
+                       }
+                       else{
+                           td.setValue(value)
+                       }
+                   }
+               })
+            })
+        }
+    </script>
+</head>
+<body>
+<input id="ctx" type="hidden" value="/web-accept"/>
+<input id="nsrsbh_head" type="hidden" value="431202068205459">
+<input id="isCALogin" type="hidden" value="N">
+<input id="sbzldm" type="hidden" value="10435"/>
+<input id="skssqq" type="hidden" value="2018-07-01"/>
+<input id="skssqz" type="hidden" value="2018-09-30"/>
+
+<div class="side">
+
+  <div id="outLookBarDiv" name="outLookBarDiv">
+    <table style=" width:200px;" valign="middle"  cellpadding="0" cellspacing="0"
+           border="0">
+      <tbody>
+      <tr>
+        <td onmouseover="this.className='menutitleover'" onmouseout="this.className='menutitle'"
+            class="menutitle"
+            name="outlooktitle0" id="outlooktitle0"  nowrap="nowrap"><span
+                class="smallFont" style="display:block; width:100%;">申报表</span></td>
+      </tr>
+      <tr>
+        <td name="outlookdiv0" id="outlookdiv0" style="width:100%;height:100%;" align="center"
+            valign="top">
+          <div class="lefttitle" name="outlookdivin0" id="outlookdivin0" style=" width:100%;height:100%">
+            
+                          <!--<span id="A200000span"><a href="javascript:void(0)"  fbbc="A200000">A200000企业所得税月（季）度预缴纳税申报表（A类）
+                          <div id="A200000ytwtdiv" style="background:#BB2106;" class="ii">未填</div>
+                        </a>
+                        </span>
+            
+                          <span id="A201010span"><a href="javascript:void(0)"  fbbc="A201010">A201010免税收入、减计收入、所得减免等优惠明细表
+                          <div id="A201010ytwtdiv" style="background:#BB2106;" class="ii">未填</div>
+                        </a>
+                        </span>
+            
+                          <span id="A201020span"><a href="javascript:void(0)"  fbbc="A201020">A201020固定资产加速折旧(扣除)优惠明细表
+                          <div id="A201020ytwtdiv" style="background:#BB2106;" class="ii">未填</div>
+                        </a>
+                        </span>
+            
+                          <span id="A201030span"><a href="javascript:void(0)"  fbbc="A201030">A201030  减免所得税优惠明细表
+                          <div id="A201030ytwtdiv" style="background:#BB2106;" class="ii">未填</div>
+                        </a>
+                        </span>
+            
+                          <span id="jscgdymxxxspan"><a href="javascript:void(0)"  fbbc="jscgdymxxx">技术成果投资入股企业所得税递延纳税备案表
+                          <div id="jscgdymxxxytwtdiv" style="background:#BB2106;" class="ii">未填</div>
+                        </a>
+                        </span>
+            
+                          <span id="xxbgb1span"><a href="javascript:void(0)"  fbbc="xxbgb1">居民企业参股外国企业信息报告表(1)
+                          <div id="xxbgb1ytwtdiv" style="background:#BB2106;" class="ii">未填</div>
+                        </a>
+                        </span>-->
+              <span id = "A200000span" ><a href = "javascript: void(0)"  fbbc = "A200000" > A200000企业所得税月（季）度预缴纳税申报表（A类)<div id = "A200000ytwtdiv" style = "background:#BB2106;" class="ii">未填</div></a></span><span id = "A201010span" ><a href="javascript:void(0)"  fbbc="A201010">A201010免税收入、减计收入、所得减免等优惠明细表<div id="A201010ytwtdiv" style="background:#BB2106;" class="ii">未填</div></a></span><span id = "A201020span" ><a href="javascript:void(0)"  fbbc="A201020">A201020固定资产加速折旧(扣除)优惠明细表<div id="A201020ytwtdiv" style="background:#BB2106;" class="ii">未填</div></a></span><span id = "A201030span" ><a href="javascript:void(0)"  fbbc="A201030">A201030 减免所得税优惠明细表<div id = "A201030ytwtdiv" style= "background:#BB2106;" class="ii">未填</div></a></span><span id = "jscgdymxxxspan" ><a href="javascript:void(0)"  fbbc="jscgdymxxx">技术成果投资入股企业所得税递延纳税备案表<div id="jscgdymxxxytwtdiv" style="background:#BB2106;" class="ii">未填</div></a></span><span id = "xxbgb1span" ><a href="javascript:void(0)"  fbbc="xxbgb1">居民企业参股外国企业信息报告表(1)<div id = "xxbgb1ytwtdiv" style="background:#BB2106;" class="ii">未填</div></a></span>
+            
+          </div>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+<div class="z-click"><i class="iconfont" style="display:none; font-size:9px;" id="you">&#xe72a;</i><i class="iconfont" style=" font-size: 9px;" id="zuo">&#xe72d;</i></div>
+
+<script language="javascript">
+  $(".z-click").click(function(){
+    if($(".side").css("display")=="block"){
+      $(".side").css("display","none");
+      $("#zuo").css("display","none");
+      $("#you").css("display","block");
+      $(".main").css("left","5px");
+      $(this).css("left","5px")
+    }else{
+      $(".side").css("display","block");
+      $("#zuo").css("display","block");
+      $("#you").css("display","none");
+      $(".main").css("left","235px");
+      $(this).css("left","220px")
+    }
+    setBbztDialogOffset();
+  });
+</script>
+
+
+
+<div class="main" id="sbbdiv">
+  <div id="blankdiv">
+
+  </div>
+
+  <table>
+    <tr>
+      <td><div style="width:25px;"></div></td>
+      <td>
+        
+        <div id="A200000" name="A200000_div" style="display: none;">
+          
+
+
+
+
+<table class="sbbtable" style="width:0px">
+<tr>
+<td><div style="width:0px;"></div></td>
+<td><div style="width:47px;"></div></td>
+<td><div style="width:34px;"></div></td>
+<td><div style="width:22px;"></div></td>
+<td><div style="width:45px;"></div></td>
+<td><div style="width:72px;"></div></td>
+<td><div style="width:68px;"></div></td>
+<td><div style="width:55px;"></div></td>
+<td><div style="width:155px;"></div></td>
+<td><div style="width:1px;"></div></td>
+<td><div style="width:181px;"></div></td>
+<td><div style="width:40px;"></div></td>
+<td><div style="width:53px;"></div></td>
+<td><div style="width:54px;"></div></td>
+<td><div style="width:150px;"></div></td>
+</tr>
+<tr style="height:34px;" >
+<td    class=" bg1 br0"  ></td>
+<td    class=" bg1 br0"  ></td>
+<td    class=" bg1 br0"   colspan="13"  ></td>
+</tr>
+<tr style="height:42px;" >
+<td    class=" bg1 br0"  ></td>
+<td    class=" ft0 fs14 fbd ac vm nw bg1 br0"   colspan="14"  >A200000	&nbsp;&nbsp;中华人民共和国企业所得税月（季）度预缴纳税申报表（A类）</td>
+</tr>
+<tr style="height:32px;" >
+<td    class=" bg1 br0"  ></td>
+<td    class=" ft0 fs12 ac vm nw bg1 br0"   colspan="14"  >税款所属期间：2018-07-01&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;至&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2018-09-30</td>
+</tr>
+<tr style="height:32px;" >
+<td    class=" bg1 br0"  ></td>
+<td    class=" ft0 fs12 al vm nw bg1 br0"   colspan="6"  >纳税人识别号（统一社会信用代码）：9132974508097777777</td>
+<td    class=" bg1 br0"   colspan="8"  ></td>
+</tr>
+<tr style="height:32px;" >
+<td    class=" bg1 br0"  ></td>
+<td    class=" ft0 fs12 al vm nl bg1 br1"   colspan="10"  >纳税人名称：湖南精略服饰有限公司</td>
+<td    class=" bg1 ar br1"   colspan="4"  >金额单位:人民币元(列至角分)</td>
+</tr>
+<tr style="height:23px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" ft0 fs12 ac vm nl bg_ne br3"   rowspan="2"   colspan="2"  >预缴方式</td>
+<td    class=" ft0 fs12 ar vm nw bg_ne br1"   rowspan="2"   colspan="2"   name="wbsbqysdsa2018a200000.yjfs1"  type="chk,Y,N"  isEditable=false  value=''>☐</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br1"   rowspan="2"   colspan="2"  >按照实际利润额预缴</td>
+<td    class=" ft0 fs12 ar vm nw bg_ne br1"   rowspan="2"   name="wbsbqysdsa2018a200000.yjfs2"  type="chk,Y,N"  isEditable=false  value=''>☐</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br1"   rowspan="2"   colspan="2"  >按照上一纳税年度应纳税所得额平均额预缴</td>
+<td    class=" ft0 fs12 ar vm nw bg_ne br1"   rowspan="2"   name="wbsbqysdsa2018a200000.yjfs3"  type="chk,Y,N"  isEditable=false  value=''>☐</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"   rowspan="2"   colspan="4"  >按照税务机关确定的其他方法预缴</td>
+</tr>
+<tr style="height:23px;" >
+<td    class=" bg1 br0"  ></td>
+</tr>
+<tr style="height:23px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" ft0 fs12 ac vm nl bg_ne br3"   rowspan="2"   colspan="2"  >企业类型</td>
+<td    class=" ft0 fs12 ar vm nw bg_ne br1"   rowspan="2"   colspan="2"   name="wbsbqysdsa2018a200000.sbqylx1"  type="chk,Y,N"  isEditable=false  value=''>☐</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br1"   rowspan="2"   colspan="2"  >一般企业</td>
+<td    class=" ft0 fs12 ar vm nw bg_ne br1"   rowspan="2"   name="wbsbqysdsa2018a200000.sbqylx2"  type="chk,Y,N"  isEditable=false  value=''>☐</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br0"   colspan="2"  >跨地区经营汇总纳税企业</td>
+<td    class=" ft0 fs12 ar vm nw bg_ne br1"   rowspan="2"   name="wbsbqysdsa2018a200000.sbqylx3"  type="chk,Y,N"  isEditable=false  value=''>☐</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br4"   colspan="4"  >跨地区经营汇总纳税企业</td>
+</tr>
+<tr style="height:23px;" >
+<td    class=" bg1 br0"  ></td>
+<td    class=" ft0 fs12 al vm nl bg_ne br1"   colspan="2"  >总机构</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"   colspan="4"  >分支机构</td>
+</tr>
+<tr style="height:23px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" ft0 fs12 fbd ac vm nl bg_ne br2"   colspan="14"  >预缴税款计算</td>
+</tr>
+<tr style="height:23px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" ft0 fs12 ac vm nw bg_ne br2"  >行次</td>
+<td    class=" ft0 fs12 ac vm nl bg_ne br2"   colspan="12"  >项&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;目</td>
+<td    class=" ft0 fs12 ac vm nl bg_ne br2"  >本年累计金额</td>
+</tr>
+<tr style="height:23px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" ft0 fs12 ac vm nw bg_ne br2"  >1</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"   colspan="12"  >营业收入</td>
+<td    class=" ft0 fs12 ar vm nl bg_ne br2"   name="wbsbqysdsa2018a200000.yysrlj"  format="l18x2d" type="input"  isEditable=false ></td>
+</tr>
+<tr style="height:23px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" ft0 fs12 ac vm nw bg_ne br2"  >2</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"   colspan="12"  >营业成本</td>
+<td    class=" ft0 fs12 ar vm nl bg_ne br2"   name="wbsbqysdsa2018a200000.yycblj"  format="l18x2d" type="input"  isEditable=false ></td>
+</tr>
+<tr style="height:23px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" ft0 fs12 ac vm nw bg_ne br2"  >3</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"   colspan="12"  >利润总额</td>
+<td    class=" ft0 fs12 ar vm nl bg_ne br2"   name="wbsbqysdsa2018a200000.lrzelj"  format="l18x2d" type="input"  isEditable=false ></td>
+</tr>
+<tr style="height:23px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" ft0 fs12 ac vm nw bg_ne br2"  >4</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"   colspan="12"  >加：特定业务计算的应纳税所得额</td>
+
+
+   <td    class=" ft0 fs12 ar vm nw bg_ne br2"   name="wbsbqysdsa2018a200000.tdywjsdynssdelj"  tip="globalErrors.a200000015H4Tip" format="l18x2d" type="input"  isEditable=false ></td>
+
+</tr>
+<tr style="height:23px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" ft0 fs12 ac vm nw bg_ne br2"  >5</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"   colspan="12"  >减：不征税收入</td>
+<td    class=" ft0 fs12 ar vm nl bg_ne br2"   name="wbsbqysdsa2018a200000.bzssrlj"  format="l18x2d" type="input"  isEditable=false ></td>
+</tr>
+<tr style="height:23px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" ft0 fs12 ac vm nw bg_ne br2"  >6</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"   colspan="12"  >减：免税收入、减计收入、所得减免等优惠金额（填写A201010）</td>
+<td    class=" ft0 fs12 ar vm nl bg_ne br2"   name="wbsbqysdsa2018a200000.mssrlj"  format="l18x2d" type="input"  isEditable=false ></td>
+</tr>
+<tr style="height:23px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" ft0 fs12 ac vm nw bg_ne br2"  >7</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"   colspan="12"  >减：固定资产加速折旧（扣除）调减额（填写A201020）</td>
+<td    class=" ft0 fs12 ar vm nw bg_ne br2"   name="wbsbqysdsa2018a200000.gdzcjszjkctjelj"  format="l18x2d" type="input"  isEditable=false ></td>
+</tr>
+<tr style="height:23px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" ft0 fs12 ac vm nw bg_ne br2"  >8</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"   colspan="12"  >减：弥补以前年度亏损</td>
+<td    class=" ft0 fs12 ar vm nl bg_ne br2"   name="wbsbqysdsa2018a200000.mbyqndkslj"  format="l18x2d" type="input" isEditable=false  ></td>
+
+</tr>
+<tr style="height:23px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" ft0 fs12 ac vm nw bg_ne br2"  >9</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"   colspan="12"  >实际利润额（3+4-5-6-7-8）&nbsp;\&nbsp;按照上一纳税年度应纳税所得额平均额确定的应纳税所得额</td>
+<td    class=" ft0 fs12 ar vm nl bg_ne br2"   name="wbsbqysdsa2018a200000.sjlrelj"  format="l18x2d" type="input"  isEditable=false ></td>
+</tr>
+<tr style="height:23px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" ft0 fs12 ac vm nw bg_ne br2"  >10</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"   colspan="12"  >税率(25%)</td>
+<td    class=" ft0 fs12 ar vm nl bg_ne br2"   name="wbsbqysdsa2018a200000.sllj"  format="l18x2bd" type="input"  isEditable=false >25%</td>
+</tr>
+<tr style="height:23px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" ft0 fs12 ac vm nw bg_ne br2"  >11</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"   colspan="12"  >应纳所得税额（9×10）</td>
+<td    class=" ft0 fs12 ar vm nl bg_ne br2"   name="wbsbqysdsa2018a200000.ynsdselj"  format="l18x2d" type="input"  isEditable=false ></td>
+</tr>
+<tr style="height:23px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" ft0 fs12 ac vm nw bg_ne br2"  >12</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"   colspan="12"  >减：减免所得税额（填写A201030）</td>
+<td    class=" ft0 fs12 ar vm nl bg_ne br2"   name="wbsbqysdsa2018a200000.jmsdselj"  format="l18x2d" type="input"  isEditable=false ></td>
+</tr>
+<tr style="height:23px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" ft0 fs12 ac vm nw bg_ne br2"  >13</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"   colspan="12"  >减：实际已缴纳所得税额</td>
+<td    class=" ft0 fs12 ar vm nl bg_ne br2"   name="wbsbqysdsa2018a200000.sjyyjsdselj"  format="l18x2d" type="input"  isEditable=false ></td>
+</tr>
+<tr style="height:23px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" ft0 fs12 ac vm nw bg_ne br2"  >14</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"   colspan="12"  >减：特定业务预缴（征）所得税额</td>
+<td    class=" ft0 fs12 ar vm nw bg_ne br2"   name="wbsbqysdsa2018a200000.tdywyjzsdselj"  format="l18x2d" type="input"  isEditable=false ></td>
+</tr>
+<tr style="height:23px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" ft0 fs12 ac vm nw bg_ne br2"  >15</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"   colspan="12"  >本期应补（退）所得税额（11-12-13-14）&nbsp;\&nbsp;税务机关确定的本期应纳所得税额</td>
+<td    class=" ft0 fs12 ar vm nl bg_ne br2"   name="wbsbqysdsa2018a200000.ybtsdselj"  format="l18x2d" type="input"  isEditable=false ></td>
+</tr>
+<tr style="height:23px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" ft0 fs12 fbd ac vm nl bg_ne br2"   colspan="14"  >汇总纳税企业总分机构税款计算</td>
+</tr>
+<tr style="height:23px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" ft0 fs12 ac vm nw bg_ne br2"  >16</td>
+<td    class=" ft0 fs12 ac vm nl bg_ne br2"   rowspan="4"   colspan="2"  >总机构填报</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"   colspan="10"  >总机构本期分摊应补（退）所得税额（17+18+19）</td>
+<td    class=" ft0 fs12 ar vm nw bg_ne br2"   name="wbsbqysdsa2018a200000.zjgybtsdsebq"  format="l18x2d" type="input"  isEditable=false ></td>
+</tr>
+<tr style="height:23px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" ft0 fs12 ac vm nw bg_ne br2"  >17</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br1"   colspan="5"  >其中:总机构分摊应补（退）所得税额（15×总机构分摊比例</td>
+<td    class=" ft0 fs12 ar vm nw bg_ne br1"   name="wbsbqysdsa2018a200000.zjgftbl"  format="l18x4b" type="input"  isEditable=false ></td>
+<td    class=" ft0 fs12 al vm nl bg_ne br1"  >）</td>
+<td    class=" bg_ne br1"  ></td>
+<td    class=" bg_ne br1"  ></td>
+<td    class=" bg_ne br2"  ></td>
+<td    class=" ft0 fs12 ar vm nw bg_ne br2"   name="wbsbqysdsa2018a200000.zjgyftsdsebq"  format="l18x2d" type="input"  isEditable=false ></td>
+</tr>
+<tr style="height:23px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" ft0 fs12 ac vm nw bg_ne br2"  >18</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br1"   colspan="5"  >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;财政集中分配应补（退）所得税额（15×财政集中分配比例</td>
+<td    class=" ft0 fs12 ar vm nw bg_ne br1"   name="wbsbqysdsa2018a200000.zjgczjzftbl"  format="l18x4b" type="input"  isEditable=false ></td>
+<td    class=" ft0 fs12 al vm nl bg_ne br1"  >）</td>
+<td    class=" bg_ne br1"  ></td>
+<td    class=" bg_ne br1"  ></td>
+<td    class=" bg_ne br2"  ></td>
+<td    class=" ft0 fs12 ar vm nw bg_ne br2"   name="wbsbqysdsa2018a200000.czjzfpsdsebq"  format="l18x2d" type="input"  isEditable=false ></td>
+</tr>
+<tr style="height:52px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" ft0 fs12 ac vm nw bg_ne br2"  >19</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br1"   colspan="5"  >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;总机构具有主体生产经营职能的部门分摊所得税额（15×全部分支机构分摊比例</td>
+<td    class=" ft0 fs12 ar vm nw bg_ne br1"   name="wbsbqysdsa2018a200000.fzjgftbl"  format="l18x4b" type="input"  isEditable=false ></td>
+<td    class=" ft0 fs12 al vm nl bg_ne br1"  >×总机构具有主体生产经营职能部门分摊比例</td>
+<td    class=" ft0 fs12 ar vm nw bg_ne br1"   name="wbsbqysdsa2018a200000.dlscjybmftbl"  format="l18x10b" type="input"  isEditable=false ></td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"  colspan="2" >）</td>
+<td    class=" ft0 fs12 ar vm nw bg_ne br2"   name="wbsbqysdsa2018a200000.zjgdlscjybmyftsdsebq"  format="l18x2d" type="input"  isEditable=false ></td>
+</tr>
+<tr style="height:23px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" ft0 fs12 ac vm nw bg_ne br2"  >20</td>
+<td    class=" ft0 fs12 ac vm nl bg_ne br2"   rowspan="2"   colspan="2"  >分支机构填报</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"   colspan="10"  >分支机构本期分摊比例</td>
+<td    class=" ft0 fs12 ar vm nl bg_ne br2"   name="wbsbqysdsa2018a200000.fpbl"  format="l18x10b" type="input"  isEditable=false ></td>
+</tr>
+<tr style="height:23px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" ft0 fs12 ac vm nw bg_ne br2"  >21</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"   colspan="10"  >分支机构本期分摊应补（退）所得税额</td>
+<td    class=" ft0 fs12 ar vm nw bg_ne br2"   name="wbsbqysdsa2018a200000.fzjgfpsdsebq"  format="l18x2d" type="input"  isEditable=false ></td>
+</tr>
+<tr style="height:23px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" ft0 fs12 fbd ac vm nw bg_ne br2"   colspan="14"  >附报信息</td>
+</tr>
+<tr style="height:23px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"   colspan="4"  >小型微利企业</td>
+<td    class=" ft0 fs12 ar vm nw bg0 br1"   name="wbsbqysdsa2018a200000.sfsyxxwlqy1"  type="chk,Y,N"   value=''>☐</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br1"  >是&nbsp;</td>
+<td    class=" ft0 fs12 ar vm nw bg0 br1"   name="wbsbqysdsa2018a200000.sfsyxxwlqy2"  type="chk,Y,N"   value=''>☐</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"  >否</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"   colspan="2"  >科技型中小企业</td>
+<td    class=" ft0 fs12 ar vm nw bg0 br1"   name="wbsbqysdsa2018a200000.sfkjxzxqy1"  type="chk,Y,N"   value=''>☐</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br1"  >是 </td>
+<td    class=" ft0 fs12 ar vm nw bg0 br1"   name="wbsbqysdsa2018a200000.sfkjxzxqy2"  type="chk,Y,N"   value=''>☐</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"  >否</td>
+</tr>
+<tr style="height:23px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"   colspan="4"  >高新技术企业</td>
+<td    class=" ft0 fs12 ar vm nw bg0 br1"   name="wbsbqysdsa2018a200000.sfgxjsqy1"  type="chk,Y,N"   value=''>☐</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br1"  >是&nbsp;</td>
+<td    class=" ft0 fs12 ar vm nw bg0 br1"   name="wbsbqysdsa2018a200000.sfgxjsqy2"  type="chk,Y,N"   value=''>☐</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"  >否</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"   colspan="2"  >技术入股递延纳税事项</td>
+<td    class=" ft0 fs12 ar vm nw bg0 br1"   name="wbsbqysdsa2018a200000.sffsjsrgdynssx1"  type="chk,Y,N"   value='Y'>☐</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br1"  >是 </td>
+<td    class=" ft0 fs12 ar vm nw bg0 br1"   name="wbsbqysdsa2018a200000.sffsjsrgdynssx2"  type="chk,Y,N"   value=''>☐</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"  >否</td>
+</tr>
+<tr style="height:23px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"   colspan="4"  >期末从业人数</td>
+<td    class=" ft0 fs12 ar vm nl bg0 br2"   colspan="10"   name="wbsbqysdsa2018a200000.qmcyrs"  format="l18d" type="input"></td>
+</tr>
+<tr style="height:55px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" ft0 fs12 al vm nl bg_ne br4"   colspan="14"  >&nbsp;&nbsp;&nbsp;&nbsp;谨声明：此纳税申报表是根据《中华人民共和国企业所得税法》《中华人民共和国企业所得税法实施条例》以及有关税收政策和国家统一会计制度的规定填报的，是真实的、可靠的、完整的。</td>
+</tr>
+<tr style="height:23px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" ft0 fs12 ar vm nl bg_ne br2"   colspan="14"  > 法定代表人（签章）：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;年&nbsp;&nbsp;月&nbsp;&nbsp;日</td>
+</tr>
+<tr style="height:23px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" ft0 fs12 al vm nw bg_ne br4"   colspan="5"  >纳税人公章：</td>
+<td    class=" ft0 fs12 al vm nw bg_ne br4"   colspan="3"  >代理申报中介机构公章：</td>
+<td    class=" ft0 fs12 al vm nw bg_ne br4"   colspan="6"  >主管税务机关受理专用章：</td>
+</tr>
+<tr style="height:23px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" ft0 fs12 al vm nw bg_ne br4"   colspan="5"  >会计主管：</td>
+<td    class=" ft0 fs12 al vm nw bg_ne br4"   colspan="3"  >经办人：</td>
+<td    class=" ft0 fs12 al vm nw bg_ne br4"   colspan="6"  >受理人：</td>
+</tr>
+<tr style="height:23px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" ft0 fs12 al vm nw bg_ne br4"   colspan="5"  >　　</td>
+<td    class=" ft0 fs12 al vm nw bg_ne br4"   colspan="3"  >经办人执业证件号码：</td>
+<td    class=" bg_ne br4"   colspan="6"  ></td>
+</tr>
+<tr style="height:23px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" ft0 fs12 al vm nw bg_ne br2"   colspan="5"  >填表日期：2018-10-08</td>
+<td    class=" ft0 fs12 al vm nw bg_ne br3"   colspan="3"  >代理申报日期：&nbsp;&nbsp;&nbsp;&nbsp;年&nbsp;&nbsp;月&nbsp;&nbsp;日</td>
+<td    class=" ft0 fs12 al vm nw bg_ne br2"   colspan="6"  >受理日期：&nbsp;&nbsp;&nbsp;&nbsp;年&nbsp;&nbsp;月&nbsp;&nbsp;日</td>
+</tr>
+<tr style="height:20px;" >
+<td    class=" bg1 br0"  ></td>
+<td    class=" ft0 fs11 ar vm nw bg_ne br0"   colspan="14"  >国家税务总局监制</td>
+</tr>
+<tr style="height:18px;" >
+<td    class=" bg1 br0"  ></td>
+<td    class=" bg_ne br0"  ></td>
+<td    class=" bg_ne br0"  ></td>
+<td    class=" bg_ne br0"  ></td>
+<td    class=" bg_ne br0"  ></td>
+<td    class=" bg_ne br0"  ></td>
+<td    class=" bg_ne br0"  ></td>
+<td    class=" bg_ne br0"  ></td>
+<td    class=" bg_ne br0"  ></td>
+<td    class=" bg_ne br0"  ></td>
+<td    class=" bg_ne br0"  ></td>
+<td    class=" bg_ne br0"  ></td>
+<td    class=" bg_ne br0"  ></td>
+<td    class=" bg_ne br0"  ></td>
+<td    class=" bg_ne br0"  ></td>
+</tr>
+</table>
+
+        </div>
+        
+        <div id="A201010" name="A201010_div" style="display: none;">
+          
+
+
+
+<table class="sbbtable" style="width:0px">
+<tr>
+<td><div style="width:71px;"></div></td>
+<td><div style="width:634px;"></div></td>
+<td><div style="width:162px;"></div></td>
+</tr>
+<tr style="height:18px;" >
+<td    class=" bg1 br0"  ></td>
+</tr>
+<tr style="height:42px;" >
+<td    class=" ft0 fs18 fbd ac vm nw bg1 br1"   colspan="3"  >A201010免税收入、减计收入、所得减免等优惠明细表</td>
+</tr>
+<tr style="height:24px;" >
+<td    class=" ft0 fs12 ac vm nl bg_ne br3"  >行次</td>
+<td    class=" ft0 fs12 ac vm nl bg_ne br2"  >项&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;目</td>
+<td    class=" ft0 fs12 ac vm nl bg_ne br2"  >本年累计金额</td>
+</tr>
+<tr style="height:24px;" >
+<td    class=" ft0 fs12 ac vm nl bg_ne br3"  >1</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"  >一、免税收入（2+3+6+7+…+15）</td>
+<td    class=" ft0 fs12 ar vm nw bg_ne br2"   name="wbsbqysdsa2018a201010.mssrlj"  format="l16x2d" type="input"  isEditable=false ></td>
+</tr>
+<tr style="height:24px;" >
+<td    class=" ft0 fs12 ac vm nl bg_ne br3"  >2</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"  >（一）国债利息收入免征企业所得税</td>
+<td    class=" ft0 fs12 ar vm nw bg0 br2"   name="wbsbqysdsa2018a201010.gzlxsrlj"  format="l16x2d" type="input" ></td>
+</tr>
+<tr style="height:24px;" >
+<td    class=" ft0 fs12 ac vm nl bg_ne br3"  >3</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"  >（二）符合条件的居民企业之间的股息、红利等权益性投资收益免征企业所得税</td>
+<td    class=" ft0 fs12 ar vm nw bg0 br2"   name="wbsbqysdsa2018a201010.fhtjdjmqyzjdgxhldqyxsylj"  format="l16x2d" type="input" ></td>
+</tr>
+<tr style="height:38px;" >
+<td    class=" ft0 fs12 ac vm nl bg_ne br3"  >4</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"  >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;其中：内地居民企业通过沪港通投资且连续持有H股满12个月取得的股息红利所得免征企业所得税</td>
+<td    class=" ft0 fs12 ar vm nw bg0 br2"   name="wbsbqysdsa2018a201010.hgttzgxhllj"  format="l16x2d" type="input" ></td>
+</tr>
+<tr style="height:38px;" >
+<td    class=" ft0 fs12 ac vm nl bg_ne br3"  >5</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"  >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;内地居民企业通过深港通投资且连续持有H股满12个月取得的股息红利所得免征企业所得税</td>
+<td    class=" ft0 fs12 ar vm nw bg0 br2"   name="wbsbqysdsa2018a201010.sgttzgxhllj"  format="l16x2d" type="input" ></td>
+</tr>
+<tr style="height:24px;" >
+<td    class=" ft0 fs12 ac vm nl bg_ne br3"  >6</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"  >（三）符合条件的非营利组织的收入免征企业所得税</td>
+<td    class=" ft0 fs12 ar vm nw bg0 br2"   name="wbsbqysdsa2018a201010.fhtjdfylzzdsrlj"  format="l16x2d" type="input" ></td>
+</tr>
+<tr style="height:24px;" >
+<td    class=" ft0 fs12 ac vm nl bg_ne br3"  >7</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"  >（四）符合条件的非营利组织（科技企业孵化器）的收入免征企业所得税</td>
+<td    class=" ft0 fs12 ar vm nw bg0 br2"   name="wbsbqysdsa2018a201010.fhtjdfylzzkjqyfhqlj"  format="l16x2d" type="input" ></td>
+</tr>
+<tr style="height:24px;" >
+<td    class=" ft0 fs12 ac vm nl bg_ne br3"  >8</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"  >（五）符合条件的非营利组织（国家大学科技园）的收入免征企业所得税</td>
+<td    class=" ft0 fs12 ar vm nw bg0 br2"   name="wbsbqysdsa2018a201010.fhtjdfylzzgjdxkjyqlj"  format="l16x2d" type="input" ></td>
+</tr>
+<tr style="height:24px;" >
+<td    class=" ft0 fs12 ac vm nl bg_ne br3"  >9</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"  >（六）中国清洁发展机制基金取得的收入免征企业所得税</td>
+<td    class=" ft0 fs12 ar vm nw bg0 br2"   name="wbsbqysdsa2018a201010.zgqjfzjzjjqddsrlj"  format="l16x2d" type="input" ></td>
+</tr>
+<tr style="height:24px;" >
+<td    class=" ft0 fs12 ac vm nl bg_ne br3"  >10</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"  >（七）投资者从证券投资基金分配中取得的收入免征企业所得税</td>
+<td    class=" ft0 fs12 ar vm nw bg0 br2"   name="wbsbqysdsa2018a201010.zqtzjjtzzqddmssrlj"  format="l16x2d" type="input" ></td>
+</tr>
+<tr style="height:24px;" >
+<td    class=" ft0 fs12 ac vm nl bg_ne br3"  >11</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"  >（八）取得的地方政府债券利息收入免征企业所得税</td>
+<td    class=" ft0 fs12 ar vm nw bg0 br2"   name="wbsbqysdsa2018a201010.dfzfzqlxsrlj"  format="l16x2d" type="input" ></td>
+</tr>
+<tr style="height:24px;" >
+<td    class=" ft0 fs12 ac vm nl bg_ne br3"  >12</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"  >（九）中国保险保障基金有限责任公司取得的保险保障基金等收入免征企业所得税</td>
+<td    class=" ft0 fs12 ar vm nw bg0 br2"   name="wbsbqysdsa2018a201010.zgbxbzjjyxzrgsqdbxbzjjsrlj"  format="l16x2d" type="input" ></td>
+</tr>
+<tr style="height:24px;" >
+<td    class=" ft0 fs12 ac vm nl bg_ne br3"  >13</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"  >（十）中国奥委会取得北京冬奥组委支付的收入免征企业所得税</td>
+<td    class=" ft0 fs12 ar vm nw bg0 br2"   name="wbsbqysdsa2018a201010.zgawhqdbjdazwsfsrlj"  format="l16x2d" type="input" ></td>
+</tr>
+<tr style="height:24px;" >
+<td    class=" ft0 fs12 ac vm nl bg_ne br3"  >14</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"  >（十一）中国残奥委会取得北京冬奥组委分期支付的收入免征企业所得税</td>
+<td    class=" ft0 fs12 ar vm nw bg0 br2"   name="wbsbqysdsa2018a201010.zgcawhqdbjdazwfqzfsrlj"  format="l16x2d" type="input" ></td>
+</tr>
+<tr style="height:24px;" >
+<td    class=" ft0 fs12 ac vm nl bg_ne br3"  >15</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"  >（十二）其他</td>
+<td    class=" ft0 fs12 ar vm nw bg0 br2"   name="wbsbqysdsa2018a201010.qtmssrlj"  format="l16x2d" type="input" ></td>
+</tr>
+<tr style="height:24px;" >
+<td    class=" ft0 fs12 ac vm nl bg_ne br3"  >16</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"  >二、减计收入（17+18+22+23）</td>
+<td    class=" ft0 fs12 ar vm nw bg_ne br2"   name="wbsbqysdsa2018a201010.jjsrlj"  format="l16x2d" type="input"  isEditable=false ></td>
+</tr>
+<tr style="height:24px;" >
+<td    class=" ft0 fs12 ac vm nl bg_ne br3"  >17</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"  >（一）综合利用资源生产产品取得的收入在计算应纳税所得额时减计收入</td>
+<td    class=" ft0 fs12 ar vm nw bg0 br2"   name="wbsbqysdsa2018a201010.zhlyzysccpqddsrlj"  format="l16x2d" type="input" ></td>
+</tr>
+<tr style="height:24px;" >
+<td    class=" ft0 fs12 ac vm nl bg_ne br3"  >18</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"  >（二）金融、保险等机构取得的涉农利息、保费减计收入（19+20+21）</td>
+<td    class=" ft0 fs12 ar vm nw bg_ne br2"   name="wbsbqysdsa2018a201010.jrbxdjgqddsllxbfsrlj"  format="l16x2d" type="input"  isEditable=false ></td>
+</tr>
+<tr style="height:24px;" >
+<td    class=" ft0 fs12 ac vm nl bg_ne br3"  >19</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"  >1.金融机构取得的涉农贷款利息收入在计算应纳税所得额时减计收入</td>
+<td    class=" ft0 fs12 ar vm nw bg0 br2"   name="wbsbqysdsa2018a201010.jrjgqdsndklxsrlj"  format="l16x2d" type="input" ></td>
+</tr>
+<tr style="height:24px;" >
+<td    class=" ft0 fs12 ac vm nl bg_ne br3"  >20</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"  >2.保险机构取得的涉农保费收入在计算应纳税所得额时减计收入</td>
+<td    class=" ft0 fs12 ar vm nw bg0 br2"   name="wbsbqysdsa2018a201010.bxjgqdsnbfsrlj"  format="l16x2d" type="input" ></td>
+</tr>
+<tr style="height:24px;" >
+<td    class=" ft0 fs12 ac vm nl bg_ne br3"  >21</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"  >3.小额贷款公司取得的农户小额贷款利息收入在计算应纳税所得额时减计收入</td>
+<td    class=" ft0 fs12 ar vm nw bg0 br2"   name="wbsbqysdsa2018a201010.xedkgsqdnhxedklxsrlj"  format="l16x2d" type="input" ></td>
+</tr>
+<tr style="height:24px;" >
+<td    class=" ft0 fs12 ac vm nl bg_ne br3"  >22</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"  >（三）取得铁路债券利息收入减半征收企业所得税</td>
+<td    class=" ft0 fs12 ar vm nw bg0 br2"   name="wbsbqysdsa2018a201010.qddzgtljszqlxsrlj"  format="l16x2d" type="input" ></td>
+</tr>
+<tr style="height:24px;" >
+<td    class=" ft0 fs12 ac vm nl bg_ne br3"  >23</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"  >（四）其他</td>
+<td    class=" ft0 fs12 ar vm nw bg0 br2"   name="wbsbqysdsa2018a201010.qtjjsrlj"  format="l16x2d" type="input" ></td>
+</tr>
+<tr style="height:24px;" >
+<td    class=" ft0 fs12 ac vm nl bg_ne br3"  >24</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"  >三、加计扣除（25+26+27+28）</td>
+<td    class=" ft0 fs12 ar vm nw bg_ne br2"   name="wbsbqysdsa2018a201010.jjkclj"  format="l16x2d" type="input"  isEditable=false ></td>
+</tr>
+<tr style="height:24px;" >
+<td    class=" ft0 fs12 ac vm nl bg_ne br3"  >25</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"  >（一）开发新技术、新产品、新工艺发生的研究开发费用加计扣除</td>
+<td    class=" ft0 fs12 ar vm nw bg_ne br2"   name="wbsbqysdsa2018a201010.xcpxgyxjsyffyjjkclj"  format="l16x2d" type="input"  isEditable=false ></td>
+</tr>
+<tr style="height:24px;" >
+<td    class=" ft0 fs12 ac vm nl bg_ne br3"  >26</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"  >（二）科技型中小企业开发新技术、新产品、新工艺发生的研究开发费用加计扣除</td>
+<td    class=" ft0 fs12 ar vm nw bg_ne br2"   name="wbsbqysdsa2018a201010.kjxzxqykfxjsyjkffylj"  format="l16x2d" type="input"  isEditable=false ></td>
+</tr>
+<tr style="height:24px;" >
+<td    class=" ft0 fs12 ac vm nl bg_ne br3"  >27</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"  >（三）企业为获得创新性、创意性、突破性的产品进行创意设计活动而发生的相关费用加计扣除</td>
+<td    class=" ft0 fs12 ar vm nw bg_ne br2"   name="wbsbqysdsa2018a201010.qywhdcxxcpjxcysjhdfsdxgfylj"  format="l16x2d" type="input"  isEditable=false ></td>
+</tr>
+<tr style="height:24px;" >
+<td    class=" ft0 fs12 ac vm nl bg_ne br3"  >28</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"  >（四）安置残疾人员所支付的工资加计扣除</td>
+<td    class=" ft0 fs12 ar vm nw bg_ne br2"   name="wbsbqysdsa2018a201010.azcjryzfgzlj"  format="l16x2d" type="input"  isEditable=false ></td>
+</tr>
+<tr style="height:24px;" >
+<td    class=" ft0 fs12 ac vm nl bg_ne br3"  >29</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"  >四、所得减免（30+33+34+35+36+37+38+39+40）</td>
+<td    class=" ft0 fs12 ar vm nw bg_ne br2"   name="wbsbqysdsa2018a201010.sdjmlj"  format="l16x2d" type="input"  isEditable=false ></td>
+</tr>
+<tr style="height:24px;" >
+<td    class=" ft0 fs12 ac vm nl bg_ne br3"  >30</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"  >（一）从事农、林、牧、渔业项目的所得减免征收企业所得税（31+32）</td>
+<td    class=" ft0 fs12 ar vm nw bg_ne br2"   name="wbsbqysdsa2018a201010.nlmyxmlj"  format="l16x2d" type="input"  isEditable=false ></td>
+</tr>
+<tr style="height:24px;" >
+<td    class=" ft0 fs12 ac vm nl bg_ne br3"  >31</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"  >1.免税项目</td>
+<td    class=" ft0 fs12 ar vm nw bg_ne br2"   name="wbsbqysdsa2018a201010.msxmlj"  format="l16x2d" type="input"  isEditable=false ></td>
+</tr>
+<tr style="height:24px;" >
+<td    class=" ft0 fs12 ac vm nl bg_ne br3"  >32</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"  >2.减半征收项目</td>
+<td    class=" ft0 fs12 ar vm nw bg_ne br2"   name="wbsbqysdsa2018a201010.jbzsxmlj"  format="l16x2d" type="input"  isEditable=false ></td>
+</tr>
+<tr style="height:24px;" >
+<td    class=" ft0 fs12 ac vm nl bg_ne br3"  >33</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"  >（二）从事国家重点扶持的公共基础设施项目投资经营的所得定期减免企业所得税</td>
+<td    class=" ft0 fs12 ar vm nw bg_ne br2"   name="wbsbqysdsa2018a201010.gjzdfcdggjcssxmlj"  format="l16x2d" type="input"  isEditable=false ></td>
+</tr>
+<tr style="height:24px;" >
+<td    class=" ft0 fs12 ac vm nl bg_ne br3"  >34</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"  >（三）从事符合条件的环境保护、节能节水项目的所得定期减免企业所得税</td>
+<td    class=" ft0 fs12 ar vm nw bg_ne br2"   name="wbsbqysdsa2018a201010.fhtjdhjbhjnjsxmlj"  format="l16x2d" type="input"  isEditable=false ></td>
+</tr>
+<tr style="height:24px;" >
+<td    class=" ft0 fs12 ac vm nl bg_ne br3"  >35</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"  >（四）符合条件的技术转让所得减免征收企业所得税</td>
+<td    class=" ft0 fs12 ar vm nw bg_ne br2"   name="wbsbqysdsa2018a201010.fhtjdjszrxmlj"  format="l16x2d" type="input"  isEditable=false ></td>
+</tr>
+<tr style="height:24px;" >
+<td    class=" ft0 fs12 ac vm nl bg_ne br3"  >36</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"  >（五）实施清洁发展机制项目的所得定期减免企业所得税</td>
+<td    class=" ft0 fs12 ar vm nw bg_ne br2"   name="wbsbqysdsa2018a201010.ssqjfzjzxmlj"  format="l16x2d" type="input"  isEditable=false ></td>
+</tr>
+<tr style="height:24px;" >
+<td    class=" ft0 fs12 ac vm nl bg_ne br3"  >37</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"  >（六）符合条件的节能服务公司实施合同能源管理项目的所得定期减免企业所得税</td>
+<td    class=" ft0 fs12 ar vm nw bg_ne br2"   name="wbsbqysdsa2018a201010.jnfwgssshtnyglxmlj"  format="l16x2d" type="input"  isEditable=false ></td>
+</tr>
+<tr style="height:24px;" >
+<td    class=" ft0 fs12 ac vm nl bg_ne br3"  >38</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"  >（七）线宽小于130纳米的集成电路生产项目的所得减免企业所得税</td>
+<td    class=" ft0 fs12 ar vm nw bg_ne br2"   name="wbsbqysdsa2018a201010.xkxyybsnmjcdlscxmlj"  format="l16x2d" type="input"  isEditable=false ></td>
+</tr>
+<tr style="height:24px;" >
+<td    class=" ft0 fs12 ac vm nl bg_ne br3"  >39</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"  >（八）线宽小于65纳米或投资额超过150亿元的集成电路生产项目的所得减免企业所得税</td>
+<td    class=" ft0 fs12 ar vm nw bg_ne br2"   name="wbsbqysdsa2018a201010.xkxylswnmhtzecgybwyyxmlj"  format="l16x2d" type="input"  isEditable=false ></td>
+</tr>
+<tr style="height:24px;" >
+<td    class=" ft0 fs12 ac vm nl bg_ne br3"  >40</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"  >（九）其它</td>
+<td    class=" ft0 fs12 ar vm nw bg_ne br2"   name="wbsbqysdsa2018a201010.qtsdjmlj"  format="l16x2d" type="input"  isEditable=false ></td>
+</tr>
+<tr style="height:24px;" >
+<td    class=" ft0 fs12 ac vm nl bg_ne br3"  >41</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"  >合计（1+16+24+29）</td>
+<td    class=" ft0 fs12 ar vm nw bg_ne br2"   name="wbsbqysdsa2018a201010.hjlj"  format="l16x2d" type="input"  isEditable=false ></td>
+</tr>
+<tr style="height:0px;" >
+</tr>
+</table>
+
+        </div>
+        
+        <div id="A201020" name="A201020_div" style="display: none;">
+          
+
+
+
+<table class="sbbtable" style="width:0px">
+<tr>
+<td><div style="width:0px;"></div></td>
+<td><div style="width:64px;"></div></td>
+<td><div style="width:253px;"></div></td>
+<td><div style="width:109px;"></div></td>
+<td><div style="width:109px;"></div></td>
+<td><div style="width:109px;"></div></td>
+<td><div style="width:109px;"></div></td>
+<td><div style="width:109px;"></div></td>
+<td><div style="width:109px;"></div></td>
+</tr>
+<tr style="height:46px;" >
+<td    class=" bg1 br0"  ></td>
+<td    class=" bg1 br0"  ></td>
+</tr>
+<tr style="height:102px;" >
+<td    class=" bg1 br0"  ></td>
+<td    class=" ft0 fs14 fbd ac vm nw bg1 br1"   colspan="8"  >A201020	固定资产加速折旧(扣除)优惠明细表</td>
+</tr>
+<tr style="height:39px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" ft0 fs12 ac vm nl bg_ne br3"   rowspan="3"  >行次</td>
+<td    class=" ft0 fs12 ac vm nw bg_ne br2"   rowspan="3"  >项&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;目</td>
+<td    class=" ft0 fs12 ac vm nl bg_ne br2"   rowspan="2"  >资产原值</td>
+<td    class=" ft0 fs12 ac vm nl bg_ne br2"   colspan="5"  >本年累计折旧（扣除）金额&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+</tr>
+<tr style="height:39px;" >
+<td    class=" bg1 br0"  ></td>
+<td    class=" ft0 fs12 ac vm nl bg_ne br2"  >账载折旧金额</td>
+<td    class=" ft0 fs12 ac vm nl bg_ne br2"  >按照税收一般规定计算的折旧金额</td>
+<td    class=" ft0 fs12 ac vm nl bg_ne br2"  >享受加速折旧优惠计算的折旧金额</td>
+<td    class=" ft0 fs12 ac vm nl bg_ne br2"  >纳税调减金额</td>
+<td    class=" ft0 fs12 ac vm nl bg_ne br2"  >享受加速折旧优惠金额</td>
+</tr>
+<tr style="height:39px;" >
+<td    class=" bg1 br0"  ></td>
+<td    class=" ft0 fs12 ac vm nl bg_ne br2"  >1</td>
+<td    class=" ft0 fs12 ac vm nl bg_ne br2"  >2</td>
+<td    class=" ft0 fs12 ac vm nl bg_ne br2"  >3</td>
+<td    class=" ft0 fs12 ac vm nl bg_ne br2"  >4</td>
+<td    class=" ft0 fs12 ac vm nl bg_ne br2"  >5</td>
+<td    class=" ft0 fs12 ac vm nl bg_ne br2"  >6（4-3）</td>
+</tr>
+<tr style="height:39px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" ft0 fs12 ac vm nl bg_ne br2"  >1</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"  >一、固定资产加速折旧（不含一次性扣除，2+3）</td>
+<td    class=" ft0 fs12 ar vm nw bg_ne br2"   name="wbsbqysdsa2018a201020.zcyz"  format="l16x2d" index="0"  type="input"  isEditable=false ></td>
+<td    class=" ft0 fs12 ar vm nw bg_ne br2"   name="wbsbqysdsa2018a201020.zzzjjelj"  format="l16x2d" index="0"  type="input"  isEditable=false ></td>
+<td    class=" ft0 fs12 ar vm nw bg_ne br2"   name="wbsbqysdsa2018a201020.azssybgdjsdzjjelj"  format="l16x2d" index="0"  type="input"  isEditable=false ></td>
+<td    class=" ft0 fs12 ar vm nw bg_ne br2"   name="wbsbqysdsa2018a201020.xsjszjyhjsdzjjelj"  format="l16x2d" index="0"  type="input"  isEditable=false ></td>
+<td    class=" ft0 fs12 ar vm nw bg_ne br2"   name="wbsbqysdsa2018a201020.nstjjelj"  format="l16x2d" index="0"  type="input"  isEditable=false ></td>
+<td    class=" ft0 fs12 ar vm nw bg_ne br2"   name="wbsbqysdsa2018a201020.xsjszjyhjelj"  format="l16x2d" index="0"  type="input"  isEditable=false ></td>
+</tr>
+<tr style="height:39px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" ft0 fs12 ac vm nl bg_ne br2"  >2</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"  >（一）重要行业固定资产加速折旧</td>
+<td    class=" ft0 fs12 ar vm nw bg0 br2"   name="wbsbqysdsa2018a201020.zcyz"  format="l16x2d" index="1"  type="input" ></td>
+<td    class=" ft0 fs12 ar vm nw bg0 br2"   name="wbsbqysdsa2018a201020.zzzjjelj"  format="l16x2d" index="1"  type="input" ></td>
+<td    class=" ft0 fs12 ar vm nw bg0 br2"   name="wbsbqysdsa2018a201020.azssybgdjsdzjjelj"  format="l16x2d" index="1"  type="input" ></td>
+<td    class=" ft0 fs12 ar vm nw bg0 br2"   name="wbsbqysdsa2018a201020.xsjszjyhjsdzjjelj"  format="l16x2d" index="1"  type="input" ></td>
+<td    class=" ft0 fs12 ar vm nw bg0 br2"   name="wbsbqysdsa2018a201020.nstjjelj"  format="l16x2d" index="1"  type="input" ></td>
+<td    class=" ft0 fs12 ar vm nw bg_ne br2"   name="wbsbqysdsa2018a201020.xsjszjyhjelj"  format="l16x2d" index="1"  type="input"  isEditable=false ></td>
+</tr>
+<tr style="height:39px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" ft0 fs12 ac vm nl bg_ne br2"  >3</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"  >（二）其他行业研发设备加速折旧</td>
+<td    class=" ft0 fs12 ar vm nw bg0 br2"   name="wbsbqysdsa2018a201020.zcyz"  format="l16x2d" index="2"  type="input" ></td>
+<td    class=" ft0 fs12 ar vm nw bg0 br2"   name="wbsbqysdsa2018a201020.zzzjjelj"  format="l16x2d" index="2"  type="input" ></td>
+<td    class=" ft0 fs12 ar vm nw bg0 br2"   name="wbsbqysdsa2018a201020.azssybgdjsdzjjelj"  format="l16x2d" index="2"  type="input" ></td>
+<td    class=" ft0 fs12 ar vm nw bg0 br2"   name="wbsbqysdsa2018a201020.xsjszjyhjsdzjjelj"  format="l16x2d" index="2"  type="input" ></td>
+<td    class=" ft0 fs12 ar vm nw bg0 br2"   name="wbsbqysdsa2018a201020.nstjjelj"  format="l16x2d" index="2"  type="input" ></td>
+<td    class=" ft0 fs12 ar vm nw bg_ne br2"   name="wbsbqysdsa2018a201020.xsjszjyhjelj"  format="l16x2d" index="2"  type="input"  isEditable=false ></td>
+</tr>
+<tr style="height:39px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" ft0 fs12 ac vm nl bg_ne br2"  >4</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"  >二、固定资产一次性扣除</td>
+<td    class=" ft0 fs12 ar vm nw bg0 br2"   name="wbsbqysdsa2018a201020.zcyz"  format="l16x2d" index="3"  type="input" ></td>
+<td    class=" ft0 fs12 ar vm nw bg0 br2"   name="wbsbqysdsa2018a201020.zzzjjelj"  format="l16x2d" index="3"  type="input" ></td>
+<td    class=" ft0 fs12 ar vm nw bg0 br2"   name="wbsbqysdsa2018a201020.azssybgdjsdzjjelj"  format="l16x2d" index="3"  type="input" ></td>
+<td    class=" ft0 fs12 ar vm nw bg0 br2"   name="wbsbqysdsa2018a201020.xsjszjyhjsdzjjelj"  format="l16x2d" index="3"  type="input" ></td>
+<td    class=" ft0 fs12 ar vm nw bg0 br2"   name="wbsbqysdsa2018a201020.nstjjelj"  format="l16x2d" index="3"  type="input" ></td>
+<td    class=" ft0 fs12 ar vm nw bg_ne br2"   name="wbsbqysdsa2018a201020.xsjszjyhjelj"  format="l16x2d" index="3"  type="input"  isEditable=false ></td>
+</tr>
+<tr style="height:39px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" ft0 fs12 ac vm nw bg_ne br2"  >5</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"  >合计（1+4）</td>
+<td    class=" ft0 fs12 ar vm nw bg_ne br2"   name="wbsbqysdsa2018a201020.zcyz"  format="l16x2d" index="4"  type="input"  isEditable=false ></td>
+<td    class=" ft0 fs12 ar vm nw bg_ne br2"   name="wbsbqysdsa2018a201020.zzzjjelj"  format="l16x2d" index="4"  type="input"  isEditable=false ></td>
+<td    class=" ft0 fs12 ar vm nw bg_ne br2"   name="wbsbqysdsa2018a201020.azssybgdjsdzjjelj"  format="l16x2d" index="4"  type="input"  isEditable=false ></td>
+<td    class=" ft0 fs12 ar vm nw bg_ne br2"   name="wbsbqysdsa2018a201020.xsjszjyhjsdzjjelj"  format="l16x2d" index="4"  type="input"  isEditable=false ></td>
+<td    class=" ft0 fs12 ar vm nw bg_ne br2"   name="wbsbqysdsa2018a201020.nstjjelj"  format="l16x2d" index="4"  type="input"  isEditable=false ></td>
+<td    class=" ft0 fs12 ar vm nw bg_ne br2"   name="wbsbqysdsa2018a201020.xsjszjyhjelj"  format="l16x2d" index="4"  type="input"  isEditable=false ></td>
+</tr>
+<tr style="height:0px;" >
+</tr>
+</table>
+
+        </div>
+        
+        <div id="A201030" name="A201030_div" style="display: none;">
+          
+
+
+
+<table class="sbbtable" style="width:0px">
+<tr>
+<td><div style="width:49px;"></div></td>
+<td><div style="width:149px;"></div></td>
+<td><div style="width:32px;"></div></td>
+<td><div style="width:35px;"></div></td>
+<td><div style="width:32px;"></div></td>
+<td><div style="width:106px;"></div></td>
+<td><div style="width:94px;"></div></td>
+<td><div style="width:183px;"></div></td>
+<td><div style="width:130px;"></div></td>
+</tr>
+<tr style="height:18px;" >
+<td    class=" bg1 br0"  ></td>
+</tr>
+<tr style="height:42px;" >
+<td    class=" ft0 fs18 fbd ac vm nw bg1 br1"   colspan="9"  >A201030	减免所得税优惠明细表</td>
+</tr>
+<tr style="height:24px;" >
+<td    class=" ft0 fs12 ac vm nw bg_ne br3"  >行次</td>
+<td    class=" ft0 fs12 ac vm nw bg_ne br2"   colspan="7"  >项&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;目</td>
+<td    class=" ft0 fs12 ac vm nl bg_ne br2"  >本年累计金额</td>
+</tr>
+<tr style="height:24px;" >
+<td    class=" ft0 fs12 ac vm nw bg_ne br3"  >1</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"   colspan="7"  >一、符合条件的小型微利企业减免企业所得税</td>
+<td    class=" ft0 fs12 ar vm nw bg_ne br2"   name="wbsbqysdsa2018a201030.fhtjdxxwlqyjmqysdslj"  format="l16x2d" type="input" isEditable=false ></td>
+</tr>
+<tr style="height:24px;" >
+<td    class=" ft0 fs12 ac vm nw bg_ne br3"  >2</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"   colspan="7"  >二、国家需要重点扶持的高新技术企业减按15%的税率征收企业所得税</td>
+<td    class=" ft0 fs12 ar vm nw bg0 br2"   name="wbsbqysdsa2018a201030.zdfcgxjsqyjmlj"  format="l16x2d" type="input" ></td>
+</tr>
+<tr style="height:44px;" >
+<td    class=" ft0 fs12 ac vm nw bg_ne br3"  >3</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"   colspan="7"  >三、经济特区和上海浦东新区新设立的高新技术企业在区内取得的所得定期减免企业所得税</td>
+<td    class=" ft0 fs12 ar vm nw bg_ne br2"   name="wbsbqysdsa2018a201030.jjtqpdxqxslgxjsqyjmlj"  format="l16x2d" type="input"  isEditable=false ></td>
+</tr>
+<tr style="height:24px;" >
+<td    class=" ft0 fs12 ac vm nw bg_ne br3"  >4</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"   colspan="7"  >四、受灾地区农村信用社免征企业所得税</td>
+<td    class=" ft0 fs12 ar vm nw bg_ne br2"   name="wbsbqysdsa2018a201030.szdqncxyslj"  format="l16x2d" type="input"  isEditable=false ></td>
+</tr>
+<tr style="height:24px;" >
+<td    class=" ft0 fs12 ac vm nw bg_ne br3"  >5</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"   colspan="7"  >五、动漫企业自主开发、生产动漫产品定期减免企业所得税</td>
+<td    class=" ft0 fs12 ar vm nw bg0 br2"   name="wbsbqysdsa2018a201030.dmqyzzkflj"  format="l16x2d" type="input" ></td>
+</tr>
+<tr style="height:24px;" >
+<td    class=" ft0 fs12 ac vm nw bg_ne br3"  >6</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"   colspan="7"  >六、线宽小于0.8微米（含）的集成电路生产企业减免企业所得税</td>
+<td    class=" ft0 fs12 ar vm nw bg0 br2" tip="globalErrors.A201030H6Tip"  name="wbsbqysdsa2018a201030.bwmjcdllj"  format="l16x2d" type="input" ></td>
+</tr>
+<tr style="height:24px;" >
+<td    class=" ft0 fs12 ac vm nw bg_ne br3"  >7</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"   colspan="7"  >七、线宽小于0.25微米的集成电路生产企业减按15%税率征收企业所得税</td>
+<td    class=" ft0 fs12 ar vm nw bg0 br2"   name="wbsbqysdsa2018a201030.ewwmjcdljaswsllj"  format="l16x2d" type="input" ></td>
+</tr>
+<tr style="height:24px;" >
+<td    class=" ft0 fs12 ac vm nw bg_ne br3"  >8</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"   colspan="7"  >八、投资额超过80亿元的集成电路生产企业减按15%税率征收企业所得税</td>
+<td    class=" ft0 fs12 ar vm nw bg0 br2"   name="wbsbqysdsa2018a201030.bsyyjcdljaswsllj"  format="l16x2d" type="input" ></td>
+</tr>
+<tr style="height:24px;" >
+<td    class=" ft0 fs12 ac vm nw bg_ne br3"  >9</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"   colspan="7"  >九、线宽小于0.25微米的集成电路生产企业减免企业所得税</td>
+<td    class=" ft0 fs12 ar vm nw bg0 br2"  tip="globalErrors.A201030H9Tip"  name="wbsbqysdsa2018a201030.ewwmjcdllj"  format="l16x2d" type="input" ></td>
+</tr>
+<tr style="height:24px;" >
+<td    class=" ft0 fs12 ac vm nw bg_ne br3"  >10</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"   colspan="7"  >十、投资额超过80亿元的集成电路生产企业减免企业所得税</td>
+<td    class=" ft0 fs12 ar vm nw bg0 br2" tip="globalErrors.A201030H10Tip"    name="wbsbqysdsa2018a201030.bsyyjcdllj"  format="l16x2d" type="input" ></td>
+</tr>
+<tr style="height:24px;" >
+<td    class=" ft0 fs12 ac vm nw bg_ne br3"  >11</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"   colspan="7"  >十一、线宽小于130纳米的集成电路生产企业减免企业所得税</td>
+<td    class=" ft0 fs12 ar vm nw bg0 br2"  tip="globalErrors.A201030H11Tip"   name="wbsbqysdsa2018a201030.xkxyybsnmdjcdlscqyjmlj"  format="l16x2d" type="input" ></td>
+</tr>
+<tr style="height:24px;" >
+<td    class=" ft0 fs12 ac vm nw bg_ne br3"  >12</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"   colspan="7"  >十二、线宽小于65纳米或投资额超过150亿元的集成电路生产企业减免企业所得税</td>
+<td    class=" ft0 fs12 ar vm nw bg0 br2"  tip="globalErrors.A201030H12Tip"  name="wbsbqysdsa2018a201030.xkxylwnmhtzecgywlylj"  format="l16x2d" type="input" ></td>
+</tr>
+<tr style="height:24px;" >
+<td    class=" ft0 fs12 ac vm nw bg_ne br3"  >13</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"   colspan="7"  >十三、新办集成电路设计企业减免企业所得税</td>
+<td    class=" ft0 fs12 ar vm nw bg0 br2"  tip="globalErrors.A201030H13Tip" name="wbsbqysdsa2018a201030.xbjcdlsjqylj"  format="l16x2d" type="input" ></td>
+</tr>
+<tr style="height:24px;" >
+<td    class=" ft0 fs12 ac vm nw bg_ne br3"  >14</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"   colspan="7"  >十四、国家规划布局内集成电路设计企业可减按10%的税率征收企业所得税</td>
+<td    class=" ft0 fs12 ar vm nw bg0 br2"   name="wbsbqysdsa2018a201030.gjghbjjcdljassllj"  format="l16x2d" type="input" ></td>
+</tr>
+<tr style="height:24px;" >
+<td    class=" ft0 fs12 ac vm nw bg_ne br3"  >15</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"   colspan="7"  >十五、符合条件的软件企业减免企业所得税</td>
+<td    class=" ft0 fs12 ar vm nw bg0 br2"  tip="globalErrors.A201030H15Tip" name="wbsbqysdsa2018a201030.fhtjrjqylj"  format="l16x2d" type="input" ></td>
+</tr>
+<tr style="height:24px;" >
+<td    class=" ft0 fs12 ac vm nw bg_ne br3"  >16</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"   colspan="7"  >十六、国家规划布局内重点软件企业可减按10%的税率征收企业所得税</td>
+<td    class=" ft0 fs12 ar vm nw bg0 br2"   name="wbsbqysdsa2018a201030.gjghbjnzdrjqyjassllj"  format="l16x2d" type="input" ></td>
+</tr>
+<tr style="height:24px;" >
+<td    class=" ft0 fs12 ac vm nw bg_ne br3"  >17</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"   colspan="7"  >十七、符合条件的集成电路封装、测试企业定期减免企业所得税</td>
+<td    class=" ft0 fs12 ar vm nw bg0 br2"  tip="globalErrors.A201030H17Tip"  name="wbsbqysdsa2018a201030.fhtjjcdlfzcsqylj"  format="l16x2d" type="input" ></td>
+</tr>
+<tr style="height:19px;" >
+<td    class=" ft0 fs12 ac vm nw bg_ne br3"  >18</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"   colspan="7"  >十八、符合条件的集成电路关键专用材料生产企业、集成电路专用设备生产企业定期减免企业所得税</td>
+<td    class=" ft0 fs12 ar vm nw bg0 br2" tip="globalErrors.A201030H18Tip"  name="wbsbqysdsa2018a201030.fhtjjcdlzyclscqylj"  format="l16x2d" type="input" ></td>
+</tr>
+<tr style="height:24px;" >
+<td    class=" ft0 fs12 ac vm nw bg_ne br3"  >19</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"   colspan="7"  >十九、经营性文化事业单位转制为企业的免征企业所得税</td>
+<td    class=" ft0 fs12 ar vm nw bg0 br2"   name="wbsbqysdsa2018a201030.jyxwhsydwlj"  format="l16x2d" type="input" ></td>
+</tr>
+<tr style="height:24px;" >
+<td    class=" ft0 fs12 ac vm nw bg_ne br3"  >20</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"   colspan="7"  >二十、符合条件的生产和装配伤残人员专门用品企业免征企业所得税</td>
+<td    class=" ft0 fs12 ar vm nw bg0 br2"   name="wbsbqysdsa2018a201030.fhtjsczpscryyplj"  format="l16x2d" type="input" ></td>
+</tr>
+<tr style="height:24px;" >
+<td    class=" ft0 fs12 ac vm nw bg_ne br3"  >21</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"   colspan="7"  >二十一、技术先进型服务企业减按15%的税率征收企业所得税</td>
+<td    class=" ft0 fs12 ar vm nw bg0 br2"   name="wbsbqysdsa2018a201030.jsxjxfwqyjaswsllj"  format="l16x2d" type="input" ></td>
+</tr>
+<tr style="height:24px;" >
+<td    class=" ft0 fs12 ac vm nw bg_ne br3"  >22</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"   colspan="7"  >二十二、服务贸易类技术先进型服务企业减按15%的税率征收企业所得税</td>
+<td    class=" ft0 fs12 ar vm nw bg0 br2"   name="wbsbqysdsa2018a201030.fwmycxfzsdjsxjxfwqylj"  format="l16x2d" type="input" ></td>
+</tr>
+<tr style="height:24px;" >
+<td    class=" ft0 fs12 ac vm nw bg_ne br3"  >23</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"   colspan="7"  >二十三、设在西部地区的鼓励类产业企业减按15%的税率征收企业所得税</td>
+<td    class=" ft0 fs12 ar vm nw bg0 br2"   name="wbsbqysdsa2018a201030.xbdqgllqyjaswlj"  format="l16x2d" type="input" ></td>
+</tr>
+<tr style="height:24px;" >
+<td    class=" ft0 fs12 ac vm nw bg_ne br3"  >24</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"   colspan="7"  >二十四、新疆困难地区新办企业定期减免企业所得税</td>
+<td    class=" ft0 fs12 ar vm nw bg_ne br2"   name="wbsbqysdsa2018a201030.xjkndqxbqylj"  format="l16x2d" type="input"  isEditable=false ></td>
+</tr>
+<tr style="height:24px;" >
+<td    class=" ft0 fs12 ac vm nw bg_ne br3"  >25</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"   colspan="7"  >二十五、新疆喀什、霍尔果斯特殊经济开发区新办企业定期免征企业所得税</td>
+<td    class=" ft0 fs12 ar vm nw bg_ne br2"   name="wbsbqysdsa2018a201030.xjkstsjjkfqxbqylj"  format="l16x2d" type="input"  isEditable=false ></td>
+</tr>
+<tr style="height:19px;" >
+<td    class=" ft0 fs12 ac vm nw bg_ne br3"  >26</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"   colspan="7"  >二十六、广东横琴、福建平潭、深圳前海等地区的鼓励类产业企业减按15%税率征收企业所得税</td>
+<td    class=" ft0 fs12 ar vm nw bg_ne br2"   name="wbsbqysdsa2018a201030.hqptqhgllqylj"  format="l16x2d" type="input"  isEditable=false ></td>
+</tr>
+<tr style="height:24px;" >
+<td    class=" ft0 fs12 ac vm nw bg_ne br3"  >27</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"   colspan="7"  >二十七、北京冬奥组委、北京冬奥会测试赛赛事组委会免征企业所得税</td>
+<td    class=" ft0 fs12 ar vm nw bg_ne br2"   name="wbsbqysdsa2018a201030.bjdazwsszwhlj"  format="l16x2d" type="input"  isEditable=false ></td>
+</tr>
+<tr style="height:24px;" >
+<td    class=" ft0 fs12 ac vm nw bg_ne br3"  >28</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"   colspan="7"  >二十八、其他</td>
+<td    class=" ft0 fs12 ar vm nw bg0 br2"   name="wbsbqysdsa2018a201030.qt"  format="l16x2d" type="input" ></td>
+</tr>
+<tr style="height:24px;" >
+<td    class=" ft0 fs12 ac vm nw bg_ne br3"   rowspan="2"  >29</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br4"   colspan="7"  >二十九、民族自治地方的自治机关对本民族自治地方的企业应缴纳的企业所得税中属于地方分享的部分</td>
+<td    class=" ft0 fs12 ar vm nw bg_ne br2"   rowspan="2"   name="wbsbqysdsa2018a201030.mzzzdfqydffxbflj"  format="l16x2d" type="input"  isEditable=false ></td>
+</tr>
+<tr style="height:30px;" >
+<td    class=" ft0 fs12 ac vm nl bg_ne br1"  >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;减征或免征（</td>
+<td    class=" ft0 fs18 ar vm nw bg_ne br1"   name="wbsbqysdsa2018a201030.mzck"  type="chk,Y,N"  isEditable=false  value=''>☐</td>
+<td    class=" ft0 fs12 al vm nw bg_ne br1"  >免征</td>
+<td    class=" ft0 fs18 ar vm nw bg_ne br1"   name="wbsbqysdsa2018a201030.jzck"  type="chk,Y,N"  isEditable=false  value=''>☐</td>
+<td    class=" ft0 fs12 al vm nw bg_ne br1"  >减征:减征幅度</td>
+<td    class=" ft0 fs12 ar vm nw bg_ne br1"   name="wbsbqysdsa2018a201030.jzfd"  format="l6x4b" type="input"  isEditable=false ></td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"  >&nbsp;）</td>
+</tr>
+<tr style="height:24px;" >
+<td    class=" ft0 fs12 ac vm nw bg_ne br3"  >30</td>
+<td    class=" ft0 fs12 al vm nw bg_ne br2"   colspan="7"  >合计(1+2+3+4+5+6+…+29)</td>
+<td    class=" ft0 fs12 ar vm nw bg_ne br2"   name="wbsbqysdsa2018a201030.hjlj"  format="l16x2d" type="input"  isEditable=false ></td>
+</tr>
+<tr style="height:0px;" >
+</tr>
+</table>
+
+        </div>
+        
+        <div id="jscgdymxxx" name="jscgdymxxx_div" style="display: none;">
+          
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <script src="/web-accept//static/js/sbb/m10431/jscgdymxxxcontrol.js"></script>
+</head>
+
+<table class="sbbtable" style="width:0px">
+    <tr>
+        <td><div style="width:19px;"></div></td>
+        <td><div style="width:26px;"></div></td>
+        <td><div style="width:19px;"></div></td>
+        <td><div style="width:100px;"></div></td>
+        <td><div style="width:100px;"></div></td>
+        <td><div style="width:72px;"></div></td>
+        <td><div style="width:32px;"></div></td>
+        <td><div style="width:91px;"></div></td>
+        <td><div style="width:72px;"></div></td>
+        <td><div style="width:96px;"></div></td>
+        <td><div style="width:75px;"></div></td>
+        <td><div style="width:85px;"></div></td>
+        <td><div style="width:75px;"></div></td>
+        <td><div style="width:39px;"></div></td>
+        <td><div style="width:67px;"></div></td>
+        <td><div style="width:63px;"></div></td>
+        <td><div style="width:72px;"></div></td>
+        <td><div style="width:100px;"></div></td>
+        <td><div style="width:100px;"></div></td>
+        <td><div style="width:100px;"></div></td>
+        <td><div style="width:100px;"></div></td>
+        <td><div style="width:100px;"></div></td>
+        <td><div style="width:100px;"></div></td>
+        <td><div style="width:30px;"></div></td>
+        <td><div style="width:81px;"></div></td>
+        <td><div style="width:183px;"></div></td>
+    </tr>
+    <tr style="height:18px;" >
+        <td    class=" bg1 br0"  ></td>
+        <td    class=" bg1 br0"  ></td>
+    </tr>
+    <tr style="height:9px;" >
+        <td    class=" bg1 br0"  ></td>
+        <td    class=" bg1 br0"  ></td>
+        <td    class=" bg1 br0"  ></td>
+        <td    class=" bg1 br0"  ></td>
+        <td    class=" bg1 br0"  ></td>
+        <td    class=" bg1 br0"  ></td>
+        <td    class=" bg1 br0"  ></td>
+        <td    class=" bg1 br0"  ></td>
+        <td    class=" bg1 br0"  ></td>
+        <td    class=" bg1 br0"  ></td>
+        <td    class=" bg1 br0"  ></td>
+        <td    class=" bg1 br0"  ></td>
+        <td    class=" bg1 br0"  ></td>
+        <td    class=" bg1 br0"  ></td>
+        <td    class=" bg1 br0"  ></td>
+        <td    class=" bg1 br0"  ></td>
+        <td    class=" bg1 br0"  ></td>
+        <td    class=" bg1 br0"  ></td>
+        <td    class=" bg1 br0"  ></td>
+        <td    class=" bg1 br0"  ></td>
+        <td    class=" bg1 br0"  ></td>
+        <td    class=" bg1 br0"  ></td>
+        <td    class=" bg1 br0"  ></td>
+        <td    class=" bg1 br0"  ></td>
+        <td    class=" bg1 br0"  ></td>
+        <td    class=" bg1 br0"  ></td>
+        <td    class=" bg1 br0"  ></td>
+    </tr>
+    <tr style="height:17px;" >
+        <td    class=" bg1 br0"  ></td>
+        <td    class=" bg1 br0"   colspan="3"  ></td>
+        <td    class=" bg1 br0"  ></td>
+        <td    class=" bg1 br0"  ></td>
+        <td    class=" bg1 br0"  ></td>
+        <td    class=" bg1 br0"  ></td>
+        <td    class=" bg1 br0"  ></td>
+        <td    class=" bg1 br0"  ></td>
+        <td    class=" bg1 br0"  ></td>
+        <td    class=" bg1 br0"  ></td>
+        <td    class=" bg1 br0"  ></td>
+        <td    class=" bg1 br0"  ></td>
+        <td    class=" bg1 br0"  ></td>
+        <td    class=" bg1 br0"  ></td>
+        <td    class=" bg1 br0"  ></td>
+        <td    class=" bg1 br0"  ></td>
+        <td    class=" bg1 br0"  ></td>
+        <td    class=" bg1 br0"  ></td>
+        <td    class=" bg1 br0"  ></td>
+        <td    class=" bg1 br0"  ></td>
+        <td    class=" bg1 br0"  ></td>
+        <td    class=" bg1 br0"  ></td>
+        <td    class=" bg1 br0"  ></td>
+        <td    class=" bg1 br0"  ></td>
+        <td    class=" bg1 br0"  ></td>
+    </tr>
+    <tr style="height:43px;" >
+        <td    class=" bg1 br0"  ></td>
+        <td    class=" ft0 fs17 fbd ac vm nw bg1 br0"   colspan="24"  >技术成果投资入股企业所得税递延纳税备案表</td>
+        <td    class=" ft0 fs17 fbd ac vm nw bg1 br0"   colspan="2"  ></td>
+    </tr>
+    <tr style="height:29px;" >
+        <td    class=" bg1 br0"  ></td>
+        <td    class=" ft0 fs12 ar vm nw bg1 br1"   colspan="4"  >纳税人名称（盖章）：</td>
+        <td    class=" ft0 fs12 al vm nw bg1 br1"   colspan="6"  >湖南精略服饰有限公司</td>
+        <td    class=" bg1 br1"  ></td>
+        <td    class=" ft0 fs12 ar vm nw bg1 br1"   colspan="2"  >纳税人识别号：</td>
+        <td    class=" ft0 fs12 al vm nw bg1 br1"   colspan="5"  >9132974508097777777</td>
+        <td    class=" bg1 br1"  ></td>
+        <td    class=" ft0 fs12 ar vm nw bg1 br1"   colspan="2"  >申报所属期：</td>
+        <td    class=" ft0 fs12 ac vm nw bg1 br1"   colspan="3"  >2018-07-01&nbsp;至&nbsp;2018-09-30</td>
+        <td    class=" ft0 fs12 ar vm nw bg1 br1"   colspan="2"  >金额单位：人民币元（列至角分）</td>
+    </tr>
+    <tr style="height:29px;" >
+        <td    class=" bg1 br4"  ></td>
+        <td    class=" ft0 fs12 fbd ac vm nw bg_ne br2"   rowspan="3"   colspan="2"  >行次</td>
+        <td    class=" ft0 fs12 fbd ac vm nw bg_ne br2"   colspan="14"  >投资企业信息</td>
+        <td    class=" ft0 fs12 fbd ac vm nw bg_ne br2"   colspan="8"  >被投资企业信息</td>
+        <td    class=" ft0 fs12 fbd ac vm nw bg_ne br2"   rowspan="3"   colspan="2"  >备注</td>
+    </tr>
+    <tr style="height:34px;" >
+        <td    class=" bg1 br4"  ></td>
+        <td    class=" ft0 fs12 fbd ac vm nw bg_ne br2"   colspan="2"  >技术成果名称</td>
+        <td    class=" ft0 fs12 fbd ac vm nw bg_ne br2"   colspan="2"  >技术成果类型</td>
+        <td    class=" ft0 fs12 fbd ac vm nw bg_ne br2"   colspan="2"  >技术成果编号</td>
+        <td    class=" ft0 fs12 fbd ac vm nw bg_ne br2"   colspan="2"  >公允价值</td>
+        <td    class=" ft0 fs12 fbd ac vm nw bg_ne br2"   colspan="2"  >计税基础</td>
+        <td    class=" ft0 fs12 fbd ac vm nw bg_ne br2"   colspan="2"  >取得股权时间</td>
+        <td    class=" ft0 fs12 fbd ac vm nw bg_ne br2"   colspan="2"  >递延所得</td>
+        <td    class=" ft0 fs12 fbd ac vm nl bg_ne br2"   colspan="2"  >企业名称<br></td>
+        <td    class=" ft0 fs12 fbd ac vm nw bg_ne br2"   colspan="2"  >纳税人识别号</td>
+        <td    class=" ft0 fs12 fbd ac vm nw bg_ne br2"   colspan="2"  >主管税务机关</td>
+        <td    class=" ft0 fs12 fbd ac vm nl bg_ne br2"   colspan="2"  >与投资方是否为关联企业</td>
+    </tr>
+    <tr style="height:29px;" >
+        <td    class=" bg1 br4"  ></td>
+        <td    class=" ft0 fs12 ac vm nw bg_ne br2"   colspan="2"  >1</td>
+        <td    class=" ft0 fs12 ac vm nw bg_ne br2"   colspan="2"  >2</td>
+        <td    class=" ft0 fs12 ac vm nw bg_ne br2"   colspan="2"  >3</td>
+        <td    class=" ft0 fs12 ac vm nw bg_ne br2"   colspan="2"  >4</td>
+        <td    class=" ft0 fs12 ac vm nw bg_ne br2"   colspan="2"  >5</td>
+        <td    class=" ft0 fs12 ac vm nw bg_ne br2"   colspan="2"  >6</td>
+        <td    class=" ft0 fs12 ac vm nw bg_ne br2"   colspan="2"  >7=4-5</td>
+        <td    class=" ft0 fs12 ac vm nw bg_ne br2"   colspan="2"  >8</td>
+        <td    class=" ft0 fs12 ac vm nw bg_ne br2"   colspan="2"  >9</td>
+        <td    class=" ft0 fs12 ac vm nw bg_ne br2"   colspan="2"  >10</td>
+        <td    class=" ft0 fs12 ac vm nw bg_ne br2"   colspan="2"  >11</td>
+    </tr>
+    <tr style="height:29px;" >
+        <td    class=" bg1 br4"  ></td>
+        <td    class=" ft0 fs12 ac vm nw bg_ne br2"   colspan="2"  >1</td>
+        <td    class=" ft0 fs12 al vm nl bg0 br2"   colspan="2"   name="wbsbsdsjmczjscgdymxxx.jscgmc"  format="l50" index="0"  type="input" ></td>
+        <td    class=" ft0 fs12 al vm nl bg0 br2"   colspan="2"   name="wbsbsdsjmczjscgdymxxx.jscglx"  index="0"  type="list"  dn="wbsbsdsjmczjscgdymxxx.jscglxmc"  divname="wbsbsdsjmczjscgdymxxx.jscglx.list"  value='' ></td>
+        <td    class=" ft0 fs12 al vm nl bg0 br2"   colspan="2"   name="wbsbsdsjmczjscgdymxxx.jscgbh"  format="l" index="0"  type="input" ></td>
+        <td    class=" ft0 fs12 ar vm nw bg0 br2"   colspan="2"   name="wbsbsdsjmczjscgdymxxx.gyjz"  format="l16x2d" index="0"  type="input" ></td>
+        <td    class=" ft0 fs12 ar vm nw bg0 br2"   colspan="2"   name="wbsbsdsjmczjscgdymxxx.jsjc"  format="l16x2d" index="0"  type="input" ></td>
+        <td    class=" ft0 fs12 al vm nw bg0 br2"   colspan="2"   name="wbsbsdsjmczjscgdymxxx.gqqdsj"  format="l8e" index="0"  type="input" ></td>
+        <td    class=" ft0 fs12 ar vm nw bg_ne br2"   colspan="2"   name="wbsbsdsjmczjscgdymxxx.dysd"  format="l16x2d" index="0"  type="input"  isEditable=false ></td>
+        <td    class=" ft0 fs12 al vm nl bg0 br2"   colspan="2"   name="wbsbsdsjmczjscgdymxxx.btzqymc"  format="l50" index="0"  type="input" ></td>
+        <td    class=" ft0 fs12 al vm nl bg0 br2"   colspan="2"   name="wbsbsdsjmczjscgdymxxx.btznsrsbh"  format="l18e" index="0"  type="input" ></td>
+        <td    class=" ft0 fs12 al vm nl bg0 br2"   colspan="2"   name="wbsbsdsjmczjscgdymxxx.swjgmc"  format="l50" index="0"  type="input" ></td>
+        <td    class=" ft0 fs12 ac vm nl bg0 br2"   colspan="2"   name="wbsbsdsjmczjscgdymxxx.sfwglqy"  index="0"  type="list"  dn="wbsbsdsjmczjscgdymxxx.sfwglqymc"  divname="wbsbsdsjmczjscgdymxxx.sfwglqy.list"  value='' ></td>
+        <td    class=" ft0 fs12 al vm nl bg0 br2"   colspan="2"   name="wbsbsdsjmczjscgdymxxx.bz"  format="l500" index="0"  type="input" ></td>
+    </tr>
+    <tr style="height:29px;" >
+        <td    class=" bg1 br4"  ></td>
+        <td    class=" ft0 fs12 ac vm nw bg_ne br2"   colspan="2"  >2</td>
+        <td    class=" ft0 fs12 al vm nl bg0 br2"   colspan="2"   name="wbsbsdsjmczjscgdymxxx.jscgmc"  format="l50" index="1"  type="input" ></td>
+        <td    class=" ft0 fs12 al vm nl bg0 br2"   colspan="2"   name="wbsbsdsjmczjscgdymxxx.jscglx"  index="1"  type="list"  dn="wbsbsdsjmczjscgdymxxx.jscglxmc"  divname="wbsbsdsjmczjscgdymxxx.jscglx.list"  value='' ></td>
+        <td    class=" ft0 fs12 al vm nl bg0 br2"   colspan="2"   name="wbsbsdsjmczjscgdymxxx.jscgbh"  format="l" index="1"  type="input" ></td>
+        <td    class=" ft0 fs12 ar vm nw bg0 br2"   colspan="2"   name="wbsbsdsjmczjscgdymxxx.gyjz"  format="l16x2d" index="1"  type="input" ></td>
+        <td    class=" ft0 fs12 ar vm nw bg0 br2"   colspan="2"   name="wbsbsdsjmczjscgdymxxx.jsjc"  format="l16x2d" index="1"  type="input" ></td>
+        <td    class=" ft0 fs12 al vm nw bg0 br2"   colspan="2"   name="wbsbsdsjmczjscgdymxxx.gqqdsj"  format="l8e" index="1"  type="input" ></td>
+        <td    class=" ft0 fs12 ar vm nw bg_ne br2"   colspan="2"   name="wbsbsdsjmczjscgdymxxx.dysd"  format="l16x2d" index="1"  type="input"  isEditable=false ></td>
+        <td    class=" ft0 fs12 al vm nl bg0 br2"   colspan="2"   name="wbsbsdsjmczjscgdymxxx.btzqymc"  format="l50" index="1"  type="input" ></td>
+        <td    class=" ft0 fs12 al vm nl bg0 br2"   colspan="2"   name="wbsbsdsjmczjscgdymxxx.btznsrsbh"  format="l18e" index="1"  type="input" ></td>
+        <td    class=" ft0 fs12 al vm nl bg0 br2"   colspan="2"   name="wbsbsdsjmczjscgdymxxx.swjgmc"  format="l50" index="1"  type="input" ></td>
+        <td    class=" ft0 fs12 ac vm nl bg0 br2"   colspan="2"   name="wbsbsdsjmczjscgdymxxx.sfwglqy"  index="1"  type="list"  dn="wbsbsdsjmczjscgdymxxx.sfwglqymc"  divname="wbsbsdsjmczjscgdymxxx.sfwglqy.list"  value='' ></td>
+        <td    class=" ft0 fs12 al vm nl bg0 br2"   colspan="2"   name="wbsbsdsjmczjscgdymxxx.bz"  format="l500" index="1"  type="input" ></td>
+    </tr>
+    <tr style="height:29px;" >
+        <td    class=" bg1 br4"  ></td>
+        <td    class=" ft0 fs12 ac vm nw bg_ne br2"   colspan="2"  >3</td>
+        <td    class=" ft0 fs12 al vm nl bg0 br2"   colspan="2"   name="wbsbsdsjmczjscgdymxxx.jscgmc"  format="l50" index="2"  type="input" ></td>
+        <td    class=" ft0 fs12 al vm nl bg0 br2"   colspan="2"   name="wbsbsdsjmczjscgdymxxx.jscglx"  index="2"  type="list"  dn="wbsbsdsjmczjscgdymxxx.jscglxmc"  divname="wbsbsdsjmczjscgdymxxx.jscglx.list"  value='' ></td>
+        <td    class=" ft0 fs12 al vm nl bg0 br2"   colspan="2"   name="wbsbsdsjmczjscgdymxxx.jscgbh"  format="l" index="2"  type="input" ></td>
+        <td    class=" ft0 fs12 ar vm nw bg0 br2"   colspan="2"   name="wbsbsdsjmczjscgdymxxx.gyjz"  format="l16x2d" index="2"  type="input" ></td>
+        <td    class=" ft0 fs12 ar vm nw bg0 br2"   colspan="2"   name="wbsbsdsjmczjscgdymxxx.jsjc"  format="l16x2d" index="2"  type="input" ></td>
+        <td    class=" ft0 fs12 al vm nw bg0 br2"   colspan="2"   name="wbsbsdsjmczjscgdymxxx.gqqdsj"  format="l8e" index="2"  type="input" ></td>
+        <td    class=" ft0 fs12 ar vm nw bg_ne br2"   colspan="2"   name="wbsbsdsjmczjscgdymxxx.dysd"  format="l16x2d" index="2"  type="input"  isEditable=false ></td>
+        <td    class=" ft0 fs12 al vm nl bg0 br2"   colspan="2"   name="wbsbsdsjmczjscgdymxxx.btzqymc"  format="l50" index="2"  type="input" ></td>
+        <td    class=" ft0 fs12 al vm nl bg0 br2"   colspan="2"   name="wbsbsdsjmczjscgdymxxx.btznsrsbh"  format="l18e" index="2"  type="input" ></td>
+        <td    class=" ft0 fs12 al vm nl bg0 br2"   colspan="2"   name="wbsbsdsjmczjscgdymxxx.swjgmc"  format="l50" index="2"  type="input" ></td>
+        <td    class=" ft0 fs12 ac vm nl bg0 br2"   colspan="2"   name="wbsbsdsjmczjscgdymxxx.sfwglqy"  index="2"  type="list"  dn="wbsbsdsjmczjscgdymxxx.sfwglqymc"  divname="wbsbsdsjmczjscgdymxxx.sfwglqy.list"  value='' ></td>
+        <td    class=" ft0 fs12 al vm nl bg0 br2"   colspan="2"   name="wbsbsdsjmczjscgdymxxx.bz"  format="l500" index="2"  type="input" ></td>
+    </tr>
+    <tr style="height:29px;" >
+        <td    class=" bg1 br4"  ></td>
+        <td    class=" ft0 fs12 ac vm nw bg_ne br2"   colspan="2"  >4</td>
+        <td    class=" ft0 fs12 al vm nl bg0 br2"   colspan="2"   name="wbsbsdsjmczjscgdymxxx.jscgmc"  format="l50" index="3"  type="input" ></td>
+        <td    class=" ft0 fs12 al vm nl bg0 br2"   colspan="2"   name="wbsbsdsjmczjscgdymxxx.jscglx"  index="3"  type="list"  dn="wbsbsdsjmczjscgdymxxx.jscglxmc"  divname="wbsbsdsjmczjscgdymxxx.jscglx.list"  value='' ></td>
+        <td    class=" ft0 fs12 al vm nl bg0 br2"   colspan="2"   name="wbsbsdsjmczjscgdymxxx.jscgbh"  format="l" index="3"  type="input" ></td>
+        <td    class=" ft0 fs12 ar vm nw bg0 br2"   colspan="2"   name="wbsbsdsjmczjscgdymxxx.gyjz"  format="l16x2d" index="3"  type="input" ></td>
+        <td    class=" ft0 fs12 ar vm nw bg0 br2"   colspan="2"   name="wbsbsdsjmczjscgdymxxx.jsjc"  format="l16x2d" index="3"  type="input" ></td>
+        <td    class=" ft0 fs12 al vm nw bg0 br2"   colspan="2"   name="wbsbsdsjmczjscgdymxxx.gqqdsj"  format="l8e" index="3"  type="input" ></td>
+        <td    class=" ft0 fs12 ar vm nw bg_ne br2"   colspan="2"   name="wbsbsdsjmczjscgdymxxx.dysd"  format="l16x2d" index="3"  type="input"  isEditable=false ></td>
+        <td    class=" ft0 fs12 al vm nl bg0 br2"   colspan="2"   name="wbsbsdsjmczjscgdymxxx.btzqymc"  format="l50" index="3"  type="input" ></td>
+        <td    class=" ft0 fs12 al vm nl bg0 br2"   colspan="2"   name="wbsbsdsjmczjscgdymxxx.btznsrsbh"  format="l18e" index="3"  type="input" ></td>
+        <td    class=" ft0 fs12 al vm nl bg0 br2"   colspan="2"   name="wbsbsdsjmczjscgdymxxx.swjgmc"  format="l50" index="3"  type="input" ></td>
+        <td    class=" ft0 fs12 ac vm nl bg0 br2"   colspan="2"   name="wbsbsdsjmczjscgdymxxx.sfwglqy"  index="3"  type="list"  dn="wbsbsdsjmczjscgdymxxx.sfwglqymc"  divname="wbsbsdsjmczjscgdymxxx.sfwglqy.list"  value='' ></td>
+        <td    class=" ft0 fs12 al vm nl bg0 br2"   colspan="2"   name="wbsbsdsjmczjscgdymxxx.bz"  format="l500" index="3"  type="input" ></td>
+    </tr>
+    <tr style="height:29px;" >
+        <td    class=" bg1 br4"  ><a href='javascript:void(0)'  onclick='jscgdymxxxcontrol.addPJFP(this);' class="jiajian"><img src="/web-accept//static/css/images/jia.png"></a></td>
+        <td    class=" ft0 fs12 ac vm nw bg_ne br2 jscgdymxxxdes"   colspan="2"   >5</td>
+        <td    class=" ft0 fs12 al vm nl bg0 br2"   colspan="2"   name="wbsbsdsjmczjscgdymxxx.jscgmc"  format="l50" index="4"  type="input" ></td>
+        <td    class=" ft0 fs12 al vm nl bg0 br2"   colspan="2"   name="wbsbsdsjmczjscgdymxxx.jscglx"  index="4"  type="list"  dn="wbsbsdsjmczjscgdymxxx.jscglxmc"  divname="wbsbsdsjmczjscgdymxxx.jscglx.list"  value='' ></td>
+        <td    class=" ft0 fs12 al vm nl bg0 br2"   colspan="2"   name="wbsbsdsjmczjscgdymxxx.jscgbh"  format="l" index="4"  type="input" ></td>
+        <td    class=" ft0 fs12 ar vm nw bg0 br2"   colspan="2"   name="wbsbsdsjmczjscgdymxxx.gyjz"  format="l16x2d" index="4"  type="input" ></td>
+        <td    class=" ft0 fs12 ar vm nw bg0 br2"   colspan="2"   name="wbsbsdsjmczjscgdymxxx.jsjc"  format="l16x2d" index="4"  type="input" ></td>
+        <td    class=" ft0 fs12 al vm nw bg0 br2"   colspan="2"   name="wbsbsdsjmczjscgdymxxx.gqqdsj"  format="l8e" index="4"  type="input" ></td>
+        <td    class=" ft0 fs12 ar vm nw bg_ne br2"   colspan="2"   name="wbsbsdsjmczjscgdymxxx.dysd"  format="l16x2d" index="4"  type="input"  isEditable=false ></td>
+        <td    class=" ft0 fs12 al vm nl bg0 br2"   colspan="2"   name="wbsbsdsjmczjscgdymxxx.btzqymc"  format="l50" index="4"  type="input" ></td>
+        <td    class=" ft0 fs12 al vm nl bg0 br2"   colspan="2"   name="wbsbsdsjmczjscgdymxxx.btznsrsbh"  format="l18e" index="4"  type="input" ></td>
+        <td    class=" ft0 fs12 al vm nl bg0 br2"   colspan="2"   name="wbsbsdsjmczjscgdymxxx.swjgmc"  format="l50" index="4"  type="input" ></td>
+        <td    class=" ft0 fs12 ac vm nl bg0 br2"   colspan="2"   name="wbsbsdsjmczjscgdymxxx.sfwglqy"  index="4"  type="list"  dn="wbsbsdsjmczjscgdymxxx.sfwglqymc"  divname="wbsbsdsjmczjscgdymxxx.sfwglqy.list"  value='' ></td>
+        <td    class=" ft0 fs12 al vm nl bg0 br2"   colspan="2"   name="wbsbsdsjmczjscgdymxxx.bz"  format="l500" index="4"  type="input" ></td>
+        <td    class='  ar vm nw bg1 br0' ><a href='javascript:void(0)'  onclick='jscgdymxxxcontrol.addPJFP(this);' class="jiajian"><img src="/web-accept//static/css/images/jia.png"></a></td>
+    </tr>
+    
+    <tr style="height:29px;" >
+        <td    class=" bg1 br4"  ></td>
+        <td    class=" ft0 fs12 ac vm nw bg_ne br2"   colspan="2"  >合计</td>
+        <td    class=" ft0 fs12 ac vm nw bg_ne br2"   colspan="2"  >--</td>
+        <td    class=" ft0 fs12 ac vm nw bg_ne br2"   colspan="2"  >--</td>
+        <td    class=" ft0 fs12 ac vm nw bg_ne br2"   colspan="2"  >--</td>
+        <td    class=" ft0 fs12 ar vm nw bg_ne br2"   colspan="2"   name="common.gyjzhj"  format="l16x2d" type="input"  isEditable=false >0.00</td>
+        <td    class=" ft0 fs12 ar vm nw bg_ne br2"   colspan="2"   name="common.jsjchj"  format="l16x2d" type="input"  isEditable=false >0.00</td>
+        <td    class=" ft0 fs12 ac vm nw bg_ne br2"   colspan="2"  >--</td>
+        <td    class=" ft0 fs12 ar vm nw bg_ne br2"   colspan="2"   name="common.dysdhj"  format="l16x2d" type="input"  isEditable=false >0.00</td>
+        <td    class=" ft0 fs12 ac vm nw bg_ne br2"   colspan="2"  >--</td>
+        <td    class=" ft0 fs12 ac vm nw bg_ne br2"   colspan="2"  >--</td>
+        <td    class=" ft0 fs12 ac vm nw bg_ne br2"   colspan="2"  >--</td>
+        <td    class=" ft0 fs12 ac vm nw bg_ne br2"   colspan="2"  >--</td>
+        <td    class=" ft0 fs12 ac vm nw bg_ne br2"   colspan="2"  >--</td>
+    </tr>
+    <tr style="height:29px;" >
+        <td    class=" bg1 br0"  ></td>
+        <td    class=" bg1 br0"   colspan="7"  ></td>
+        <td    class=" bg1 br0"   colspan="6"  ></td>
+        <td    class=" bg1 br0"  ></td>
+        <td    class=" bg1 br0"  ></td>
+        <td    class=" bg1 br0"  ></td>
+        <td    class=" bg1 br0"  ></td>
+        <td    class=" bg1 br0"  ></td>
+        <td    class=" bg1 br0"  ></td>
+        <td    class=" bg1 br0"  ></td>
+        <td    class=" bg1 br0"  ></td>
+        <td    class=" bg1 br0"  ></td>
+        <td    class=" bg1 br0"  ></td>
+        <td    class=" bg1 br0"  ></td>
+        <td    class=" bg1 br0"  ></td>
+        <td    class=" bg1 br0"  ></td>
+    </tr>
+    <tr style="height:29px;" >
+        <td    class=" bg1 br0"  ></td>
+        <td    class=" bg1 br0"   colspan="2"  ></td>
+        <td    class=" bg1 br0"  ></td>
+        <td    class=" bg1 br0"  ></td>
+        <td    class=" bg1 br0"  ></td>
+        <td    class=" bg1 br0"  ></td>
+        <td    class=" bg1 br0"  ></td>
+        <td    class=" bg1 br0"  ></td>
+        <td    class=" bg1 br0"  ></td>
+        <td    class=" bg1 br0"  ></td>
+        <td    class=" bg1 br0"  ></td>
+        <td    class=" bg1 br0"  ></td>
+        <td    class=" bg1 br0"  ></td>
+        <td    class=" bg1 br0"  ></td>
+        <td    class=" bg1 br0"  ></td>
+        <td    class=" bg1 br0"  ></td>
+        <td    class=" bg1 br0"  ></td>
+        <td    class=" bg1 br0"  ></td>
+        <td    class=" bg1 br0"  ></td>
+        <td    class=" bg1 br0"  ></td>
+        <td    class=" bg1 br0"  ></td>
+        <td    class=" bg1 br0"  ></td>
+        <td    class=" bg1 br0"  ></td>
+        <td    class=" bg1 br0"  ></td>
+        <td    class=" bg1 br0"  ></td>
+        <td    class=" bg1 br0"  ></td>
+    </tr>
+</table>
+<div id='wbsbsdsjmczjscgdymxxx.jscglx.list' style='display: none;'>[{"value":"","text":"\u0026nbsp;"},{"value":"1","text":"专利技术"},{"value":"2","text":"计算机软件著作权"},{"value":"3","text":"集成电路布图设计权"},{"value":"4","text":"植物新品种（权）"},{"value":"5","text":"生物医药新品种"},{"value":"Z","text":"其他技术成果"}]</div>
+<div id='wbsbsdsjmczjscgdymxxx.sfwglqy.list' style='display: none;'>[{"value":"","text":"\u0026nbsp;"},{"value":"N","text":"否"},{"value":"Y","text":"是"}]</div>
+</html>
+        </div>
+        
+        <div id="xxbgb1" name="xxbgb_div" style="display: none;">
+          
+
+
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+
+<table class="sbbtable" style="width:0px">
+<tr>
+<td><div style="width:20px;"></div></td>
+<td><div style="width:148px;"></div></td>
+<td><div style="width:151px;"></div></td>
+<td><div style="width:93px;"></div></td>
+<td><div style="width:67px;"></div></td>
+<td><div style="width:64px;"></div></td>
+<td><div style="width:30px;"></div></td>
+<td><div style="width:14px;"></div></td>
+<td><div style="width:59px;"></div></td>
+<td><div style="width:64px;"></div></td>
+<td><div style="width:62px;"></div></td>
+<td><div style="width:108px;"></div></td>
+<td><div style="width:70px;"></div></td>
+<td><div style="width:70px;"></div></td>
+</tr>
+<tr style="height:18px;" >
+<td    class=" bg1 br0"  ></td>
+<td    class=" bg1 br0"  ></td>
+<td    class=" bg1 br0"  ></td>
+<td    class=" bg1 br0"  ></td>
+<td    class=" bg1 br0"  ></td>
+<td    class=" bg1 br0"  ></td>
+<td    class=" bg1 br0"  ></td>
+</tr>
+<tr style="height:19px;" >
+<td    class=" bg1 br0"  ></td>
+<td    class=" bg1 br0"  ></td>
+<td    class=" ft0 fs17 fbd al vm nw bg1 br0"   rowspan="2"   colspan="12"  >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;居民企业参股外国企业信息报告表</td>
+</tr>
+<tr style="height:35px;" >
+<td    class=" bg1 br0"  ></td>
+<td    class=" bg1 br0"  ></td>
+</tr>
+    <tr style="height:35px;" class="xxbgbButtonTr">
+        <td    class=" bg1 br0"  ></td>
+        <td    class=" bg1 br0"  colspan="13"> <input id="xxbgbButton1" type="button" onclick="xxbgbcontrol.addTable()" value="新增表页">
+            </td>
+    </tr>
+
+<tr style="height:29px;" class="xxbgbButtonTr">
+<td    class=" bg1 br0"  ></td>
+<td    class=" ft0 fs12 al vm nw bg1 br1"   colspan="13"  >点击上方【新增表页】按钮可以增加居民企业参股外国企业信息报告表。</td>
+</tr>
+<tr style="height:29px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" ft0 fs14 fbd al vm nl bg_ne br9"   colspan="13"  >一、报告人信息</td>
+</tr>
+<tr style="height:37px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"  >企业名称：</td>
+<td    class=" ft0 fs12 al vm nl bg1 br2"   colspan="4"  >怀化九辰汽车贸易有限公司</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"   colspan="4"  >纳税识别号：</td>
+<td    class=" ft0 fs12 al vm nl bg1 br2"   colspan="4"  >91431200068205459G</td>
+</tr>
+<tr style="height:29px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" ft0 fs14 fbd al vm nl bg_ne br2"   colspan="13"  >二、被投资外国企业信息</td>
+</tr>
+<tr style="height:35px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"  >外国企业名称（中文）</td>
+<td    class=" ft0 fs12 al vm nl bg0 br2"   colspan="4"   name="wbsbsdsjmczyjdbtzwgqyxx.wgqymc"  format="l100" type="input" ></td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"   colspan="4"  >成立地（中文）</td>
+<td    class=" ft0 fs12 al vm nl bg0 br2"   colspan="4"   name="wbsbsdsjmczyjdbtzwgqyxx.cld"  format="l100" type="input" ></td>
+</tr>
+<tr style="height:36px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"  >外国企业名称（外文）</td>
+<td    class=" ft0 fs12 al vm nl bg0 br2"   colspan="4"   name="wbsbsdsjmczyjdbtzwgqyxx.wgqywwmc"  format="l100" type="input" ></td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"   colspan="4"  >成立地（外文）</td>
+<td    class=" ft0 fs12 al vm nl bg0 br2"   colspan="4"   name="wbsbsdsjmczyjdbtzwgqyxx.wwcld"  format="l100" type="input" ></td>
+</tr>
+<tr style="height:31px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"  >所在国纳税识别号</td>
+<td    class=" ft0 fs12 al vm nl bg0 br2"   colspan="2"   name="wbsbsdsjmczyjdbtzwgqyxx.nsrsbhszg"  format="l20" type="input" ></td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"   colspan="2"  >主营业务类型</td>
+<td    class=" ft0 fs12 al vm nl bg0 br2"   colspan="4"   name="wbsbsdsjmczyjdbtzwgqyxx.zyywlx"  format="l100" type="input" ></td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"   colspan="2"  >报告人持股比例</td>
+<td    class=" ft0 fs12 ar vm nl bg0 br2"   colspan="2"   name="wbsbsdsjmczyjdbtzwgqyxx.cgblbgr"  format="l18x2b" type="input" ></td>
+</tr>
+<tr style="height:28px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" ft0 fs14 fbd al vm nl bg_ne br2"   colspan="13"  >持有外国企业10%以上股份或有表决权股份的其他股东情况</td>
+</tr>
+<tr style="height:39px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" ft0 fs12 ac vm nl bg_ne br2"  >持股股东名称（中文）</td>
+<td    class=" ft0 fs12 ac vm nl bg_ne br2"  >持股股东名称（外文）</td>
+<td    class=" ft0 fs12 ac vm nl bg_ne br2"   colspan="2"  >居住地或成立地（中文）</td>
+<td    class=" ft0 fs12 ac vm nl bg_ne br2"   colspan="4"  >居住地或成立地（外文）</td>
+<td    class=" ft0 fs12 ac vm nl bg_ne br2"   colspan="2"  >持股类型</td>
+<td    class=" ft0 fs12 ac vm nl bg_ne br2"  >持股比例</td>
+<td    class=" ft0 fs12 ac vm nl bg_ne br2"   colspan="2"  >达到10%以上权益份额的起始日期</td>
+</tr>
+<tr style="height:30px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" ft0 fs12 al vm nl bg0 br2 qtgd"   name="wbsbsdsjmczybjqgfdqtgd.gdmc"  format="l100" index="0"  type="input" ></td>
+<td    class=" ft0 fs12 al vm nl bg0 br2"   name="wbsbsdsjmczybjqgfdqtgd.gdwwmc"  format="l100" index="0"  type="input" ></td>
+<td    class=" ft0 fs12 al vm nl bg0 br2"   colspan="2"   name="wbsbsdsjmczybjqgfdqtgd.jzdcld"  format="l100" index="0"  type="input" ></td>
+<td    class=" ft0 fs12 al vm nl bg0 br2"   colspan="4"   name="wbsbsdsjmczybjqgfdqtgd.wwjzdcld"  format="l100" index="0"  type="input" ></td>
+<td    class=" ft0 fs12 al vm nl bg0 br2"   colspan="2"   name="wbsbsdsjmczybjqgfdqtgd.cglx"  index="0"  type="list"  dn="wbsbsdsjmczybjqgfdqtgd.cglxmc"  divname="wbsbsdsjmczybjqgfdqtgd.cglx.list"  value='' ></td>
+<td    class=" ft0 fs12 ar vm nl bg0 br2"   name="wbsbsdsjmczybjqgfdqtgd.cgbl"  format="l18x2b" index="0"  type="input" ></td>
+<td    class=" ft0 fs12 ac vm nw bg0 br2"   colspan="2"   name="wbsbsdsjmczybjqgfdqtgd.qsrq"  format="l8e" index="0"  type="input" ></td>
+</tr>
+<tr style="height:30px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" ft0 fs12 al vm nl bg0 br2 qtgd"   name="wbsbsdsjmczybjqgfdqtgd.gdmc"  format="l100" index="1"  type="input" ></td>
+<td    class=" ft0 fs12 al vm nl bg0 br2"   name="wbsbsdsjmczybjqgfdqtgd.gdwwmc"  format="l100" index="1"  type="input" ></td>
+<td    class=" ft0 fs12 al vm nl bg0 br2"   colspan="2"   name="wbsbsdsjmczybjqgfdqtgd.jzdcld"  format="l100" index="1"  type="input" ></td>
+<td    class=" ft0 fs12 al vm nl bg0 br2"   colspan="4"   name="wbsbsdsjmczybjqgfdqtgd.wwjzdcld"  format="l100" index="1"  type="input" ></td>
+<td    class=" ft0 fs12 al vm nl bg0 br2"   colspan="2"   name="wbsbsdsjmczybjqgfdqtgd.cglx"  index="1"  type="list"  dn="wbsbsdsjmczybjqgfdqtgd.cglxmc"  divname="wbsbsdsjmczybjqgfdqtgd.cglx.list"  value='' ></td>
+<td    class=" ft0 fs12 ar vm nl bg0 br2"   name="wbsbsdsjmczybjqgfdqtgd.cgbl"  format="l18x2b" index="1"  type="input" ></td>
+<td    class=" ft0 fs12 ac vm nw bg0 br2"   colspan="2"   name="wbsbsdsjmczybjqgfdqtgd.qsrq"  format="l8e" index="1"  type="input" ></td>
+</tr>
+<tr style="height:30px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" ft0 fs12 al vm nl bg0 br2 qtgd"   name="wbsbsdsjmczybjqgfdqtgd.gdmc"  format="l100" index="2"  type="input" ></td>
+<td    class=" ft0 fs12 al vm nl bg0 br2"   name="wbsbsdsjmczybjqgfdqtgd.gdwwmc"  format="l100" index="2"  type="input" ></td>
+<td    class=" ft0 fs12 al vm nl bg0 br2"   colspan="2"   name="wbsbsdsjmczybjqgfdqtgd.jzdcld"  format="l100" index="2"  type="input" ></td>
+<td    class=" ft0 fs12 al vm nl bg0 br2"   colspan="4"   name="wbsbsdsjmczybjqgfdqtgd.wwjzdcld"  format="l100" index="2"  type="input" ></td>
+<td    class=" ft0 fs12 al vm nl bg0 br2"   colspan="2"   name="wbsbsdsjmczybjqgfdqtgd.cglx"  index="2"  type="list"  dn="wbsbsdsjmczybjqgfdqtgd.cglxmc"  divname="wbsbsdsjmczybjqgfdqtgd.cglx.list"  value='' ></td>
+<td    class=" ft0 fs12 ar vm nl bg0 br2"   name="wbsbsdsjmczybjqgfdqtgd.cgbl"  format="l18x2b" index="2"  type="input" ></td>
+<td    class=" ft0 fs12 ac vm nw bg0 br2"   colspan="2"   name="wbsbsdsjmczybjqgfdqtgd.qsrq"  format="l8e" index="2"  type="input" ></td>
+</tr>
+<tr style="height:30px;" >
+<td    class=" bg1 br4"><a href='javascript:void(0)'  onclick='xxbgbcontrol.addqtgd(this,"1");' class="jiajian"><img src="/web-accept//static/css/images/jia.png"></a></td>
+<td    class=" ft0 fs12 al vm nl bg0 br2 qtgd"   name="wbsbsdsjmczybjqgfdqtgd.gdmc"  format="l100" index="3"  type="input" ></td>
+<td    class=" ft0 fs12 al vm nl bg0 br2"   name="wbsbsdsjmczybjqgfdqtgd.gdwwmc"  format="l100" index="3"  type="input" ></td>
+<td    class=" ft0 fs12 al vm nl bg0 br2"   colspan="2"   name="wbsbsdsjmczybjqgfdqtgd.jzdcld"  format="l100" index="3"  type="input" ></td>
+<td    class=" ft0 fs12 al vm nl bg0 br2"   colspan="4"   name="wbsbsdsjmczybjqgfdqtgd.wwjzdcld"  format="l100" index="3"  type="input" ></td>
+<td    class=" ft0 fs12 al vm nl bg0 br2"   colspan="2"   name="wbsbsdsjmczybjqgfdqtgd.cglx"  index="3"  type="list"  dn="wbsbsdsjmczybjqgfdqtgd.cglxmc"  divname="wbsbsdsjmczybjqgfdqtgd.cglx.list"  value='' ></td>
+<td    class=" ft0 fs12 ar vm nl bg0 br2"   name="wbsbsdsjmczybjqgfdqtgd.cgbl"  format="l18x2b" index="3"  type="input" ></td>
+<td    class=" ft0 fs12 ac vm nw bg0 br2"   colspan="2"   name="wbsbsdsjmczybjqgfdqtgd.qsrq"  format="l8e" index="3"  type="input" ></td>
+<td    class='  ar vm nw bg1 br0' ><a href='javascript:void(0)'  onclick='xxbgbcontrol.addqtgd(this,"1");' class="jiajian"><img src="/web-accept//static/css/images/jia.png"></a></td>
+</tr>
+
+<tr style="height:29px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" ft0 fs14 fbd al vm nl bg_ne br2"   colspan="13"  >中国居民个人担任外国企业高管或董事情况</td>
+</tr>
+<tr style="height:38px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" ft0 fs12 ac vm nl bg_ne br2"  >中国居民个人姓名</td>
+<td    class=" ft0 fs12 ac vm nl bg_ne br2"  >中国境内常住地</td>
+<td    class=" ft0 fs12 ac vm nl bg_ne br2"   colspan="2"  >身份证件类型</td>
+<td    class=" ft0 fs12 ac vm nl bg_ne br2"   colspan="4"  >身份证件号码</td>
+<td    class=" ft0 fs12 ac vm nl bg_ne br2"   colspan="2"  >职务</td>
+<td    class=" ft0 fs12 ac vm nl bg_ne br2"  >任职日期起</td>
+<td    class=" ft0 fs12 ac vm nl bg_ne br2"   colspan="2"  >任职日期止</td>
+</tr>
+<tr style="height:30px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" ft0 fs12 al vm nl bg0 br2 dsqk"   name="wbsbsdsjmczdrwgqygghdsqk.zgjmxm"  format="l100" index="0"  type="input" ></td>
+<td    class=" ft0 fs12 al vm nl bg0 br2"   name="wbsbsdsjmczdrwgqygghdsqk.zgjnczd"  format="l100" index="0"  type="input" ></td>
+<td    class=" ft0 fs12 al vm nl bg0 br2"   colspan="2"   name="wbsbsdsjmczdrwgqygghdsqk.sfzjlx"  index="0"  type="list"  dn="wbsbsdsjmczdrwgqygghdsqk.sfzjlxmc"  divname="wbsbsdsjmczdrwgqygghdsqk.sfzjlx.list"  value='' ></td>
+<td    class=" ft0 fs12 al vm nl bg0 br2"   colspan="4"   name="wbsbsdsjmczdrwgqygghdsqk.sfsbh"  format="l30" index="0"  type="input" ></td>
+<td    class=" ft0 fs12 al vm nl bg0 br2"   colspan="2"   name="wbsbsdsjmczdrwgqygghdsqk.zw"  format="l100" index="0"  type="input" ></td>
+<td    class=" ft0 fs12 ac vm nl bg0 br2"   name="wbsbsdsjmczdrwgqygghdsqk.rzrqq"  format="l8e" index="0"  type="input" ></td>
+<td    class=" ft0 fs12 ac vm nl bg0 br2"   colspan="2"   name="wbsbsdsjmczdrwgqygghdsqk.rzrqz"  format="l8e" index="0"  type="input" ></td>
+</tr>
+<tr style="height:30px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" ft0 fs12 al vm nl bg0 br2 dsqk"   name="wbsbsdsjmczdrwgqygghdsqk.zgjmxm"  format="l100" index="1"  type="input" ></td>
+<td    class=" ft0 fs12 al vm nl bg0 br2"   name="wbsbsdsjmczdrwgqygghdsqk.zgjnczd"  format="l100" index="1"  type="input" ></td>
+<td    class=" ft0 fs12 al vm nl bg0 br2"   colspan="2"   name="wbsbsdsjmczdrwgqygghdsqk.sfzjlx"  index="1"  type="list"  dn="wbsbsdsjmczdrwgqygghdsqk.sfzjlxmc"  divname="wbsbsdsjmczdrwgqygghdsqk.sfzjlx.list"  value='' ></td>
+<td    class=" ft0 fs12 al vm nl bg0 br2"   colspan="4"   name="wbsbsdsjmczdrwgqygghdsqk.sfsbh"  format="l30" index="1"  type="input" ></td>
+<td    class=" ft0 fs12 al vm nl bg0 br2"   colspan="2"   name="wbsbsdsjmczdrwgqygghdsqk.zw"  format="l100" index="1"  type="input" ></td>
+<td    class=" ft0 fs12 ac vm nl bg0 br2"   name="wbsbsdsjmczdrwgqygghdsqk.rzrqq"  format="l8e" index="1"  type="input" ></td>
+<td    class=" ft0 fs12 ac vm nl bg0 br2"   colspan="2"   name="wbsbsdsjmczdrwgqygghdsqk.rzrqz"  format="l8e" index="1"  type="input" ></td>
+</tr>
+<tr style="height:30px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" ft0 fs12 al vm nl bg0 br2 dsqk"   name="wbsbsdsjmczdrwgqygghdsqk.zgjmxm"  format="l100" index="2"  type="input" ></td>
+<td    class=" ft0 fs12 al vm nl bg0 br2"   name="wbsbsdsjmczdrwgqygghdsqk.zgjnczd"  format="l100" index="2"  type="input" ></td>
+<td    class=" ft0 fs12 al vm nl bg0 br2"   colspan="2"   name="wbsbsdsjmczdrwgqygghdsqk.sfzjlx"  index="2"  type="list"  dn="wbsbsdsjmczdrwgqygghdsqk.sfzjlxmc"  divname="wbsbsdsjmczdrwgqygghdsqk.sfzjlx.list"  value='' ></td>
+<td    class=" ft0 fs12 al vm nl bg0 br2"   colspan="4"   name="wbsbsdsjmczdrwgqygghdsqk.sfsbh"  format="l30" index="2"  type="input" ></td>
+<td    class=" ft0 fs12 al vm nl bg0 br2"   colspan="2"   name="wbsbsdsjmczdrwgqygghdsqk.zw"  format="l100" index="2"  type="input" ></td>
+<td    class=" ft0 fs12 ac vm nl bg0 br2"   name="wbsbsdsjmczdrwgqygghdsqk.rzrqq"  format="l8e" index="2"  type="input" ></td>
+<td    class=" ft0 fs12 ac vm nl bg0 br2"   colspan="2"   name="wbsbsdsjmczdrwgqygghdsqk.rzrqz"  format="l8e" index="2"  type="input" ></td>
+</tr>
+<tr style="height:30px;" >
+<td    class=" bg1 br4"><a href='javascript:void(0)'  onclick='xxbgbcontrol.adddsqk(this,"1");' class="jiajian"><img src="/web-accept//static/css/images/jia.png"></a></td>
+<td    class=" ft0 fs12 al vm nl bg0 br2 dsqk"   name="wbsbsdsjmczdrwgqygghdsqk.zgjmxm"  format="l100" index="3"  type="input" ></td>
+<td    class=" ft0 fs12 al vm nl bg0 br2"   name="wbsbsdsjmczdrwgqygghdsqk.zgjnczd"  format="l100" index="3"  type="input" ></td>
+<td    class=" ft0 fs12 al vm nl bg0 br2"   colspan="2"   name="wbsbsdsjmczdrwgqygghdsqk.sfzjlx"  index="3"  type="list"  dn="wbsbsdsjmczdrwgqygghdsqk.sfzjlxmc"  divname="wbsbsdsjmczdrwgqygghdsqk.sfzjlx.list"  value='' ></td>
+<td    class=" ft0 fs12 al vm nl bg0 br2"   colspan="4"   name="wbsbsdsjmczdrwgqygghdsqk.sfsbh"  format="l30" index="3"  type="input" ></td>
+<td    class=" ft0 fs12 al vm nl bg0 br2"   colspan="2"   name="wbsbsdsjmczdrwgqygghdsqk.zw"  format="l100" index="3"  type="input" ></td>
+<td    class=" ft0 fs12 ac vm nl bg0 br2"   name="wbsbsdsjmczdrwgqygghdsqk.rzrqq"  format="l8e" index="3"  type="input" ></td>
+<td    class=" ft0 fs12 ac vm nl bg0 br2"   colspan="2"   name="wbsbsdsjmczdrwgqygghdsqk.rzrqz"  format="l8e" index="3"  type="input" ></td>
+<td    class='  ar vm nw bg1 br0' ><a href='javascript:void(0)'  onclick='xxbgbcontrol.adddsqk(this,"1");' class="jiajian"><img src="/web-accept//static/css/images/jia.png"></a></td>
+</tr>
+
+<tr style="height:29px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" ft0 fs14 fbd al vm nl bg_ne br2"   colspan="13"  >三、外国企业股份变动信息</td>
+</tr>
+<tr style="height:27px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" ft0 fs14 fbd al vm nl bg_ne br2"   colspan="13"  >报告人收购外国企业股份情况</td>
+</tr>
+<tr style="height:39px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" ft0 fs12 ac vm nl bg_ne br2"  >被收购股份类型</td>
+<td    class=" ft0 fs12 ac vm nl bg_ne br2"   colspan="2"  >交易日期</td>
+<td    class=" ft0 fs12 ac vm nl bg_ne br2"   colspan="4"  >收购方式</td>
+<td    class=" ft0 fs12 ac vm nl bg_ne br2"   colspan="4"  >收购前报告人在外国企业持股份额</td>
+<td    class=" ft0 fs12 ac vm nl bg_ne br2"   colspan="2"  >收购后报告人在外国企业持股份额</td>
+</tr>
+<tr style="height:30px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" ft0 fs12 al vm nl bg0 br2 sggf"   name="wbsbsdsjmczbgrsgwgqygfqk.gflxbsg"  index="0"  type="list"  dn="wbsbsdsjmczbgrsgwgqygfqk.gflxbsgmc"  divname="wbsbsdsjmczbgrsgwgqygfqk.gflxbsg.list"  value='' ></td>
+<td    class=" ft0 fs12 ac vm nl bg0 br2 "   colspan="2"   name="wbsbsdsjmczbgrsgwgqygfqk.jyrq"  format="l8e" index="0"  type="input" ></td>
+<td    class=" ft0 fs12 al vm nl bg0 br2"   colspan="4"   name="wbsbsdsjmczbgrsgwgqygfqk.sgfs"  format="l100" index="0"  type="input" ></td>
+<td    class=" ft0 fs12 ar vm nw bg0 br2"   colspan="4"   name="wbsbsdsjmczbgrsgwgqygfqk.cgfesgq"  format="l18x2b" index="0"  type="input" ></td>
+<td    class=" ft0 fs12 ar vm nw bg0 br2"   colspan="2"   name="wbsbsdsjmczbgrsgwgqygfqk.cgfesgh"  format="l18x2b" index="0"  type="input" ></td>
+</tr>
+<tr style="height:30px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" ft0 fs12 al vm nl bg0 br2 sggf"   name="wbsbsdsjmczbgrsgwgqygfqk.gflxbsg"  index="1"  type="list"  dn="wbsbsdsjmczbgrsgwgqygfqk.gflxbsgmc"  divname="wbsbsdsjmczbgrsgwgqygfqk.gflxbsg.list"  value='' ></td>
+<td    class=" ft0 fs12 ac vm nl bg0 br2"   colspan="2"   name="wbsbsdsjmczbgrsgwgqygfqk.jyrq"  format="l8e" index="1"  type="input" ></td>
+<td    class=" ft0 fs12 al vm nl bg0 br2"   colspan="4"   name="wbsbsdsjmczbgrsgwgqygfqk.sgfs"  format="l100" index="1"  type="input" ></td>
+<td    class=" ft0 fs12 ar vm nw bg0 br2"   colspan="4"   name="wbsbsdsjmczbgrsgwgqygfqk.cgfesgq"  format="l18x2b" index="1"  type="input" ></td>
+<td    class=" ft0 fs12 ar vm nw bg0 br2"   colspan="2"   name="wbsbsdsjmczbgrsgwgqygfqk.cgfesgh"  format="l18x2b" index="1"  type="input" ></td>
+</tr>
+<tr style="height:30px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" ft0 fs12 al vm nl bg0 br2 sggf"   name="wbsbsdsjmczbgrsgwgqygfqk.gflxbsg"  index="2"  type="list"  dn="wbsbsdsjmczbgrsgwgqygfqk.gflxbsgmc"  divname="wbsbsdsjmczbgrsgwgqygfqk.gflxbsg.list"  value='' ></td>
+<td    class=" ft0 fs12 ac vm nl bg0 br2"   colspan="2"   name="wbsbsdsjmczbgrsgwgqygfqk.jyrq"  format="l8e" index="2"  type="input" ></td>
+<td    class=" ft0 fs12 al vm nl bg0 br2"   colspan="4"   name="wbsbsdsjmczbgrsgwgqygfqk.sgfs"  format="l100" index="2"  type="input" ></td>
+<td    class=" ft0 fs12 ar vm nw bg0 br2"   colspan="4"   name="wbsbsdsjmczbgrsgwgqygfqk.cgfesgq"  format="l18x2b" index="2"  type="input" ></td>
+<td    class=" ft0 fs12 ar vm nw bg0 br2"   colspan="2"   name="wbsbsdsjmczbgrsgwgqygfqk.cgfesgh"  format="l18x2b" index="2"  type="input" ></td>
+</tr>
+<tr style="height:30px;" >
+<td    class=" bg1 br4"><a href='javascript:void(0)'  onclick='xxbgbcontrol.addsggf(this,"1");' class="jiajian"><img src="/web-accept//static/css/images/jia.png"></a></td>
+<td    class=" ft0 fs12 al vm nl bg0 br2 sggf"   name="wbsbsdsjmczbgrsgwgqygfqk.gflxbsg"  index="3"  type="list"  dn="wbsbsdsjmczbgrsgwgqygfqk.gflxbsgmc"  divname="wbsbsdsjmczbgrsgwgqygfqk.gflxbsg.list"  value='' ></td>
+<td    class=" ft0 fs12 ac vm nl bg0 br2"   colspan="2"   name="wbsbsdsjmczbgrsgwgqygfqk.jyrq"  format="l8e" index="3"  type="input" ></td>
+<td    class=" ft0 fs12 al vm nl bg0 br2"   colspan="4"   name="wbsbsdsjmczbgrsgwgqygfqk.sgfs"  format="l100" index="3"  type="input" ></td>
+<td    class=" ft0 fs12 ar vm nw bg0 br2"   colspan="4"   name="wbsbsdsjmczbgrsgwgqygfqk.cgfesgq"  format="l18x2b" index="3"  type="input" ></td>
+<td    class=" ft0 fs12 ar vm nw bg0 br2"   colspan="2"   name="wbsbsdsjmczbgrsgwgqygfqk.cgfesgh"  format="l18x2b" index="3"  type="input" ></td>
+<td    class='  ar vm nw bg1 br0'><a href='javascript:void(0)'  onclick='xxbgbcontrol.addsggf(this,"1");' class="jiajian"><img src="/web-accept//static/css/images/jia.png"></a></td>
+</tr>
+
+<tr style="height:29px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" ft0 fs14 fbd al vm nl bg_ne br2"   colspan="13"  >报告人处置外国企业股份情况</td>
+</tr>
+<tr style="height:41px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" ft0 fs12 ac vm nl bg_ne br2"  >被处置股份类型</td>
+<td    class=" ft0 fs12 ac vm nl bg_ne br2"   colspan="2"  >处置日期</td>
+<td    class=" ft0 fs12 ac vm nl bg_ne br2"   colspan="4"  >处置方式</td>
+<td    class=" ft0 fs12 ac vm nl bg_ne br2"   colspan="4"  >处置前报告人在外国企业持股份额</td>
+<td    class=" ft0 fs12 ac vm nl bg_ne br2"   colspan="2"  >处置后报告人在外国企业持股份额</td>
+</tr>
+<tr style="height:30px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" ft0 fs12 al vm nl bg0 br2 czgf"   name="wbsbsdsjmczbgrczwgqygfqk.gflxbcz"  index="0"  type="list"  dn="wbsbsdsjmczbgrczwgqygfqk.gflxbczmc"  divname="wbsbsdsjmczbgrczwgqygfqk.gflxbcz.list"  value='' ></td>
+<td    class=" ft0 fs12 ac vm nl bg0 br2 "   colspan="2"   name="wbsbsdsjmczbgrczwgqygfqk.czrq"  format="l8e" index="0"  type="input" ></td>
+<td    class=" ft0 fs12 al vm nl bg0 br2"   colspan="4"   name="wbsbsdsjmczbgrczwgqygfqk.czfs"  format="l100" index="0"  type="input" ></td>
+<td    class=" ft0 fs12 ar vm nw bg0 br2"   colspan="4"   name="wbsbsdsjmczbgrczwgqygfqk.cgfeczq"  format="l18x2b" index="0"  type="input" ></td>
+<td    class=" ft0 fs12 ar vm nw bg0 br2"   colspan="2"   name="wbsbsdsjmczbgrczwgqygfqk.cgfeczh"  format="l18x2b" index="0"  type="input" ></td>
+</tr>
+<tr style="height:30px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" ft0 fs12 al vm nl bg0 br2 czgf"   name="wbsbsdsjmczbgrczwgqygfqk.gflxbcz"  index="1"  type="list"  dn="wbsbsdsjmczbgrczwgqygfqk.gflxbczmc"  divname="wbsbsdsjmczbgrczwgqygfqk.gflxbcz.list"  value='' ></td>
+<td    class=" ft0 fs12 ac vm nl bg0 br2"   colspan="2"   name="wbsbsdsjmczbgrczwgqygfqk.czrq"  format="l8e" index="1"  type="input" ></td>
+<td    class=" ft0 fs12 al vm nl bg0 br2"   colspan="4"   name="wbsbsdsjmczbgrczwgqygfqk.czfs"  format="l100" index="1"  type="input" ></td>
+<td    class=" ft0 fs12 ar vm nw bg0 br2"   colspan="4"   name="wbsbsdsjmczbgrczwgqygfqk.cgfeczq"  format="l18x2b" index="1"  type="input" ></td>
+<td    class=" ft0 fs12 ar vm nw bg0 br2"   colspan="2"   name="wbsbsdsjmczbgrczwgqygfqk.cgfeczh"  format="l18x2b" index="1"  type="input" ></td>
+</tr>
+<tr style="height:30px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" ft0 fs12 al vm nl bg0 br2 czgf"   name="wbsbsdsjmczbgrczwgqygfqk.gflxbcz"  index="2"  type="list"  dn="wbsbsdsjmczbgrczwgqygfqk.gflxbczmc"  divname="wbsbsdsjmczbgrczwgqygfqk.gflxbcz.list"  value='' ></td>
+<td    class=" ft0 fs12 ac vm nl bg0 br2"   colspan="2"   name="wbsbsdsjmczbgrczwgqygfqk.czrq"  format="l8e" index="2"  type="input" ></td>
+<td    class=" ft0 fs12 al vm nl bg0 br2"   colspan="4"   name="wbsbsdsjmczbgrczwgqygfqk.czfs"  format="l100" index="2"  type="input" ></td>
+<td    class=" ft0 fs12 ar vm nw bg0 br2"   colspan="4"   name="wbsbsdsjmczbgrczwgqygfqk.cgfeczq"  format="l18x2b" index="2"  type="input" ></td>
+<td    class=" ft0 fs12 ar vm nw bg0 br2"   colspan="2"   name="wbsbsdsjmczbgrczwgqygfqk.cgfeczh"  format="l18x2b" index="2"  type="input" ></td>
+</tr>
+<tr style="height:30px;" >
+<td    class=" bg1 br4"><a href='javascript:void(0)'  onclick='xxbgbcontrol.addczgf(this,"1");' class="jiajian"><img src="/web-accept//static/css/images/jia.png"></a></td>
+<td    class=" ft0 fs12 al vm nl bg0 br2 czgf"   name="wbsbsdsjmczbgrczwgqygfqk.gflxbcz"  index="3"  type="list"  dn="wbsbsdsjmczbgrczwgqygfqk.gflxbczmc"  divname="wbsbsdsjmczbgrczwgqygfqk.gflxbcz.list"  value='' ></td>
+<td    class=" ft0 fs12 ac vm nl bg0 br2"   colspan="2"   name="wbsbsdsjmczbgrczwgqygfqk.czrq"  format="l8e" index="3"  type="input" ></td>
+<td    class=" ft0 fs12 al vm nl bg0 br2"   colspan="4"   name="wbsbsdsjmczbgrczwgqygfqk.czfs"  format="l100" index="3"  type="input" ></td>
+<td    class=" ft0 fs12 ar vm nw bg0 br2"   colspan="4"   name="wbsbsdsjmczbgrczwgqygfqk.cgfeczq"  format="l18x2b" index="3"  type="input" ></td>
+<td    class=" ft0 fs12 ar vm nw bg0 br2"   colspan="2"   name="wbsbsdsjmczbgrczwgqygfqk.cgfeczh"  format="l18x2b" index="3"  type="input" ></td>
+<td    class='  ar vm nw bg1 br0' ><a href='javascript:void(0)'  onclick='xxbgbcontrol.addczgf(this,"1");' class="jiajian"><img src="/web-accept//static/css/images/jia.png"></a></td>
+</tr>
+
+<tr style="height:29px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" ft0 fs14 fbd al vm nl bg_ne br2"   colspan="13"  >四、报告人声明</td>
+</tr>
+<tr style="height:26px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" ft0 fs12 al vm nl bg_ne br4"   colspan="13"  >我谨在此声明：以上呈报事项准确无误，如有不实，愿承担相应的法律责任。</td>
+</tr>
+<tr style="height:7px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" bg1 bg_ne br4"   colspan="13"  ></td>
+</tr>
+<tr style="height:7px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" bg1 bg_ne br4"   colspan="13"  ></td>
+</tr>
+<tr style="height:25px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" ft0 fs12 al vm nl bg_ne br4"   colspan="13"  >报告人签字和盖章：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;报告日期：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;年&nbsp;&nbsp;&nbsp;&nbsp;月&nbsp;&nbsp;&nbsp;&nbsp;日</td>
+</tr>
+<tr style="height:20px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" ft0 fs12 ar vm nl bg_ne br0"  >经办人：</td>
+<td    class=" ft0 fs12 al vm nl bg0 br0"   name="wbsbsdsjmczbgrsm.jbr"  format="l30" type="input" ></td>
+<td    class=" ft0 fs12 al vm nl bg_ne br0"   colspan="2"  >联系电话：</td>
+<td    class=" ft0 fs12 al vm nl bg0 br4"   colspan="9"   name="wbsbsdsjmczbgrsm.lxdh"  format="l20e" type="input" ></td>
+</tr>
+<tr style="height:0px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" bg1 bg_ne br4"   colspan="13"  ></td>
+</tr>
+<tr style="height:0px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" bg1 bg_ne br2"   colspan="13"  ></td>
+</tr>
+<tr style="height:25px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" ft0 fs12 fbd al vm nl bg_ne br2"   colspan="13"  >以下由主管税务机关填写</td>
+</tr>
+<tr style="height:25px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" ft0 fs12 al vm nl bg_ne br0"   colspan="6"  >受理人：</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br4"   colspan="7"  >税务机关（盖章）</td>
+</tr>
+<tr style="height:44px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" ft0 fs12 al vm nl bg_ne br1"   colspan="6"  >联系电话：</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"   colspan="7"  >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;年&nbsp;&nbsp;&nbsp;&nbsp;月&nbsp;&nbsp;&nbsp;日</td>
+</tr>
+</table>
+
+
+<div id='wbsbsdsjmczbgrczwgqygfqk.gflxbcz.list'
+     style='display: none;'>[{"value":"","text":"\u0026nbsp;"},{"value":"1","text":"1有表决权股份"},{"value":"2","text":"2无表决权股份"}]</div>
+<div id='wbsbsdsjmczdrwgqygghdsqk.sfzjlx.list'
+     style='display: none;'>[{"value":"","text":"\u0026nbsp;"},{"value":"101","text":"组织机构代码证"},{"value":"102","text":"营业执照"},{"value":"103","text":"税务登记证"},{"value":"199","text":"其他单位证件"},{"value":"201","text":"居民身份证"},{"value":"202","text":"军官证"},{"value":"203","text":"武警警官证"},{"value":"204","text":"士兵证"},{"value":"205","text":"军队离退休干部证"},{"value":"206","text":"残疾人证"},{"value":"207","text":"残疾军人证（1-8级）"},{"value":"208","text":"外国护照"},{"value":"210","text":"港澳居民来往内地通行证"},{"value":"212","text":"中华人民共和国往来港澳通行证"},{"value":"213","text":"台湾居民来往大陆通行证"},{"value":"214","text":"大陆居民往来台湾通行证"},{"value":"215","text":"外国人居留证"},{"value":"216","text":"外交官证"},{"value":"217","text":"使（领事）馆证"},{"value":"218","text":"海员证"},{"value":"219","text":"香港永久性居民身份证"},{"value":"220","text":"台湾身份证"},{"value":"221","text":"澳门特别行政区永久性居民身份证"},{"value":"222","text":"外国人身份证件"},{"value":"224","text":"就业失业登记证"},{"value":"225","text":"退休证"},{"value":"226","text":"离休证"},{"value":"227","text":"中国护照"},{"value":"228","text":"城镇退役士兵自谋职业证"},{"value":"229","text":"随军家属身份证明"},{"value":"230","text":"中国人民解放军军官转业证书"},{"value":"231","text":"中国人民解放军义务兵退出现役证"},{"value":"232","text":"中国人民解放军士官退出现役证"},{"value":"233","text":"外国人永久居留证"},{"value":"234","text":"就业创业证"},{"value":"235","text":"香港特别行政区护照"},{"value":"236","text":"澳门特别行政区护照"},{"value":"291","text":"医学出生证明"},{"value":"299","text":"其他个人证件"}]</div>
+<div id='wbsbsdsjmczybjqgfdqtgd.cglx.list'
+     style='display: none;'>[{"value":"","text":"\u0026nbsp;"},{"value":"1","text":"1有表决权股份"},{"value":"2","text":"2无表决权股份"}]</div>
+<div id='wbsbsdsjmczbgrsgwgqygfqk.gflxbsg.list'
+     style='display: none;'>[{"value":"","text":"\u0026nbsp;"},{"value":"1","text":"1有表决权股份"},{"value":"2","text":"2无表决权股份"}]</div>
+
+</html>
+        </div>
+        
+      </td>
+      <td><div style="width:25px;"></div></td>
+    </tr>
+  </table>
+
+</div>
+
+
+<div style="display: none;">
+  
+  <script>
+    xxbgbcontrol.maxXh = 1;
+  </script>
+  <div id="xxbgb_template" style="display: none;">
+    
+
+
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+
+<table class="sbbtable" style="width:0px">
+<tr>
+<td><div style="width:20px;"></div></td>
+<td><div style="width:148px;"></div></td>
+<td><div style="width:151px;"></div></td>
+<td><div style="width:93px;"></div></td>
+<td><div style="width:67px;"></div></td>
+<td><div style="width:64px;"></div></td>
+<td><div style="width:30px;"></div></td>
+<td><div style="width:14px;"></div></td>
+<td><div style="width:59px;"></div></td>
+<td><div style="width:64px;"></div></td>
+<td><div style="width:62px;"></div></td>
+<td><div style="width:108px;"></div></td>
+<td><div style="width:70px;"></div></td>
+<td><div style="width:70px;"></div></td>
+</tr>
+<tr style="height:18px;" >
+<td    class=" bg1 br0"  ></td>
+<td    class=" bg1 br0"  ></td>
+<td    class=" bg1 br0"  ></td>
+<td    class=" bg1 br0"  ></td>
+<td    class=" bg1 br0"  ></td>
+<td    class=" bg1 br0"  ></td>
+<td    class=" bg1 br0"  ></td>
+</tr>
+<tr style="height:19px;" >
+<td    class=" bg1 br0"  ></td>
+<td    class=" bg1 br0"  ></td>
+<td    class=" ft0 fs17 fbd al vm nw bg1 br0"   rowspan="2"   colspan="12"  >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;居民企业参股外国企业信息报告表</td>
+</tr>
+<tr style="height:35px;" >
+<td    class=" bg1 br0"  ></td>
+<td    class=" bg1 br0"  ></td>
+</tr>
+    <tr style="height:35px;" class="xxbgbButtonTr">
+        <td    class=" bg1 br0"  ></td>
+        <td    class=" bg1 br0"  colspan="13"> <input id="xxbgbButton{TEMPLTE_XH}" type="button" onclick="deleteTable('{TEMPLTE_XH}','xxbgb','A200000')" value="删除表页({TEMPLTE_XH})"></td>
+    </tr>
+
+<tr style="height:29px;" class="xxbgbButtonTr">
+<td    class=" bg1 br0"  ></td>
+<td    class=" ft0 fs12 al vm nw bg1 br1"   colspan="13"  >点击上方【新增表页】按钮可以增加居民企业参股外国企业信息报告表。</td>
+</tr>
+<tr style="height:29px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" ft0 fs14 fbd al vm nl bg_ne br9"   colspan="13"  >一、报告人信息</td>
+</tr>
+<tr style="height:37px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"  >企业名称：</td>
+<td    class=" ft0 fs12 al vm nl bg1 br2"   colspan="4"  >怀化九辰汽车贸易有限公司</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"   colspan="4"  >纳税识别号：</td>
+<td    class=" ft0 fs12 al vm nl bg1 br2"   colspan="4"  >91431200068205459G</td>
+</tr>
+<tr style="height:29px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" ft0 fs14 fbd al vm nl bg_ne br2"   colspan="13"  >二、被投资外国企业信息</td>
+</tr>
+<tr style="height:35px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"  >外国企业名称（中文）</td>
+<td    class=" ft0 fs12 al vm nl bg0 br2"   colspan="4"   name="wbsbsdsjmczyjdbtzwgqyxx.wgqymc"  format="l100" type="input" ></td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"   colspan="4"  >成立地（中文）</td>
+<td    class=" ft0 fs12 al vm nl bg0 br2"   colspan="4"   name="wbsbsdsjmczyjdbtzwgqyxx.cld"  format="l100" type="input" ></td>
+</tr>
+<tr style="height:36px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"  >外国企业名称（外文）</td>
+<td    class=" ft0 fs12 al vm nl bg0 br2"   colspan="4"   name="wbsbsdsjmczyjdbtzwgqyxx.wgqywwmc"  format="l100" type="input" ></td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"   colspan="4"  >成立地（外文）</td>
+<td    class=" ft0 fs12 al vm nl bg0 br2"   colspan="4"   name="wbsbsdsjmczyjdbtzwgqyxx.wwcld"  format="l100" type="input" ></td>
+</tr>
+<tr style="height:31px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"  >所在国纳税识别号</td>
+<td    class=" ft0 fs12 al vm nl bg0 br2"   colspan="2"   name="wbsbsdsjmczyjdbtzwgqyxx.nsrsbhszg"  format="l20" type="input" ></td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"   colspan="2"  >主营业务类型</td>
+<td    class=" ft0 fs12 al vm nl bg0 br2"   colspan="4"   name="wbsbsdsjmczyjdbtzwgqyxx.zyywlx"  format="l100" type="input" ></td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"   colspan="2"  >报告人持股比例</td>
+<td    class=" ft0 fs12 ar vm nl bg0 br2"   colspan="2"   name="wbsbsdsjmczyjdbtzwgqyxx.cgblbgr"  format="l18x2b" type="input" ></td>
+</tr>
+<tr style="height:28px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" ft0 fs14 fbd al vm nl bg_ne br2"   colspan="13"  >持有外国企业10%以上股份或有表决权股份的其他股东情况</td>
+</tr>
+<tr style="height:39px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" ft0 fs12 ac vm nl bg_ne br2"  >持股股东名称（中文）</td>
+<td    class=" ft0 fs12 ac vm nl bg_ne br2"  >持股股东名称（外文）</td>
+<td    class=" ft0 fs12 ac vm nl bg_ne br2"   colspan="2"  >居住地或成立地（中文）</td>
+<td    class=" ft0 fs12 ac vm nl bg_ne br2"   colspan="4"  >居住地或成立地（外文）</td>
+<td    class=" ft0 fs12 ac vm nl bg_ne br2"   colspan="2"  >持股类型</td>
+<td    class=" ft0 fs12 ac vm nl bg_ne br2"  >持股比例</td>
+<td    class=" ft0 fs12 ac vm nl bg_ne br2"   colspan="2"  >达到10%以上权益份额的起始日期</td>
+</tr>
+<tr style="height:30px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" ft0 fs12 al vm nl bg0 br2 qtgd"   name="wbsbsdsjmczybjqgfdqtgd.gdmc"  format="l100" index="0"  type="input" ></td>
+<td    class=" ft0 fs12 al vm nl bg0 br2"   name="wbsbsdsjmczybjqgfdqtgd.gdwwmc"  format="l100" index="0"  type="input" ></td>
+<td    class=" ft0 fs12 al vm nl bg0 br2"   colspan="2"   name="wbsbsdsjmczybjqgfdqtgd.jzdcld"  format="l100" index="0"  type="input" ></td>
+<td    class=" ft0 fs12 al vm nl bg0 br2"   colspan="4"   name="wbsbsdsjmczybjqgfdqtgd.wwjzdcld"  format="l100" index="0"  type="input" ></td>
+<td    class=" ft0 fs12 al vm nl bg0 br2"   colspan="2"   name="wbsbsdsjmczybjqgfdqtgd.cglx"  index="0"  type="list"  dn="wbsbsdsjmczybjqgfdqtgd.cglxmc"  divname="wbsbsdsjmczybjqgfdqtgd.cglx.list"  value='' ></td>
+<td    class=" ft0 fs12 ar vm nl bg0 br2"   name="wbsbsdsjmczybjqgfdqtgd.cgbl"  format="l18x2b" index="0"  type="input" ></td>
+<td    class=" ft0 fs12 ac vm nw bg0 br2"   colspan="2"   name="wbsbsdsjmczybjqgfdqtgd.qsrq"  format="l8e" index="0"  type="input" ></td>
+</tr>
+<tr style="height:30px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" ft0 fs12 al vm nl bg0 br2 qtgd"   name="wbsbsdsjmczybjqgfdqtgd.gdmc"  format="l100" index="1"  type="input" ></td>
+<td    class=" ft0 fs12 al vm nl bg0 br2"   name="wbsbsdsjmczybjqgfdqtgd.gdwwmc"  format="l100" index="1"  type="input" ></td>
+<td    class=" ft0 fs12 al vm nl bg0 br2"   colspan="2"   name="wbsbsdsjmczybjqgfdqtgd.jzdcld"  format="l100" index="1"  type="input" ></td>
+<td    class=" ft0 fs12 al vm nl bg0 br2"   colspan="4"   name="wbsbsdsjmczybjqgfdqtgd.wwjzdcld"  format="l100" index="1"  type="input" ></td>
+<td    class=" ft0 fs12 al vm nl bg0 br2"   colspan="2"   name="wbsbsdsjmczybjqgfdqtgd.cglx"  index="1"  type="list"  dn="wbsbsdsjmczybjqgfdqtgd.cglxmc"  divname="wbsbsdsjmczybjqgfdqtgd.cglx.list"  value='' ></td>
+<td    class=" ft0 fs12 ar vm nl bg0 br2"   name="wbsbsdsjmczybjqgfdqtgd.cgbl"  format="l18x2b" index="1"  type="input" ></td>
+<td    class=" ft0 fs12 ac vm nw bg0 br2"   colspan="2"   name="wbsbsdsjmczybjqgfdqtgd.qsrq"  format="l8e" index="1"  type="input" ></td>
+</tr>
+<tr style="height:30px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" ft0 fs12 al vm nl bg0 br2 qtgd"   name="wbsbsdsjmczybjqgfdqtgd.gdmc"  format="l100" index="2"  type="input" ></td>
+<td    class=" ft0 fs12 al vm nl bg0 br2"   name="wbsbsdsjmczybjqgfdqtgd.gdwwmc"  format="l100" index="2"  type="input" ></td>
+<td    class=" ft0 fs12 al vm nl bg0 br2"   colspan="2"   name="wbsbsdsjmczybjqgfdqtgd.jzdcld"  format="l100" index="2"  type="input" ></td>
+<td    class=" ft0 fs12 al vm nl bg0 br2"   colspan="4"   name="wbsbsdsjmczybjqgfdqtgd.wwjzdcld"  format="l100" index="2"  type="input" ></td>
+<td    class=" ft0 fs12 al vm nl bg0 br2"   colspan="2"   name="wbsbsdsjmczybjqgfdqtgd.cglx"  index="2"  type="list"  dn="wbsbsdsjmczybjqgfdqtgd.cglxmc"  divname="wbsbsdsjmczybjqgfdqtgd.cglx.list"  value='' ></td>
+<td    class=" ft0 fs12 ar vm nl bg0 br2"   name="wbsbsdsjmczybjqgfdqtgd.cgbl"  format="l18x2b" index="2"  type="input" ></td>
+<td    class=" ft0 fs12 ac vm nw bg0 br2"   colspan="2"   name="wbsbsdsjmczybjqgfdqtgd.qsrq"  format="l8e" index="2"  type="input" ></td>
+</tr>
+<tr style="height:30px;" >
+<td    class=" bg1 br4"><a href='javascript:void(0)'  onclick='xxbgbcontrol.addqtgd(this,"{TEMPLTE_XH}");' class="jiajian"><img src="/web-accept//static/css/images/jia.png"></a></td>
+<td    class=" ft0 fs12 al vm nl bg0 br2 qtgd"   name="wbsbsdsjmczybjqgfdqtgd.gdmc"  format="l100" index="3"  type="input" ></td>
+<td    class=" ft0 fs12 al vm nl bg0 br2"   name="wbsbsdsjmczybjqgfdqtgd.gdwwmc"  format="l100" index="3"  type="input" ></td>
+<td    class=" ft0 fs12 al vm nl bg0 br2"   colspan="2"   name="wbsbsdsjmczybjqgfdqtgd.jzdcld"  format="l100" index="3"  type="input" ></td>
+<td    class=" ft0 fs12 al vm nl bg0 br2"   colspan="4"   name="wbsbsdsjmczybjqgfdqtgd.wwjzdcld"  format="l100" index="3"  type="input" ></td>
+<td    class=" ft0 fs12 al vm nl bg0 br2"   colspan="2"   name="wbsbsdsjmczybjqgfdqtgd.cglx"  index="3"  type="list"  dn="wbsbsdsjmczybjqgfdqtgd.cglxmc"  divname="wbsbsdsjmczybjqgfdqtgd.cglx.list"  value='' ></td>
+<td    class=" ft0 fs12 ar vm nl bg0 br2"   name="wbsbsdsjmczybjqgfdqtgd.cgbl"  format="l18x2b" index="3"  type="input" ></td>
+<td    class=" ft0 fs12 ac vm nw bg0 br2"   colspan="2"   name="wbsbsdsjmczybjqgfdqtgd.qsrq"  format="l8e" index="3"  type="input" ></td>
+<td    class='  ar vm nw bg1 br0' ><a href='javascript:void(0)'  onclick='xxbgbcontrol.addqtgd(this,"{TEMPLTE_XH}");' class="jiajian"><img src="/web-accept//static/css/images/jia.png"></a></td>
+</tr>
+
+<tr style="height:29px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" ft0 fs14 fbd al vm nl bg_ne br2"   colspan="13"  >中国居民个人担任外国企业高管或董事情况</td>
+</tr>
+<tr style="height:38px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" ft0 fs12 ac vm nl bg_ne br2"  >中国居民个人姓名</td>
+<td    class=" ft0 fs12 ac vm nl bg_ne br2"  >中国境内常住地</td>
+<td    class=" ft0 fs12 ac vm nl bg_ne br2"   colspan="2"  >身份证件类型</td>
+<td    class=" ft0 fs12 ac vm nl bg_ne br2"   colspan="4"  >身份证件号码</td>
+<td    class=" ft0 fs12 ac vm nl bg_ne br2"   colspan="2"  >职务</td>
+<td    class=" ft0 fs12 ac vm nl bg_ne br2"  >任职日期起</td>
+<td    class=" ft0 fs12 ac vm nl bg_ne br2"   colspan="2"  >任职日期止</td>
+</tr>
+<tr style="height:30px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" ft0 fs12 al vm nl bg0 br2 dsqk"   name="wbsbsdsjmczdrwgqygghdsqk.zgjmxm"  format="l100" index="0"  type="input" ></td>
+<td    class=" ft0 fs12 al vm nl bg0 br2"   name="wbsbsdsjmczdrwgqygghdsqk.zgjnczd"  format="l100" index="0"  type="input" ></td>
+<td    class=" ft0 fs12 al vm nl bg0 br2"   colspan="2"   name="wbsbsdsjmczdrwgqygghdsqk.sfzjlx"  index="0"  type="list"  dn="wbsbsdsjmczdrwgqygghdsqk.sfzjlxmc"  divname="wbsbsdsjmczdrwgqygghdsqk.sfzjlx.list"  value='' ></td>
+<td    class=" ft0 fs12 al vm nl bg0 br2"   colspan="4"   name="wbsbsdsjmczdrwgqygghdsqk.sfsbh"  format="l30" index="0"  type="input" ></td>
+<td    class=" ft0 fs12 al vm nl bg0 br2"   colspan="2"   name="wbsbsdsjmczdrwgqygghdsqk.zw"  format="l100" index="0"  type="input" ></td>
+<td    class=" ft0 fs12 ac vm nl bg0 br2"   name="wbsbsdsjmczdrwgqygghdsqk.rzrqq"  format="l8e" index="0"  type="input" ></td>
+<td    class=" ft0 fs12 ac vm nl bg0 br2"   colspan="2"   name="wbsbsdsjmczdrwgqygghdsqk.rzrqz"  format="l8e" index="0"  type="input" ></td>
+</tr>
+<tr style="height:30px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" ft0 fs12 al vm nl bg0 br2 dsqk"   name="wbsbsdsjmczdrwgqygghdsqk.zgjmxm"  format="l100" index="1"  type="input" ></td>
+<td    class=" ft0 fs12 al vm nl bg0 br2"   name="wbsbsdsjmczdrwgqygghdsqk.zgjnczd"  format="l100" index="1"  type="input" ></td>
+<td    class=" ft0 fs12 al vm nl bg0 br2"   colspan="2"   name="wbsbsdsjmczdrwgqygghdsqk.sfzjlx"  index="1"  type="list"  dn="wbsbsdsjmczdrwgqygghdsqk.sfzjlxmc"  divname="wbsbsdsjmczdrwgqygghdsqk.sfzjlx.list"  value='' ></td>
+<td    class=" ft0 fs12 al vm nl bg0 br2"   colspan="4"   name="wbsbsdsjmczdrwgqygghdsqk.sfsbh"  format="l30" index="1"  type="input" ></td>
+<td    class=" ft0 fs12 al vm nl bg0 br2"   colspan="2"   name="wbsbsdsjmczdrwgqygghdsqk.zw"  format="l100" index="1"  type="input" ></td>
+<td    class=" ft0 fs12 ac vm nl bg0 br2"   name="wbsbsdsjmczdrwgqygghdsqk.rzrqq"  format="l8e" index="1"  type="input" ></td>
+<td    class=" ft0 fs12 ac vm nl bg0 br2"   colspan="2"   name="wbsbsdsjmczdrwgqygghdsqk.rzrqz"  format="l8e" index="1"  type="input" ></td>
+</tr>
+<tr style="height:30px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" ft0 fs12 al vm nl bg0 br2 dsqk"   name="wbsbsdsjmczdrwgqygghdsqk.zgjmxm"  format="l100" index="2"  type="input" ></td>
+<td    class=" ft0 fs12 al vm nl bg0 br2"   name="wbsbsdsjmczdrwgqygghdsqk.zgjnczd"  format="l100" index="2"  type="input" ></td>
+<td    class=" ft0 fs12 al vm nl bg0 br2"   colspan="2"   name="wbsbsdsjmczdrwgqygghdsqk.sfzjlx"  index="2"  type="list"  dn="wbsbsdsjmczdrwgqygghdsqk.sfzjlxmc"  divname="wbsbsdsjmczdrwgqygghdsqk.sfzjlx.list"  value='' ></td>
+<td    class=" ft0 fs12 al vm nl bg0 br2"   colspan="4"   name="wbsbsdsjmczdrwgqygghdsqk.sfsbh"  format="l30" index="2"  type="input" ></td>
+<td    class=" ft0 fs12 al vm nl bg0 br2"   colspan="2"   name="wbsbsdsjmczdrwgqygghdsqk.zw"  format="l100" index="2"  type="input" ></td>
+<td    class=" ft0 fs12 ac vm nl bg0 br2"   name="wbsbsdsjmczdrwgqygghdsqk.rzrqq"  format="l8e" index="2"  type="input" ></td>
+<td    class=" ft0 fs12 ac vm nl bg0 br2"   colspan="2"   name="wbsbsdsjmczdrwgqygghdsqk.rzrqz"  format="l8e" index="2"  type="input" ></td>
+</tr>
+<tr style="height:30px;" >
+<td    class=" bg1 br4"><a href='javascript:void(0)'  onclick='xxbgbcontrol.adddsqk(this,"{TEMPLTE_XH}");' class="jiajian"><img src="/web-accept//static/css/images/jia.png"></a></td>
+<td    class=" ft0 fs12 al vm nl bg0 br2 dsqk"   name="wbsbsdsjmczdrwgqygghdsqk.zgjmxm"  format="l100" index="3"  type="input" ></td>
+<td    class=" ft0 fs12 al vm nl bg0 br2"   name="wbsbsdsjmczdrwgqygghdsqk.zgjnczd"  format="l100" index="3"  type="input" ></td>
+<td    class=" ft0 fs12 al vm nl bg0 br2"   colspan="2"   name="wbsbsdsjmczdrwgqygghdsqk.sfzjlx"  index="3"  type="list"  dn="wbsbsdsjmczdrwgqygghdsqk.sfzjlxmc"  divname="wbsbsdsjmczdrwgqygghdsqk.sfzjlx.list"  value='' ></td>
+<td    class=" ft0 fs12 al vm nl bg0 br2"   colspan="4"   name="wbsbsdsjmczdrwgqygghdsqk.sfsbh"  format="l30" index="3"  type="input" ></td>
+<td    class=" ft0 fs12 al vm nl bg0 br2"   colspan="2"   name="wbsbsdsjmczdrwgqygghdsqk.zw"  format="l100" index="3"  type="input" ></td>
+<td    class=" ft0 fs12 ac vm nl bg0 br2"   name="wbsbsdsjmczdrwgqygghdsqk.rzrqq"  format="l8e" index="3"  type="input" ></td>
+<td    class=" ft0 fs12 ac vm nl bg0 br2"   colspan="2"   name="wbsbsdsjmczdrwgqygghdsqk.rzrqz"  format="l8e" index="3"  type="input" ></td>
+<td    class='  ar vm nw bg1 br0' ><a href='javascript:void(0)'  onclick='xxbgbcontrol.adddsqk(this,"{TEMPLTE_XH}");' class="jiajian"><img src="/web-accept//static/css/images/jia.png"></a></td>
+</tr>
+
+<tr style="height:29px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" ft0 fs14 fbd al vm nl bg_ne br2"   colspan="13"  >三、外国企业股份变动信息</td>
+</tr>
+<tr style="height:27px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" ft0 fs14 fbd al vm nl bg_ne br2"   colspan="13"  >报告人收购外国企业股份情况</td>
+</tr>
+<tr style="height:39px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" ft0 fs12 ac vm nl bg_ne br2"  >被收购股份类型</td>
+<td    class=" ft0 fs12 ac vm nl bg_ne br2"   colspan="2"  >交易日期</td>
+<td    class=" ft0 fs12 ac vm nl bg_ne br2"   colspan="4"  >收购方式</td>
+<td    class=" ft0 fs12 ac vm nl bg_ne br2"   colspan="4"  >收购前报告人在外国企业持股份额</td>
+<td    class=" ft0 fs12 ac vm nl bg_ne br2"   colspan="2"  >收购后报告人在外国企业持股份额</td>
+</tr>
+<tr style="height:30px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" ft0 fs12 al vm nl bg0 br2 sggf"   name="wbsbsdsjmczbgrsgwgqygfqk.gflxbsg"  index="0"  type="list"  dn="wbsbsdsjmczbgrsgwgqygfqk.gflxbsgmc"  divname="wbsbsdsjmczbgrsgwgqygfqk.gflxbsg.list"  value='' ></td>
+<td    class=" ft0 fs12 ac vm nl bg0 br2 "   colspan="2"   name="wbsbsdsjmczbgrsgwgqygfqk.jyrq"  format="l8e" index="0"  type="input" ></td>
+<td    class=" ft0 fs12 al vm nl bg0 br2"   colspan="4"   name="wbsbsdsjmczbgrsgwgqygfqk.sgfs"  format="l100" index="0"  type="input" ></td>
+<td    class=" ft0 fs12 ar vm nw bg0 br2"   colspan="4"   name="wbsbsdsjmczbgrsgwgqygfqk.cgfesgq"  format="l18x2b" index="0"  type="input" ></td>
+<td    class=" ft0 fs12 ar vm nw bg0 br2"   colspan="2"   name="wbsbsdsjmczbgrsgwgqygfqk.cgfesgh"  format="l18x2b" index="0"  type="input" ></td>
+</tr>
+<tr style="height:30px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" ft0 fs12 al vm nl bg0 br2 sggf"   name="wbsbsdsjmczbgrsgwgqygfqk.gflxbsg"  index="1"  type="list"  dn="wbsbsdsjmczbgrsgwgqygfqk.gflxbsgmc"  divname="wbsbsdsjmczbgrsgwgqygfqk.gflxbsg.list"  value='' ></td>
+<td    class=" ft0 fs12 ac vm nl bg0 br2"   colspan="2"   name="wbsbsdsjmczbgrsgwgqygfqk.jyrq"  format="l8e" index="1"  type="input" ></td>
+<td    class=" ft0 fs12 al vm nl bg0 br2"   colspan="4"   name="wbsbsdsjmczbgrsgwgqygfqk.sgfs"  format="l100" index="1"  type="input" ></td>
+<td    class=" ft0 fs12 ar vm nw bg0 br2"   colspan="4"   name="wbsbsdsjmczbgrsgwgqygfqk.cgfesgq"  format="l18x2b" index="1"  type="input" ></td>
+<td    class=" ft0 fs12 ar vm nw bg0 br2"   colspan="2"   name="wbsbsdsjmczbgrsgwgqygfqk.cgfesgh"  format="l18x2b" index="1"  type="input" ></td>
+</tr>
+<tr style="height:30px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" ft0 fs12 al vm nl bg0 br2 sggf"   name="wbsbsdsjmczbgrsgwgqygfqk.gflxbsg"  index="2"  type="list"  dn="wbsbsdsjmczbgrsgwgqygfqk.gflxbsgmc"  divname="wbsbsdsjmczbgrsgwgqygfqk.gflxbsg.list"  value='' ></td>
+<td    class=" ft0 fs12 ac vm nl bg0 br2"   colspan="2"   name="wbsbsdsjmczbgrsgwgqygfqk.jyrq"  format="l8e" index="2"  type="input" ></td>
+<td    class=" ft0 fs12 al vm nl bg0 br2"   colspan="4"   name="wbsbsdsjmczbgrsgwgqygfqk.sgfs"  format="l100" index="2"  type="input" ></td>
+<td    class=" ft0 fs12 ar vm nw bg0 br2"   colspan="4"   name="wbsbsdsjmczbgrsgwgqygfqk.cgfesgq"  format="l18x2b" index="2"  type="input" ></td>
+<td    class=" ft0 fs12 ar vm nw bg0 br2"   colspan="2"   name="wbsbsdsjmczbgrsgwgqygfqk.cgfesgh"  format="l18x2b" index="2"  type="input" ></td>
+</tr>
+<tr style="height:30px;" >
+<td    class=" bg1 br4"><a href='javascript:void(0)'  onclick='xxbgbcontrol.addsggf(this,"{TEMPLTE_XH}");' class="jiajian"><img src="/web-accept//static/css/images/jia.png"></a></td>
+<td    class=" ft0 fs12 al vm nl bg0 br2 sggf"   name="wbsbsdsjmczbgrsgwgqygfqk.gflxbsg"  index="3"  type="list"  dn="wbsbsdsjmczbgrsgwgqygfqk.gflxbsgmc"  divname="wbsbsdsjmczbgrsgwgqygfqk.gflxbsg.list"  value='' ></td>
+<td    class=" ft0 fs12 ac vm nl bg0 br2"   colspan="2"   name="wbsbsdsjmczbgrsgwgqygfqk.jyrq"  format="l8e" index="3"  type="input" ></td>
+<td    class=" ft0 fs12 al vm nl bg0 br2"   colspan="4"   name="wbsbsdsjmczbgrsgwgqygfqk.sgfs"  format="l100" index="3"  type="input" ></td>
+<td    class=" ft0 fs12 ar vm nw bg0 br2"   colspan="4"   name="wbsbsdsjmczbgrsgwgqygfqk.cgfesgq"  format="l18x2b" index="3"  type="input" ></td>
+<td    class=" ft0 fs12 ar vm nw bg0 br2"   colspan="2"   name="wbsbsdsjmczbgrsgwgqygfqk.cgfesgh"  format="l18x2b" index="3"  type="input" ></td>
+<td    class='  ar vm nw bg1 br0'><a href='javascript:void(0)'  onclick='xxbgbcontrol.addsggf(this,"{TEMPLTE_XH}");' class="jiajian"><img src="/web-accept//static/css/images/jia.png"></a></td>
+</tr>
+
+<tr style="height:29px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" ft0 fs14 fbd al vm nl bg_ne br2"   colspan="13"  >报告人处置外国企业股份情况</td>
+</tr>
+<tr style="height:41px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" ft0 fs12 ac vm nl bg_ne br2"  >被处置股份类型</td>
+<td    class=" ft0 fs12 ac vm nl bg_ne br2"   colspan="2"  >处置日期</td>
+<td    class=" ft0 fs12 ac vm nl bg_ne br2"   colspan="4"  >处置方式</td>
+<td    class=" ft0 fs12 ac vm nl bg_ne br2"   colspan="4"  >处置前报告人在外国企业持股份额</td>
+<td    class=" ft0 fs12 ac vm nl bg_ne br2"   colspan="2"  >处置后报告人在外国企业持股份额</td>
+</tr>
+<tr style="height:30px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" ft0 fs12 al vm nl bg0 br2 czgf"   name="wbsbsdsjmczbgrczwgqygfqk.gflxbcz"  index="0"  type="list"  dn="wbsbsdsjmczbgrczwgqygfqk.gflxbczmc"  divname="wbsbsdsjmczbgrczwgqygfqk.gflxbcz.list"  value='' ></td>
+<td    class=" ft0 fs12 ac vm nl bg0 br2 "   colspan="2"   name="wbsbsdsjmczbgrczwgqygfqk.czrq"  format="l8e" index="0"  type="input" ></td>
+<td    class=" ft0 fs12 al vm nl bg0 br2"   colspan="4"   name="wbsbsdsjmczbgrczwgqygfqk.czfs"  format="l100" index="0"  type="input" ></td>
+<td    class=" ft0 fs12 ar vm nw bg0 br2"   colspan="4"   name="wbsbsdsjmczbgrczwgqygfqk.cgfeczq"  format="l18x2b" index="0"  type="input" ></td>
+<td    class=" ft0 fs12 ar vm nw bg0 br2"   colspan="2"   name="wbsbsdsjmczbgrczwgqygfqk.cgfeczh"  format="l18x2b" index="0"  type="input" ></td>
+</tr>
+<tr style="height:30px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" ft0 fs12 al vm nl bg0 br2 czgf"   name="wbsbsdsjmczbgrczwgqygfqk.gflxbcz"  index="1"  type="list"  dn="wbsbsdsjmczbgrczwgqygfqk.gflxbczmc"  divname="wbsbsdsjmczbgrczwgqygfqk.gflxbcz.list"  value='' ></td>
+<td    class=" ft0 fs12 ac vm nl bg0 br2"   colspan="2"   name="wbsbsdsjmczbgrczwgqygfqk.czrq"  format="l8e" index="1"  type="input" ></td>
+<td    class=" ft0 fs12 al vm nl bg0 br2"   colspan="4"   name="wbsbsdsjmczbgrczwgqygfqk.czfs"  format="l100" index="1"  type="input" ></td>
+<td    class=" ft0 fs12 ar vm nw bg0 br2"   colspan="4"   name="wbsbsdsjmczbgrczwgqygfqk.cgfeczq"  format="l18x2b" index="1"  type="input" ></td>
+<td    class=" ft0 fs12 ar vm nw bg0 br2"   colspan="2"   name="wbsbsdsjmczbgrczwgqygfqk.cgfeczh"  format="l18x2b" index="1"  type="input" ></td>
+</tr>
+<tr style="height:30px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" ft0 fs12 al vm nl bg0 br2 czgf"   name="wbsbsdsjmczbgrczwgqygfqk.gflxbcz"  index="2"  type="list"  dn="wbsbsdsjmczbgrczwgqygfqk.gflxbczmc"  divname="wbsbsdsjmczbgrczwgqygfqk.gflxbcz.list"  value='' ></td>
+<td    class=" ft0 fs12 ac vm nl bg0 br2"   colspan="2"   name="wbsbsdsjmczbgrczwgqygfqk.czrq"  format="l8e" index="2"  type="input" ></td>
+<td    class=" ft0 fs12 al vm nl bg0 br2"   colspan="4"   name="wbsbsdsjmczbgrczwgqygfqk.czfs"  format="l100" index="2"  type="input" ></td>
+<td    class=" ft0 fs12 ar vm nw bg0 br2"   colspan="4"   name="wbsbsdsjmczbgrczwgqygfqk.cgfeczq"  format="l18x2b" index="2"  type="input" ></td>
+<td    class=" ft0 fs12 ar vm nw bg0 br2"   colspan="2"   name="wbsbsdsjmczbgrczwgqygfqk.cgfeczh"  format="l18x2b" index="2"  type="input" ></td>
+</tr>
+<tr style="height:30px;" >
+<td    class=" bg1 br4"><a href='javascript:void(0)'  onclick='xxbgbcontrol.addczgf(this,"{TEMPLTE_XH}");' class="jiajian"><img src="/web-accept//static/css/images/jia.png"></a></td>
+<td    class=" ft0 fs12 al vm nl bg0 br2 czgf"   name="wbsbsdsjmczbgrczwgqygfqk.gflxbcz"  index="3"  type="list"  dn="wbsbsdsjmczbgrczwgqygfqk.gflxbczmc"  divname="wbsbsdsjmczbgrczwgqygfqk.gflxbcz.list"  value='' ></td>
+<td    class=" ft0 fs12 ac vm nl bg0 br2"   colspan="2"   name="wbsbsdsjmczbgrczwgqygfqk.czrq"  format="l8e" index="3"  type="input" ></td>
+<td    class=" ft0 fs12 al vm nl bg0 br2"   colspan="4"   name="wbsbsdsjmczbgrczwgqygfqk.czfs"  format="l100" index="3"  type="input" ></td>
+<td    class=" ft0 fs12 ar vm nw bg0 br2"   colspan="4"   name="wbsbsdsjmczbgrczwgqygfqk.cgfeczq"  format="l18x2b" index="3"  type="input" ></td>
+<td    class=" ft0 fs12 ar vm nw bg0 br2"   colspan="2"   name="wbsbsdsjmczbgrczwgqygfqk.cgfeczh"  format="l18x2b" index="3"  type="input" ></td>
+<td    class='  ar vm nw bg1 br0' ><a href='javascript:void(0)'  onclick='xxbgbcontrol.addczgf(this,"{TEMPLTE_XH}");' class="jiajian"><img src="/web-accept//static/css/images/jia.png"></a></td>
+</tr>
+
+<tr style="height:29px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" ft0 fs14 fbd al vm nl bg_ne br2"   colspan="13"  >四、报告人声明</td>
+</tr>
+<tr style="height:26px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" ft0 fs12 al vm nl bg_ne br4"   colspan="13"  >我谨在此声明：以上呈报事项准确无误，如有不实，愿承担相应的法律责任。</td>
+</tr>
+<tr style="height:7px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" bg1 bg_ne br4"   colspan="13"  ></td>
+</tr>
+<tr style="height:7px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" bg1 bg_ne br4"   colspan="13"  ></td>
+</tr>
+<tr style="height:25px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" ft0 fs12 al vm nl bg_ne br4"   colspan="13"  >报告人签字和盖章：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;报告日期：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;年&nbsp;&nbsp;&nbsp;&nbsp;月&nbsp;&nbsp;&nbsp;&nbsp;日</td>
+</tr>
+<tr style="height:20px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" ft0 fs12 ar vm nl bg_ne br0"  >经办人：</td>
+<td    class=" ft0 fs12 al vm nl bg0 br0"   name="wbsbsdsjmczbgrsm.jbr"  format="l30" type="input" ></td>
+<td    class=" ft0 fs12 al vm nl bg_ne br0"   colspan="2"  >联系电话：</td>
+<td    class=" ft0 fs12 al vm nl bg0 br4"   colspan="9"   name="wbsbsdsjmczbgrsm.lxdh"  format="l20e" type="input" ></td>
+</tr>
+<tr style="height:0px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" bg1 bg_ne br4"   colspan="13"  ></td>
+</tr>
+<tr style="height:0px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" bg1 bg_ne br2"   colspan="13"  ></td>
+</tr>
+<tr style="height:25px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" ft0 fs12 fbd al vm nl bg_ne br2"   colspan="13"  >以下由主管税务机关填写</td>
+</tr>
+<tr style="height:25px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" ft0 fs12 al vm nl bg_ne br0"   colspan="6"  >受理人：</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br4"   colspan="7"  >税务机关（盖章）</td>
+</tr>
+<tr style="height:44px;" >
+<td    class=" bg1 br4"  ></td>
+<td    class=" ft0 fs12 al vm nl bg_ne br1"   colspan="6"  >联系电话：</td>
+<td    class=" ft0 fs12 al vm nl bg_ne br2"   colspan="7"  >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;年&nbsp;&nbsp;&nbsp;&nbsp;月&nbsp;&nbsp;&nbsp;日</td>
+</tr>
+</table>
+
+
+</html>
+  </div>
+  
+
+</div>
+
+
+<div class="top">
+  <div class="action" >
+    <div class="toolbar" style="text-align:center; padding-top:5px;">
+      <input name="savebtn" id="savebtn" type="button"  class="btn btn-success" value="保存草稿" title="保存草稿">
+      <input name="verifyBtn" id="verifyBtn" type="button" class="btn btn-info" value="校验并保存" title="校验并保存">
+
+      
+
+      
+      
+        
+               
+      
+    </div>
+  </div>
+</div>
+</body>
+
+</html>

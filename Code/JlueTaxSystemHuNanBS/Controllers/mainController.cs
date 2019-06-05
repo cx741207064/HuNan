@@ -2,32 +2,28 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
 using JlueTaxSystemHuNanBS.Code;
+using System.Web.Mvc;
 
 namespace JlueTaxSystemHuNanBS.Controllers
 {
     public class mainController : Controller
     {
-        private readonly IHostingEnvironment he;
-
-        private YsbqcSetting set { get; }
+        private YsbqcSetting set { get; set; }
 
         GDTXUserYSBQC qc;
 
-        public mainController(IHostingEnvironment _he, YsbqcSetting _set)
+        public mainController(YsbqcSetting _set)
         {
-            he = _he;
             set = _set;
         }
 
         [Route("web-accept/wssb/main/toDsPage.html")]
-        public IActionResult toDsPage(string type, string zsxmDm, string yzpzzlDm)
+        public System.Web.Mvc.ActionResult toDsPage(string type, string zsxmDm, string yzpzzlDm)
         {
-            string path = he.WebRootPath + "/web-accept/wssb/main/toDsPage";
+            string path = AppDomain.CurrentDomain.BaseDirectory + "/web-accept/wssb/main/toDsPage";
             path += "." + type;
             if (!string.IsNullOrEmpty(zsxmDm))
             {
@@ -43,7 +39,7 @@ namespace JlueTaxSystemHuNanBS.Controllers
         }
 
         [Route("web-accept/wssb/main/dspage.html")]
-        public IActionResult dspage(string type, string yzpzzlDm)
+        public System.Web.Mvc.ActionResult dspage(string type, string yzpzzlDm)
         {
             switch (type)
             {
@@ -52,7 +48,7 @@ namespace JlueTaxSystemHuNanBS.Controllers
                 default:
                     break;
             }
-            string path = he.WebRootPath + "/web-accept/wssb/main/dspage";
+            string path = AppDomain.CurrentDomain.BaseDirectory + "/web-accept/wssb/main/dspage";
             path += "." + type;
             if (!string.IsNullOrEmpty(yzpzzlDm) && yzpzzlDm != "undefined")
             {
@@ -64,28 +60,28 @@ namespace JlueTaxSystemHuNanBS.Controllers
         }
 
         [Route("web-accept/wssb/main/yqsbjkqtbb.html")]
-        public ActionResult<JObject> yqsbjkqtbb(string dm)
+        public JObject yqsbjkqtbb(string dm)
         {
             JObject re_json = new JObject();
-            string str = System.IO.File.ReadAllText(he.WebRootPath + "/web-accept/wssb/main/yqsbjkqtbb.json");
+            string str = System.IO.File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + "/web-accept/wssb/main/yqsbjkqtbb.json");
             re_json = JsonConvert.DeserializeObject<JObject>(str);
             return re_json;
         }
 
         [Route("web-accept/wssb/main/index_qyxx.html")]
-        public IActionResult index_qyxx()
+        public System.Web.Mvc.ActionResult index_qyxx()
         {
             return View("FunctionNotOpen");
         }
 
         [Route("web-accept/wssb/main/index_yqsb.html")]
-        public IActionResult index_yqsb()
+        public System.Web.Mvc.ActionResult index_yqsb()
         {
             return View("FunctionNotOpen");
         }
 
         [Route("web-accept/wssb/main/index_nssb.html")]
-        public IActionResult index_nssb()
+        public System.Web.Mvc.ActionResult index_nssb()
         {
             List<GDTXUserYSBQC> listQC = set.getUserYSBQC();
             var query = from qc in listQC where qc.BDDM != set.BDDM.XqykjzzCwbb select qc;
@@ -94,7 +90,7 @@ namespace JlueTaxSystemHuNanBS.Controllers
         }
 
         [Route("web-accept/wssb/main/index_szxx_nssb.html")]
-        public IActionResult index_szxx_nssb()
+        public System.Web.Mvc.ActionResult index_szxx_nssb()
         {
             List<GDTXUserYSBQC> listQC = set.getUserYSBQC();
             var query = from qc in listQC where qc.BDDM != set.BDDM.XqykjzzCwbb select qc;
@@ -103,7 +99,7 @@ namespace JlueTaxSystemHuNanBS.Controllers
         }
 
         [Route("web-accept/wssb/main/index_sbzf.html")]
-        public IActionResult index_sbzf()
+        public System.Web.Mvc.ActionResult index_sbzf()
         {
             List<GDTXUserYSBQC> listQC = set.getYsbUserYSBQC();
             var query = from qc in listQC where qc.BDDM != set.BDDM.XqykjzzCwbb select qc;
@@ -112,13 +108,13 @@ namespace JlueTaxSystemHuNanBS.Controllers
         }
 
         [Route("web-accept/wssb/main/index_bbcx.html")]
-        public IActionResult index_bbcx()
+        public System.Web.Mvc.ActionResult index_bbcx()
         {
             return View(RouteData.Values["action"].ToString());
         }
 
         [Route("web-accept/wssb/main/indexBbcxForPage.html")]
-        public ActionResult<JObject> indexBbcxForPage(string sbzldms)
+        public JObject indexBbcxForPage(string sbzldms)
         {
             JObject re_json = new JObject();
             JArray wbSbSbxxes = new JArray();
@@ -127,14 +123,14 @@ namespace JlueTaxSystemHuNanBS.Controllers
             string ybtse;
             int count = 0;
             string str="";
-            string path = he.WebRootPath + "/web-accept/wssb/main/indexBbcxForPage." + sbzldms + ".json";
+            string path = AppDomain.CurrentDomain.BaseDirectory + "/web-accept/wssb/main/indexBbcxForPage." + sbzldms + ".json";
             if (!System.IO.File.Exists(path))
             {
-                str = System.IO.File.ReadAllText(he.WebRootPath + "/web-accept/wssb/main/indexBbcxForPage.json");
+                str = System.IO.File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + "/web-accept/wssb/main/indexBbcxForPage.json");
             }
             else
             {
-                str = System.IO.File.ReadAllText(he.WebRootPath + "/web-accept/wssb/main/indexBbcxForPage." + sbzldms + ".json");
+                str = System.IO.File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + "/web-accept/wssb/main/indexBbcxForPage." + sbzldms + ".json");
             }
             re_json = JsonConvert.DeserializeObject<JObject>(str);
 
@@ -233,6 +229,38 @@ namespace JlueTaxSystemHuNanBS.Controllers
                     }
                     re_json["pagination"]["totalNum"] = count;
                     break;
+                case "04":
+                    qc = set.getUserYSBQC(set.BDDM.Qysds);
+                    reportData = set.getUserYSBQCReportData(qc.Id, qc.BDDM);
+                    if (!reportData.HasValues)
+                    {
+                        break;
+                    }
+                    jo["sbuuid"] = "D175734A41B14DD391B85088B1DCFEA9";
+                    jo["nsrsbh"] = "91430105MA4L4UB74U";
+                    jo["shxydm"] = "91430105MA4L4UB74U";
+                    jo["djxh"] = 10114301010000046000;
+                    jo["sbzlDm"] = qc.BDDM;
+                    jo["skssqq"] = qc.SKSSQQ;
+                    jo["skssqz"] = qc.SKSSQZ;
+                    jo["bbzt"] = "0";
+                    jo["bbztDisplay"] = "申报成功";
+                    jo["ztxx"] = "申报成功";
+                    jo["sbrq"] = qc.HappenDate;
+                    jo["sbzlMc"] = qc.TaskName;
+                    query = from d in reportData
+                            from dd in d["data"]
+                            where dd["name"].ToString() == "wbsbqysdsa2018a200000.ybtsdselj"
+                            select dd;
+                    ybtse = query.FirstOrDefault()["value"].ToString();
+
+                    jo["bbbbh"] = "v2";
+                    jo["ybtse"] = decimal.Parse(ybtse);
+                    jo["ybtseDisplay"] = ybtse;
+                    wbSbSbxxes.Add(jo);
+                    count++;
+                    re_json["pagination"]["totalNum"] = count;
+                    break;
             }
             re_json["wbSbSbxxes"] = wbSbSbxxes;
 
@@ -240,22 +268,22 @@ namespace JlueTaxSystemHuNanBS.Controllers
         }
 
         [Route("web-accept/wssb/main/index_zf.html")]
-        public ActionResult<JObject> index_zf(string sbzlDm)
+        public JObject index_zf(string sbzlDm)
         {
             qc = set.getUserYSBQC(sbzlDm);
             GTXMethod.DeleteUserReportData(qc.Id.ToString(), sbzlDm);
             GTXMethod.UpdateYSBQC(qc.Id.ToString(), set.SBZT.WTX);
             JObject re_json = new JObject();
-            string str = System.IO.File.ReadAllText(he.WebRootPath + "/web-accept/wssb/main/index_zf.json");
+            string str = System.IO.File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + "/web-accept/wssb/main/index_zf.json");
             re_json = JsonConvert.DeserializeObject<JObject>(str);
             return re_json;
         }
 
         [Route("web-accept/wssb/main/checkhasfjs.html")]
-        public ActionResult<JObject> checkhasfjs()
+        public JObject checkhasfjs()
         {
             JObject re_json = new JObject();
-            string str = System.IO.File.ReadAllText(he.WebRootPath + "/web-accept/wssb/main/checkhasfjs.json");
+            string str = System.IO.File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + "/web-accept/wssb/main/checkhasfjs.json");
             re_json = JsonConvert.DeserializeObject<JObject>(str);
             return re_json;
         }

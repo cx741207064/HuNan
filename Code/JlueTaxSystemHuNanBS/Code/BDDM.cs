@@ -7,13 +7,50 @@ namespace JlueTaxSystemHuNanBS.Code
 {
     public class BDDM
     {
-        public string Yhs => "Yhs";
+        public string Yhs
+        {
+            get
+            {
+                return "Yhs";
+            }
+            set { }
+        }
 
-        public string YbnsrZzs => "10104";
+        public string YbnsrZzs
+        {
+            get
+            {
+                return "10104";
+            }
+            set { }
+        }
 
-        public string XqykjzzCwbb => "cwbb";
+        public string XqykjzzCwbb
+        {
+            get
+            {
+                return "cwbb";
+            }
+            set { }
+        }
 
-        public string Fjs => "20101";
+        public string Fjs
+        {
+            get
+            {
+                return "20101";
+            }
+            set { }
+        }
+
+        public string Qysds
+        {
+            get
+            {
+                return "10435";
+            }
+            set { }
+        }
 
     }
 }

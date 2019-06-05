@@ -1,27 +1,15 @@
-﻿using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc.Filters;
+﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Web.Mvc;
 
 namespace JlueTaxSystemHuNanBS.Code
 {
     public class ActionFilter : IActionFilter
     {
-        private readonly IHostingEnvironment he;
-
-        public ActionFilter(IHostingEnvironment _he)
-        {
-            he = _he;
-        }
-
         public void OnActionExecuting(ActionExecutingContext context)
         {
-            string path = he.ContentRootPath + @"\Log\";
+            string path = AppDomain.CurrentDomain.BaseDirectory + @"\Log\";
             string fileFullPath = path + "Session.json";
             if (!System.IO.File.Exists(fileFullPath))
             {
@@ -29,13 +17,13 @@ namespace JlueTaxSystemHuNanBS.Code
             }
             string str = System.IO.File.ReadAllText(fileFullPath);
             JObject jo = JsonConvert.DeserializeObject<JObject>(str);
-            context.HttpContext.Session.SetString("questionId", jo["questionId"].ToString());
-            context.HttpContext.Session.SetString("userquestionId", jo["userquestionId"].ToString());
-            context.HttpContext.Session.SetString("companyId", jo["companyId"].ToString());
-            context.HttpContext.Session.SetString("classId", jo["classId"].ToString());
-            context.HttpContext.Session.SetString("courseId", jo["courseId"].ToString());
-            context.HttpContext.Session.SetString("userId", jo["userId"].ToString());
-            context.HttpContext.Session.SetString("Name", jo["Name"].ToString());
+            context.HttpContext.Session["questionId"] = jo["questionId"].ToString();
+            context.HttpContext.Session["userquestionId"] = jo["userquestionId"].ToString();
+            context.HttpContext.Session["companyId"] = jo["companyId"].ToString();
+            context.HttpContext.Session["classId"] = jo["classId"].ToString();
+            context.HttpContext.Session["courseId"] = jo["courseId"].ToString();
+            context.HttpContext.Session["userId"] = jo["userId"].ToString();
+            context.HttpContext.Session["Name"] = jo["Name"].ToString();
         }
 
         public void OnActionExecuted(ActionExecutedContext context)

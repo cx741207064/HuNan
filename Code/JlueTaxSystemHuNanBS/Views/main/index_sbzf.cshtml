@@ -1,6 +1,6 @@
-@using JlueTaxSystemHuNanBS.Code
+﻿@using JlueTaxSystemHuNanBS.Code
 @model List<GDTXUserYSBQC>
-@inject YsbqcSetting set
+@{YsbqcSetting set = new YsbqcSetting(); }
 
 <div class="tax-title">
     <div class="title-name">申报作废或更正</div>
@@ -64,7 +64,7 @@
                                 原报表
                             </td>
                             <td>
-                                @if (qc.BDDM == set.BDDM.Fjs)
+                                @if (qc.BDDM == set.BDDM.Fjs || qc.BDDM == set.BDDM.Qysds)
                                 {
                                     <a href="javascript:void(0);"
                                        onclick="zf('D175734A41B14DD391B85088B1DCFEA9','@qc.BDDM')"><i class="iconfont">&#xe713;</i>作废</a>

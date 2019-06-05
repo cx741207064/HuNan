@@ -1,6 +1,6 @@
-@using  JlueTaxSystemHuNanBS.Code
+﻿@using  JlueTaxSystemHuNanBS.Code
 @model JlueTaxSystemHuNanBS.Models.FjsModel
-@inject YsbqcSetting set
+@{YsbqcSetting set = new YsbqcSetting(); }
 
 <html>
 <head>
@@ -743,11 +743,11 @@
                         <tr style="height:29px;">
                             <td class=" bg1 br0"></td>
                             <td class=" ft0 fs12 ar vm nw bg1 br0" colspan="2">税款所属期限：</td>
-                            <td class=" ft0 fs12 al vm nw bg1 br0">2019-04-01</td>
+                            <td class=" ft0 fs12 al vm nw bg1 br0">@Model.GDTXDate.skssqq</td>
                             <td class=" ft0 fs12 ac vm nw bg1 br0" colspan="2">至</td>
-                            <td class=" ft0 fs12 al vm nw bg1 br0">2019-04-30</td>
+                            <td class=" ft0 fs12 al vm nw bg1 br0">@Model.GDTXDate.skssqz</td>
                             <td class=" ft0 fs12 al vm nw bg1 br0" colspan="2">填表日期：</td>
-                            <td class=" ft0 fs12 al vm nw bg1 br0" colspan="3" name="common.tbrq">2019-05-14</td>
+                            <td class=" ft0 fs12 al vm nw bg1 br0" colspan="3" name="common.tbrq">@Model.GDTXDate.tbrq</td>
                             <td class=" bg1 br0"></td>
                             <td class=" bg1 br0"></td>
                             <td class=" bg1 br0"></td>
@@ -764,9 +764,9 @@
                         <tr style="height:29px;">
                             <td class=" bg1 br0"></td>
                             <td class=" ft0 fs12 ar vm nw bg1 br1" colspan="2">纳税人识别号：</td>
-                            <td class=" ft0 fs12 al vm nw bg1 br1" colspan="4">91430105MA4L4UB74U</td>
+                            <td class=" ft0 fs12 al vm nw bg1 br1" colspan="4">@Model.Nsrxx.NSRSBH</td>
                             <td class=" ft0 fs12 al vm nw bg1 br1" colspan="2">纳税人名称：&nbsp;</td>
-                            <td class=" ft0 fs12 al vm nw bg1 br1" colspan="9">湖南威信文化传媒有限公司</td>
+                            <td class=" ft0 fs12 al vm nw bg1 br1" colspan="9">@Model.Nsrxx.NSRMC</td>
                             <td class=" bg1 br1" colspan="2"></td>
                             <td class=" bg1 br1"></td>
                             <td class=" bg1 br1"></td>
@@ -835,7 +835,7 @@
                             <td class=" ft0 fs12 ac vm nw bg_ne br2" colspan="2">12=7-9-10-11</td>
                         </tr>
 
-                        @await Html.PartialAsync("_PartialFjs", Model.FjsData)
+                        @Html.Partial("_PartialFjs", Model.FjsData)
 
                         <tr style="height:29px;">
                             <td class=" bg1 br4"></td>

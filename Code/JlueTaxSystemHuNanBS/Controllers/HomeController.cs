@@ -3,31 +3,27 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
 using JlueTaxSystemHuNanBS.Models;
-using Microsoft.AspNetCore.Hosting;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
 using JlueTaxSystemHuNanBS.Code;
+using System.Web.Mvc;
 
 namespace JlueTaxSystemHuNanBS.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly IHostingEnvironment he;
-
-        private YsbqcSetting set { get; }
+        private YsbqcSetting set { get; set; }
 
         GDTXUserYSBQC qc;
 
-        public HomeController(IHostingEnvironment _he, YsbqcSetting _set)
+        public HomeController(YsbqcSetting _set)
         {
-            he = _he;
             set = _set;
         }
 
         [Route("sword")]
-        public IActionResult sword(string ctrl, string functionUrl)
+        public System.Web.Mvc.ActionResult sword(string ctrl, string functionUrl)
         {
             string viewName = "";
             ViewBag.functionUrl = functionUrl;
@@ -58,9 +54,9 @@ namespace JlueTaxSystemHuNanBS.Controllers
         }
 
         [Route("ajax.sword")]
-        public IActionResult ajax(string ctrl, string postData)
+        public System.Web.Mvc.ActionResult ajax(string ctrl, string postData)
         {
-            string dir = "ajax.sword";
+            string dir = "ajaxSword";
             string path = "";
             string str = "";
             if (postData != null)
@@ -76,11 +72,11 @@ namespace JlueTaxSystemHuNanBS.Controllers
                         qc = set.getUserYSBQC(set.BDDM.Yhs);
                         set.saveUserYSBQCReportData(pd.data, qc.Id.ToString(), qc.BDDM);
                         GTXMethod.UpdateYSBQC(qc.Id.ToString(), set.SBZT.YSB);
-                        path = he.WebRootPath + "/" + dir + "/" + action + ".json";
+                        path = AppDomain.CurrentDomain.BaseDirectory + "/" + dir + "/" + action + ".json";
                         str = System.IO.File.ReadAllText(path);
                         break;
                     case "SB151zlbsslCtrl_queryKjzdzzDmByDjxh":
-                        path = he.WebRootPath + "/" + dir + "/" + action + ".json";
+                        path = AppDomain.CurrentDomain.BaseDirectory + "/" + dir + "/" + action + ".json";
                         str = System.IO.File.ReadAllText(path);
                         re_json = JsonConvert.DeserializeObject<JObject>(str);
                         gd = set.getGDTXDate(set.BDDM.XqykjzzCwbb);
@@ -90,7 +86,7 @@ namespace JlueTaxSystemHuNanBS.Controllers
                         str = JsonConvert.SerializeObject(re_json);
                         break;
                     case "GY002CommonCtrl_queryNsrxxByNsrsbh":
-                        path = he.WebRootPath + "/" + dir + "/" + action + ".json";
+                        path = AppDomain.CurrentDomain.BaseDirectory + "/" + dir + "/" + action + ".json";
                         str = System.IO.File.ReadAllText(path);
                         re_json = JsonConvert.DeserializeObject<JObject>(str);
                         gd = set.getGDTXDate(set.BDDM.XqykjzzCwbb);
@@ -103,7 +99,7 @@ namespace JlueTaxSystemHuNanBS.Controllers
                         str = JsonConvert.SerializeObject(re_json);
                         break;
                     case "SB025YhssbCtrl_reloadNsrzfhy":
-                        path = he.WebRootPath + "/" + dir + "/" + action + ".json";
+                        path = AppDomain.CurrentDomain.BaseDirectory + "/" + dir + "/" + action + ".json";
                         str = System.IO.File.ReadAllText(path);
                         re_json = JsonConvert.DeserializeObject<JObject>(str);
                         xx = set.getNsrxx();
@@ -112,17 +108,17 @@ namespace JlueTaxSystemHuNanBS.Controllers
                         break;
                     case "SB025YhssbCtrl_getDefaultJmxx":
                         string zspmDm = pd.data.Where(a => a["name"].ToString() == "zspmDm").FirstOrDefault()["value"].ToString();
-                        path = he.WebRootPath + "/" + dir + "/" + action + "." + zspmDm + ".json";
+                        path = AppDomain.CurrentDomain.BaseDirectory + "/" + dir + "/" + action + "." + zspmDm + ".json";
                         str = System.IO.File.ReadAllText(path);
                         break;
                     case "SB104xqykjzzcwbsCtrl_saveZcfzb":
                         qc = set.getUserYSBQC(set.BDDM.XqykjzzCwbb);
                         set.saveUserYSBQCReportData(pd.data, qc.Id.ToString(), qc.BDDM);
-                        path = he.WebRootPath + "/" + dir + "/" + action + ".json";
+                        path = AppDomain.CurrentDomain.BaseDirectory + "/" + dir + "/" + action + ".json";
                         str = System.IO.File.ReadAllText(path);
                         break;
                     case "SBGyCtrl_jsskssqz":
-                        path = he.WebRootPath + "/" + dir + "/" + action + ".json";
+                        path = AppDomain.CurrentDomain.BaseDirectory + "/" + dir + "/" + action + ".json";
                         str = System.IO.File.ReadAllText(path);
                         re_json = JsonConvert.DeserializeObject<JObject>(str);
                         gd = set.getGDTXDate(set.BDDM.Yhs);
@@ -132,23 +128,23 @@ namespace JlueTaxSystemHuNanBS.Controllers
                         str = JsonConvert.SerializeObject(re_json);
                         break;
                     default:
-                        path = he.WebRootPath + "/" + dir + "/" + action + ".json";
+                        path = AppDomain.CurrentDomain.BaseDirectory + "/" + dir + "/" + action + ".json";
                         str = System.IO.File.ReadAllText(path);
                         break;
                 }
             }
             else
             {
-                path = he.WebRootPath + "/" + dir + "/" + ctrl + ".json";
+                path = AppDomain.CurrentDomain.BaseDirectory + "/" + dir + "/" + ctrl + ".json";
                 str = System.IO.File.ReadAllText(path);
             }
             return Content(str, "application/json;charset=utf-8");
         }
 
         [Route("form.sword")]
-        public IActionResult form(string postData)
+        public System.Web.Mvc.ActionResult form(string postData)
         {
-            string dir = "form.sword";
+            string dir = "formSword";
             string path = "";
             postData pd = JsonConvert.DeserializeObject<postData>(postData);
             string str = "";
@@ -164,7 +160,7 @@ namespace JlueTaxSystemHuNanBS.Controllers
                     model = new Model { Nsrxx = xx, GDTXDate = gd };
                     return View(action, model);
                 case "SB025YhssbCtrl_cwgzInitView":
-                    path = he.WebRootPath + "/" + dir + "/" + action + ".SwordPageData.json";
+                    path = AppDomain.CurrentDomain.BaseDirectory + "/" + dir + "/" + action + ".SwordPageData.json";
                     str = System.IO.File.ReadAllText(path);
                     re_json = JsonConvert.DeserializeObject<JObject>(str);
                     gd = set.getGDTXDate(set.BDDM.Yhs);
@@ -204,24 +200,24 @@ namespace JlueTaxSystemHuNanBS.Controllers
         }
 
         [Route("download.sword")]
-        public IActionResult download(string postData)
+        public System.Web.Mvc.ActionResult download(string postData)
         {
             return View(set.functionNotOpen);
         }
 
         [Route("QuestionMain")]
-        public IActionResult QuestionMain()
+        public System.Web.Mvc.ActionResult QuestionMain()
         {
             return View();
         }
 
         [Route("ChuShiHua.ashx")]
-        public IActionResult ChuShiHua()
+        public System.Web.Mvc.ActionResult ChuShiHua()
         {
-            string method = Request.Query["Method"].ToString();
-            string ClassId = Request.Query["ClassId"].ToString();
-            string userId = Request.Query["userId"].ToString();
-            string SortId = Request.Query["SortId"].ToString();
+            string method = Request.QueryString["Method"].ToString();
+            string ClassId = Request.QueryString["ClassId"].ToString();
+            string userId = Request.QueryString["userId"].ToString();
+            string SortId = Request.QueryString["SortId"].ToString();
             string res = "";
             try
             {
@@ -229,9 +225,9 @@ namespace JlueTaxSystemHuNanBS.Controllers
                 {
                     //国地税题目                
                     publicmethod p = new publicmethod();
-                    string path = AppConfigurtaionServices.Configuration["appSettings:Practicepath"] + "/APIPractice/Chongzuo.asmx/GetHuNanData?UserId=" + userId + "&ClassId=" + ClassId + "&SortId=" + SortId;
+                    string path = System.Configuration.ConfigurationManager.AppSettings["Practicepath"] + "/APIPractice/Chongzuo.asmx/GetHuNanData?UserId=" + userId + "&ClassId=" + ClassId + "&SortId=" + SortId;
                     string resut = p.HttpGetFunction(path);
-                    string billpath = AppConfigurtaionServices.Configuration["appSettings:tikupath"] + "/GTX/GDTXHuNanUserYSBQC/RedoAllQuestionsHuNan";
+                    string billpath = System.Configuration.ConfigurationManager.AppSettings["tikupath"] + "/GTX/GDTXHuNanUserYSBQC/RedoAllQuestionsHuNan";
                     res = p.HttpPost(billpath, string.Format("jsonData={0}", resut));
 
                 }

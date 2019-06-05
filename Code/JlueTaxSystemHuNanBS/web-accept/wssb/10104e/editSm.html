@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html style="height:100%">
+
+
+
+
+
+
+
+
+
+
+<head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <!-- HTTP 1.1 -->
+    <meta http-equiv="pragma" content="no-cache">
+    <!-- HTTP 1.0 -->
+    <meta http-equiv="cache-control" content="no-cache">
+    <!-- Prevent caching at the proxy server -->
+    <meta http-equiv="expires" content="-1">
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9" />
+    <title>艾易税</title>
+    <link rel="stylesheet" type="text/css" href="/web-accept//static/css/main/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="/web-accept//static/css/sbb/iconfont.css">
+    <link rel="stylesheet" type="text/css" href="/web-accept//static/css/sbb/select2custom.css">
+    <link rel="stylesheet" type="text/css" href="/web-accept//static/css/sbb/style.css">
+    <link rel="stylesheet" type="text/css" href="/web-accept//static/css/sbb/leftmenu.css">
+    <link rel="stylesheet" type="text/css" href="/web-accept//static/css/sbb/sbbedit.css">
+    <link rel="stylesheet" type="text/css" href="/web-accept//static/css/sbb/jquery.abc.css">
+    <link rel="stylesheet" type="text/css" href="/web-accept//static/css/icheck/green.css">
+    <link type="text/css" rel="stylesheet" href="/web-accept//static/css/main/bootstrap-datetimepicker.min.css"/>
+    
+    
+<script src="/web-accept//wssb/static/js.html?ver=5D6C04B23CF7B3F9C213EC224E75DF9D&p=2&dm=10104&fs=ZWRpdFNtLA=="></script><script src="/web-accept//static/js/layer/layer.js"></script>
+    
+</head>
+<script>
+    $(function(){
+        try {
+            var $sheet = $("#editSm").sheet(editSmcheck, {
+                tableName: 'editSm',
+                enterNav: "H"
+            });
+            currSbb = "editSm";
+            $.sheet.currentTable = currSbb;
+            //初始化表数据
+            for (var i = 0; i < $.sheet.tables.length; i++) {
+                $.sheet.tables[i].initTable();
+            }
+            setTimeout(checkPageFinish, 500);
+        } catch (e) {
+            console.log(e);
+            closeLoadding();
+            showErrorMsg("系统异常，初始化申报表失败，请联系系统管理员");
+        }
+
+        function checkPageFinish() {
+            //判断初始化表数据是否存在错误
+            for (var i = 0; i < $.sheet.tables.length; i++) {
+                if($.sheet.tables[i].isExitsError()){
+                    closeLoadding();
+                    showErrorMsg("申报表公式执行失败，请联系系统管理员");
+                    return ;
+                }
+            }
+
+            //判断初始化表数据是否完成
+            for (var i = 0; i < $.sheet.tables.length; i++) {
+                if(!$.sheet.tables[i].isInitFinsh()){
+                    setTimeout(checkPageFinish,200);
+                    return ;
+                }
+            }
+
+            addSafeClick("savebtn",verify);
+            addSafeClick("commitBtn",commit);
+            closeLoadding();
+            //$("#savebtn").focus();
+        }
+
+        function commit(){
+            validateAndCloseMsgForZzs(getMsgHtml("声明内容提交保存后，将不能修改，您是否确定提交？"),function(){
+                var editTables = getEditTable();
+                try {
+                    showLoadding();
+                    var table;
+                    var tablejsons = "[";
+                    var sbzl = "10426";
+                    if(editTables.length == 0){
+                        var jsonArray = [];
+                        tablejsons += '{"sbbname":"' + "" + '","bbzt":"","sbuuid":"","isUserEditable":' + "false" + ',"data":' + $.toJSON(jsonArray) + '}';
+                    }else{
+                        for (var i = 0; i < editTables.length; i++) {
+                            table = editTables[i];
+                            tablejsons += '{"sbbname":"' + table.name + '","bbzt":"","sbuuid":"","isUserEditable":' + table.isUserEditable() + ',"data":' +
+                                    table.getJson() + '}';
+                            if (i != editTables.length - 1) {
+                                tablejsons += ",";
+                            }
+                        }
+                    }
+                    tablejsons += "]";
+
+                    var casignstr = "";
+                    var ctx = $("#ctx").val();
+                    var sfybflag = false;
+                    $.ajax({
+                        type: "POST",
+                        url: ctx+'/wssb/10104e/smsave.html',
+                        data: {'tablejsons': tablejsons},
+                        async:sfybflag,
+                        dataType: 'json',
+                        success: function (data) {
+                            var result = eval(data);
+                            if (result.code == '00') {
+                                window.parent.document.getElementById("smbz2").value="Y";
+                                validateAndCloseMsgTrueWithArea("提交成功！您可前往电子税务局系统打印与导出声明。","",function(){parent.layer.closeAll()});
+                                //showMsg("保存成功！");
+                            } else {
+                                showErrorMsg('提交失败：'+result.msg);
+                            }
+                            closeLoadding();
+                        }, error: function (request, error, status) {
+                            showErrorMsg('提交失败：' + error);
+                            closeLoadding();
+                        }
+                    });
+                }
+                catch (err) {
+                    if(sfybflag){//如果是异步
+                        showErrorMsg('提交失败：系统异常');
+                    }
+                    closeLoadding();
+                }
+            },function(index){
+                layer.close(index);
+            });
+        }
+
+        function verify() {
+            if (!submitCurrSbb()) {
+                return;
+            }
+            var sbuuid = "";
+            var bbzt = "";
+            var isverifyallsheet = $.sheet.FCT.verifyAllSheet();
+            if (isverifyallsheet) {
+
+            } else {
+                showErrorMsg("存在不符合校验规则的数据，请检查报表进行数据修正，移动鼠标到红框处可查看具体错误信息。");
+                closeLoadding();
+                return;
+            }
+            var isSuccess = false;//设置保存成功返回值
+            setViewValue();
+            $("#editSm").hide();
+            $("#viewSm").show();
+        }
+
+        function setViewValue(){
+            var editTable=getTableObj("editSm");
+            //纳税人识别号
+            $("#zcsmview_nsrsbh").html(getTdValue(editTable,"zcsmform.nsrsbh"));
+            //纳税人名称
+            $("#zcsmview_nsrmc").html(getTdValue(editTable,"zcsmform.nsrmc"));
+
+            var hy = getTdValue(editTable,"zcsmform.ygzzhydm");
+            $("td[id^='zcsmview_dm']").html("");
+            $("#zcsmview_dm"+hy).html("√");
+            var xsejsqq = getTdValue(editTable,"zcsmform.xsejsqq");
+            if(xsejsqq){
+               var xsejsqqs= xsejsqq.split("-");
+                $("#zcsmview_xsejsqq_n").html(xsejsqqs[0]);
+                $("#zcsmview_xsejsqq_y").html(xsejsqqs[1]);
+            }
+            var xsejsqz = getTdValue(editTable,"zcsmform.xsejsqz");
+            if(xsejsqz){
+                var xsejsqzs= xsejsqz.split("-");
+                $("#zcsmview_xsejsqz_n").html(xsejsqzs[0]);
+                $("#zcsmview_xsejsqz_y").html(xsejsqzs[1]);
+            }
+            $("#zcsmview_fwxsehj").html( getTdValue(editTable,"zcsmform.fwxsehj"));
+            $("#zcsmview_xsehj").html( getTdValue(editTable,"zcsmform.xsehj"));
+            $("#zcsmview_bl").html( getTdText(editTable,"zcsmform.bl"));
+            $("#zcsmview_nd").html(getTdValue(editTable,"zcsmform.nd"));
+            $("#zcsmview_yxqq").html(getTdValue(editTable,"zcsmform.yxqq"));
+            $("#zcsmview_yxqz").html(getTdValue(editTable,"zcsmform.yxqz"));
+        }
+    });
+
+    function prev(){
+        $("#viewSm").hide();
+        $("#editSm").show();
+    }
+</script>
+<input id="ctx" type="hidden" value="/web-accept/"/>
+<input id="uid" type="hidden" value=""/>
+<input id="nsrsbh" type="hidden" value="91430105MA4L4UB74U"/>
+<input id="djxhs" type="hidden" value=""/>
+<input id="gsdjxh" type="hidden" value="10114301010000045295"/>
+<input id="djrq" type="hidden" value="2016-06-08"/>
+<body style="height:100%;overflow:auto;">
+<div id="editSm">
+<table class="sbbtable" style="width:70%;margin:0px auto">
+    <tr>
+        <td><div style="width:247px;"></div></td>
+        <td><div style="width:179px;"></div></td>
+        <td><div style="width:179px;"></div></td>
+        <td><div style="width:179px;"></div></td>
+    </tr>
+    <tr style="height:26px;" >
+        <td    class=" bg1 br0"  ></td>
+        <td    class=" bg1 br0"  ></td>
+    </tr>
+    <tr style="height:42px;" >
+        <td    class=" ft0 fs18 fbd ac vm nw bg1 br1"   colspan="4"  >适用加计抵减政策的声明</td>
+    </tr>
+    <tr style="height:39px;" >
+        <td    class=" ft0 fs11 ar vm nw bg_ne  br3"  >纳税人识别号</td>
+        <td    class=" ft0 fs11 al vm nw bg_ne  br2" isEditable=false  name="zcsmform.nsrsbh"  format="l20" type="input" >91430105MA4L4UB74U</td>
+        <td    class=" ft0 fs11 ar vm nw bg_ne  br2"  >纳税人名称</td>
+        <td    class=" ft0 fs11 al vm bg_ne  br2" isEditable=false  name="zcsmform.nsrmc"  format="l300" type="input" >湖南威信文化传媒有限公司</td>
+    </tr>
+    <tr style="height:39px;" >
+        <td    class=" ft0 fs11 ar vm nw bg_ne  br3"  >适用政策年度</td>
+        <td    class=" ft0 fs11 al vm nw bg_ne  br2" isEditable=false  name="zcsmform.nd"  type="time,yyyy" >2019</td>
+        <td    class=" ft0 fs11 ar vm nw bg_ne  br2"  >所属行业选择</td>
+        <td    class=" ft0 fs11 al vm bg0 br2"   name="zcsmform.ygzzhydm"  type="list"  dn="zcsmform.ygzzhymc"  divname="zcsmform.ygzzhydm.list"  value='' ></td>
+    </tr>
+    <tr style="height:39px;" >
+        <td    class=" ft0 fs11 ar vm nw bg_ne  br3"  >有效期起</td>
+        <td    class=" ft0 fs11 al vm nw bg_ne  br2" isEditable=false name="zcsmform.yxqq"  type="time,yyyy-MM-dd" >2019-04-01</td>
+        <td    class=" ft0 fs11 ar vm nw bg_ne  br2"  >有效期止</td>
+        <td    class=" ft0 fs11 al vm nw bg_ne  br2" isEditable=false  name="zcsmform.yxqz"  type="time,yyyy-MM-dd" >2019-12-31</td>
+    </tr>
+    <tr style="height:39px;" >
+        <td    class=" ft0 fs11 ar vm nw bg_ne  br3"  >销售额计算期起</td>
+        <td    class=" ft0 fs11 al vm nw bg0 br2"   name="zcsmform.xsejsqq"  type="time,yyyy-MM" format="l7x">2018-04</td>
+        <td    class=" ft0 fs11 ar vm nw bg_ne  br2"  >销售额计算期止</td>
+        <td    class=" ft0 fs11 al vm nw bg0 br2"   name="zcsmform.xsejsqz"  type="time,yyyy-MM" format="l7x">2019-03</td>
+    </tr>
+    <tr style="height:39px;" >
+        <td    class=" ft0 fs11 ar vm nl bg_ne  br3"  >邮政服务、电信服务、现代服务、生活服务销售额合计</td>
+        <td    class=" ft0 fs11 ar vm nw bg0 br2"   name="zcsmform.fwxsehj"  format="l18x2d" type="input" ></td>
+        <td    class=" ft0 fs11 ar vm nw bg_ne  br2"  >全部销售额</td>
+        <td    class=" ft0 fs11 ar vm nw bg0 br2"   name="zcsmform.xsehj"  format="l18x2d" type="input" ></td>
+    </tr>
+    <tr style="height:39px;" >
+        <td    class=" ft0 fs11 ar vm nw bg_ne  br3"  >占比</td>
+        <td    class=" ft0 fs11 ar vm nw bg_ne  br2" isEditable=false  name="zcsmform.bl"  format="l6x4b" type="input" ></td>
+        <td    class=" bg_ne br2"   colspan="2"  ></td>
+    </tr>
+    <tr style="height:39px;display: none;" >
+        <td    class=" ft0 fs11 ar vm nw bg1 br3"  >登记序号</td>
+        <td    class=" ft0 fs11 ar vm nw bg1 br2" isEditable=false  name="zcsmform.djxh"  format="l20" type="input" >10114301010000045295</td>
+        <td    class=" bg1 br2"   colspan="2"  ></td>
+    </tr>
+</table>
+    <div class="anniu">
+        <a href="javascript:void(0)" id="savebtn">
+            <button class="btn btn-success">提交</button>
+        </a>
+        <a href="javascript:void(0)" onclick="parent.layer.closeAll()">
+            <button class="btn btn-info">关闭</button>
+        </a>
+    </div>
+</div>
+<div id="viewSm" style="display: none;">
+    <table class="sbbtable" style="width:70%;margin:0px auto;height: 800px;">
+        <tr>
+            <td><div style="width:97px;"></div></td>
+            <td><div style="width:34px;"></div></td>
+            <td><div style="width:28px;"></div></td>
+            <td><div style="width:80px;"></div></td>
+            <td><div style="width:68px;"></div></td>
+            <td><div style="width:30px;"></div></td>
+            <td><div style="width:40px;"></div></td>
+            <td><div style="width:79px;"></div></td>
+        </tr>
+        <tr style="height:27px;" >
+            <td    class=" bg1 br0"  ></td>
+        </tr>
+        <tr style="height:27px;" >
+            <td    class=" ft0 fs18 fbd ac vm nw bg1 br0"   colspan="8"  >适用加计抵减政策的声明</td>
+        </tr>
+        <tr style="height:27px;" >
+            <td    class=" ft0 fs12 ar vm nw bg1 br0"  >纳税人名称:</td>
+            <td    class=" ft0 fs12 al vm nw bg1 br0"   colspan="7"   id="zcsmview_nsrmc"  format="l300" type="input"  isEditable=false ></td>
+        </tr>
+        <tr style="height:27px;" >
+            <td    class=" ft0 fs12 ar vm nw bg1 br0"   colspan="3"  >纳税人识别号（统一社会信用代码）：</td>
+            <td    class=" ft0 fs12 al vm nw bg1 br0"   colspan="5"   id="zcsmview_nsrsbh"  format="l20" type="input"  isEditable=false ></td>
+        </tr>
+        <tr style="height:68px;" >
+            <td    class=" ft0 fs12 al vm nl bg1 br1"   colspan="8"  >&nbsp;&nbsp;&nbsp;&nbsp;本纳税人符合《财政部&nbsp;税务总局&nbsp;海关总署关于深化增值税改革有关政策的公告》（财政部&nbsp;税务总局&nbsp;海关总署公告2019年第39号）规定，确定适用加计抵减政策。行业属于（请从下表勾选，只能选择其一）：</td>
+        </tr>
+        <tr style="height:27px;" >
+            <td    class=" ft0 fs12 ac vm nw bg1 br3"   colspan="5"  >行业</td>
+            <td    class=" ft0 fs12 ac vm nw bg1 br2"   colspan="3"  >选项</td>
+        </tr>
+        <tr style="height:27px;" >
+            <td    class=" ft0 fs12 al vm nw bg1 br3"   colspan="5"  >邮政服务业</td>
+            <td    class=" ft0 fs12 ac vm nw bg1 br2"   colspan="3"   id="zcsmview_dm02000000"  type="input"  isEditable=false ></td>
+        </tr>
+        <tr style="height:27px;" >
+            <td    class=" ft0 fs12 al vm nw bg1 br3"   colspan="5"  >电信服务业</td>
+            <td    class=" bg1 br2"   colspan="3"  ></td>
+        </tr>
+        <tr style="height:27px;" >
+            <td    class=" ft0 fs12 al vm nw bg1 br3"   colspan="5"  >&nbsp;&nbsp;其中：1.基础电信业</td>
+            <td    class=" ft0 fs12 ac vm nw bg1 br2"   colspan="3"   id="zcsmview_dm03010000"  type="input"  isEditable=false ></td>
+        </tr>
+        <tr style="height:27px;" >
+            <td    class=" ft0 fs12 al vm nw bg1 br3"   colspan="5"  >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.增值电信业</td>
+            <td    class=" ft0 fs12 ac vm nw bg1 br2"   colspan="3"   id="zcsmview_dm03020000"  type="input"  isEditable=false ></td>
+        </tr>
+        <tr style="height:27px;" >
+            <td    class=" ft0 fs12 al vm nw bg1 br3"   colspan="5"  >现代服务业</td>
+            <td    class=" bg1 br2"   colspan="3"  ></td>
+        </tr>
+        <tr style="height:27px;" >
+            <td    class=" ft0 fs12 al vm nw bg1 br3"   colspan="5"  >&nbsp;&nbsp;其中:1.研发和技术服务业</td>
+            <td    class=" ft0 fs12 ac vm nw bg1 br2"   colspan="3"   id="zcsmview_dm04010000"  type="input"  isEditable=false ></td>
+        </tr>
+        <tr style="height:27px;" >
+            <td    class=" ft0 fs12 al vm nw bg1 br3"   colspan="5"  >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.信息技术服务业</td>
+            <td    class=" ft0 fs12 ac vm nw bg1 br2"   colspan="3"   id="zcsmview_dm04020000"  type="input"  isEditable=false ></td>
+        </tr>
+        <tr style="height:27px;" >
+            <td    class=" ft0 fs12 al vm nw bg1 br3"   colspan="5"  >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.文化创意服务业</td>
+            <td    class=" ft0 fs12 ac vm nw bg1 br2"   colspan="3"   id="zcsmview_dm04030000"  type="input"  isEditable=false ></td>
+        </tr>
+        <tr style="height:27px;" >
+            <td    class=" ft0 fs12 al vm nw bg1 br3"   colspan="5"  >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.物流辅助服务</td>
+            <td    class=" ft0 fs12 ac vm nw bg1 br2"   colspan="3"   id="zcsmview_dm04040000"  type="input"  isEditable=false ></td>
+        </tr>
+        <tr style="height:27px;" >
+            <td    class=" ft0 fs12 al vm nw bg1 br3"   colspan="5"  >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.有形动产租赁服务业</td>
+            <td    class=" ft0 fs12 ac vm nw bg1 br2"   colspan="3"   id="zcsmview_dm04050000"  type="input"  isEditable=false ></td>
+        </tr>
+        <tr style="height:27px;" >
+            <td    class=" ft0 fs12 al vm nw bg1 br3"   colspan="5"  >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6.鉴证咨询服务业</td>
+            <td    class=" ft0 fs12 ac vm nw bg1 br2"   colspan="3"   id="zcsmview_dm04060000"  type="input"  isEditable=false ></td>
+        </tr>
+        <tr style="height:27px;" >
+            <td    class=" ft0 fs12 al vm nw bg1 br3"   colspan="5"  >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.广播影视服务</td>
+            <td    class=" ft0 fs12 ac vm nw bg1 br2"   colspan="3"   id="zcsmview_dm04070000"  type="input"  isEditable=false ></td>
+        </tr>
+        <tr style="height:27px;" >
+            <td    class=" ft0 fs12 al vm nw bg1 br3"   colspan="5"  >生活服务业</td>
+            <td    class=" bg1 br2"   colspan="3"  ></td>
+        </tr>
+        <tr style="height:27px;" >
+            <td    class=" ft0 fs12 al vm nw bg1 br3"   colspan="5"  >&nbsp;&nbsp;其中：1.文化艺术业</td>
+            <td    class=" ft0 fs12 ac vm nw bg1 br2"   colspan="3"   id="zcsmview_dm08010000"  type="input"  isEditable=false ></td>
+        </tr>
+        <tr style="height:27px;" >
+            <td    class=" ft0 fs12 al vm nw bg1 br3"   colspan="5"  >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.体育业</td>
+            <td    class=" ft0 fs12 ac vm nw bg1 br2"   colspan="3"   id="zcsmview_dm08020000"  type="input"  isEditable=false ></td>
+        </tr>
+        <tr style="height:27px;" >
+            <td    class=" ft0 fs12 al vm nw bg1 br3"   colspan="5"  >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.教育</td>
+            <td    class=" ft0 fs12 ac vm nw bg1 br2"   colspan="3"   id="zcsmview_dm08030000"  type="input"  isEditable=false ></td>
+        </tr>
+        <tr style="height:27px;" >
+            <td    class=" ft0 fs12 al vm nw bg1 br3"   colspan="5"  >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.卫生</td>
+            <td    class=" ft0 fs12 ac vm nw bg1 br2"   colspan="3"   id="zcsmview_dm08040000"  type="input"  isEditable=false ></td>
+        </tr>
+        <tr style="height:27px;" >
+            <td    class=" ft0 fs12 al vm nw bg1 br3"   colspan="5"  >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.旅游业</td>
+            <td    class=" ft0 fs12 ac vm nw bg1 br2"   colspan="3"   id="zcsmview_dm08050000"  type="input"  isEditable=false ></td>
+        </tr>
+        <tr style="height:27px;" >
+            <td    class=" ft0 fs12 al vm nw bg1 br3"   colspan="5"  >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6.娱乐业</td>
+            <td    class=" ft0 fs12 ac vm nw bg1 br2"   colspan="3"   id="zcsmview_dm08060000"  type="input"  isEditable=false ></td>
+        </tr>
+        <tr style="height:27px;" >
+            <td    class=" ft0 fs12 al vm nw bg1 br3"   colspan="5"  >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.餐饮业</td>
+            <td    class=" ft0 fs12 ac vm nw bg1 br2"   colspan="3"   id="zcsmview_dm08070000"  type="input"  isEditable=false ></td>
+        </tr>
+        <tr style="height:27px;" >
+            <td    class=" ft0 fs12 al vm nw bg1 br3"   colspan="5"  >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8.住宿业</td>
+            <td    class=" ft0 fs12 ac vm nw bg1 br2"   colspan="3"   id="zcsmview_dm08080000"  type="input"  isEditable=false ></td>
+        </tr>
+        <tr style="height:27px;" >
+            <td    class=" ft0 fs12 al vm nw bg1 br3"   colspan="5"  >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9.居民服务业</td>
+            <td    class=" ft0 fs12 ac vm nw bg1 br2"   colspan="3"   id="zcsmview_dm08090000"  type="input"  isEditable=false ></td>
+        </tr>
+        <tr style="height:27px;" >
+            <td    class=" ft0 fs12 al vm nw bg1 br3"   colspan="5"  >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10.社会工作</td>
+            <td    class=" ft0 fs12 ac vm nw bg1 br2"   colspan="3"   id="zcsmview_dm08100000"  type="input"  isEditable=false ></td>
+        </tr>
+        <tr style="height:27px;" >
+            <td    class=" ft0 fs12 al vm nw bg1 br3"   colspan="5"  >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11.公共设施管理业</td>
+            <td    class=" ft0 fs12 ac vm nw bg1 br2"   colspan="3"   id="zcsmview_dm08110000"  type="input"  isEditable=false ></td>
+        </tr>
+        <tr style="height:27px;" >
+            <td    class=" ft0 fs12 al vm nw bg1 br3"   colspan="5"  >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12.不动产出租</td>
+            <td    class=" ft0 fs12 ac vm nw bg1 br2"   colspan="3"   id="zcsmview_dm08120000"  type="input"  isEditable=false ></td>
+        </tr>
+        <tr style="height:27px;" >
+            <td    class=" ft0 fs12 al vm nw bg1 br3"   colspan="5"  >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13.商务服务业</td>
+            <td    class=" ft0 fs12 ac vm nw bg1 br2"   colspan="3"   id="zcsmview_dm08130000"  type="input"  isEditable=false ></td>
+        </tr>
+        <tr style="height:27px;" >
+            <td    class=" ft0 fs12 al vm nw bg1 br3"   colspan="5"  >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;14.专业技术服务业</td>
+            <td    class=" ft0 fs12 ac vm nw bg1 br2"   colspan="3"   id="zcsmview_dm08140000"  type="input"  isEditable=false ></td>
+        </tr>
+        <tr style="height:27px;" >
+            <td    class=" ft0 fs12 al vm nw bg1 br3"   colspan="5"  >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;15.代理业</td>
+            <td    class=" ft0 fs12 ac vm nw bg1 br2"   colspan="3"   id="zcsmview_dm08150000"  type="input"  isEditable=false ></td>
+        </tr>
+        <tr style="height:27px;" >
+            <td    class=" ft0 fs12 al vm nw bg1 br3"   colspan="5"  >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;16.其他生活服务业</td>
+            <td    class=" ft0 fs12 ac vm nw bg1 br2"   colspan="3"   id="zcsmview_dm08990000"  type="input"  isEditable=false ></td>
+        </tr>
+        <tr style="height:102px;" >
+            <td    class=" ft0 fs12 al vm nl bg1 br0"   colspan="8"  >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;本纳税人用于判断是否符合加计抵减政策条件的销售额占比计算期为<span id="zcsmview_xsejsqq_n">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>年<span id="zcsmview_xsejsqq_y">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>月至<span id="zcsmview_xsejsqz_n">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>年<span id="zcsmview_xsejsqz_y">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>月，此期间提供邮政服务、电信服务、现代服务、生活服务销售额合计<span id="zcsmview_fwxsehj">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>元，全部销售额<span id="zcsmview_xsehj">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>元，占比为<span id="zcsmview_bl">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;%</span>。</td>
+        </tr>
+        <tr style="height:27px;" >
+            <td    class=" ft0 fs12 al vm nw bg1 br0"   colspan="8"  >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;以上声明根据实际经营情况作出，我确定它是真实的、准确的、完整的。</td>
+        </tr>
+        <tr style="height:27px;" >
+            <td    class=" bg1 br0"  ></td>
+            <td    class=" bg1 br0"  ></td>
+            <td    class=" bg1 br0"  ></td>
+            <td    class=" bg1 br0"  ></td>
+            <td    class=" bg1 br0"  ></td>
+            <td    class=" bg1 br0"  ></td>
+            <td    class=" bg1 br0"  ></td>
+            <td    class=" bg1 br0"  ></td>
+        </tr>
+        <tr style="height:27px;" >
+            <td    class=" bg1 br0"  ></td>
+            <td    class=" bg1 br0"  ></td>
+            <td    class=" bg1 br0"  ></td>
+            <td    class=" bg1 br0"  ></td>
+            <td    class=" bg1 br0"  ></td>
+            <td    class=" bg1 br0"  ></td>
+            <td    class=" bg1 br0"  ></td>
+            <td    class=" bg1 br0"  ></td>
+        </tr>
+        <tr style="height:27px;" >
+            <td    class=" bg1 br0"  ></td>
+            <td    class=" bg1 br0"  ></td>
+            <td    class=" bg1 br0"  ></td>
+            <td    class=" bg1 br0"  ></td>
+            <td    class=" bg1 br0"  ></td>
+            <td    class=" bg1 br0"  ></td>
+            <td    class=" ft0 fs12 ar vm nw bg1 br0"  >2019年06月04日</td>
+            <td    class=" bg1 br0"  ></td>
+        </tr>
+        <tr style="height:27px;" >
+            <td    class=" bg1 br0"  ></td>
+            <td    class=" bg1 br0"  ></td>
+            <td    class=" bg1 br0"  ></td>
+            <td    class=" bg1 br0"  ></td>
+            <td    class=" bg1 br0"  ></td>
+            <td    class=" bg1 br0"  ></td>
+            <td    class=" ft0 fs12 ar vm nw bg1 br0"  >(纳税人签章)</td>
+            <td    class=" bg1 br0"  ></td>
+        </tr>
+        <tr style="height:27px;" >
+            <td    class=" ft0 fs12 al vm nw bg1 br0"   colspan="8"  style="color: #d2322d">注：</td>
+        </tr>
+        <tr style="height:27px;" >
+            <td    class=" ft0 fs12 al vm bg1 br0"  colspan="8"  style="color: #d2322d">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;适用政策年度为：<span id="zcsmview_nd"></span>年，适用政策有效期为：<span id="zcsmview_yxqq"></span>至<span id="zcsmview_yxqz"></span>。本年度政策适用到期后，若您符合规定条件，在下一年度继续适用加计抵减政策的，还需在下一年度首次适用加计抵减政策时提交声明。</td>
+        </tr>
+        <tr style="height:27px;" >
+            <td    class=" bg1 br0"  ></td>
+            <td    class=" bg1 br0"  ></td>
+            <td    class=" bg1 br0"  ></td>
+            <td    class=" bg1 br0"  ></td>
+            <td    class=" bg1 br0"  ></td>
+            <td    class=" bg1 br0"  ></td>
+            <td    class=" bg1 br0"  ></td>
+            <td    class=" bg1 br0"  ></td>
+        </tr>
+        <tr style="height:27px;" >
+            <td    class=" bg1 br0"  ></td>
+            <td    class=" bg1 br0"  ></td>
+            <td    class=" bg1 br0"  ></td>
+            <td    class=" bg1 br0"  ></td>
+            <td    class=" bg1 br0"  ></td>
+            <td    class=" bg1 br0"  ></td>
+            <td    class=" bg1 br0"  ></td>
+            <td    class=" bg1 br0"  ></td>
+        </tr>
+        <tr style="height:27px;" >
+            <td    class=" bg1 br0"  ></td>
+            <td    class=" bg1 br0"  ></td>
+            <td    class=" bg1 br0"  ></td>
+            <td    class=" bg1 br0"  ></td>
+            <td    class=" bg1 br0"  ></td>
+            <td    class=" bg1 br0"  ></td>
+            <td    class=" bg1 br0"  ></td>
+            <td    class=" bg1 br0"  ></td>
+        </tr>
+    </table>
+    <div class="anniu">
+        <a href="javascript:void(0)" id="commitBtn">
+            <button class="btn btn-success">确认</button>
+        </a>
+        <a href="javascript:void(0)" onclick="prev()">
+            <button class="btn btn-info">返回修改</button>
+        </a>
+    </div>
+</div>
+<div id='zcsmform.ygzzhydm.list' style='display: none;'>[{"value":"02000000","text":"邮政业"},{"value":"03010000","text":"基础电信业"},{"value":"03020000","text":"增值电信业"},{"value":"04010000","text":"研发和技术服务业"},{"value":"04020000","text":"信息技术服务业"},{"value":"04030000","text":"文化创意服务业"},{"value":"04040000","text":"物流辅助服务业"},{"value":"04050000","text":"有形动产租赁服务业"},{"value":"04060000","text":"鉴证咨询服务业"},{"value":"04070000","text":"广播影视服务业"},{"value":"08010000","text":"文化艺术业"},{"value":"08020000","text":"体育业"},{"value":"08030000","text":"教育"},{"value":"08040000","text":"卫生"},{"value":"08050000","text":"旅游业"},{"value":"08060000","text":"娱乐业"},{"value":"08070000","text":"餐饮业"},{"value":"08080000","text":"住宿业"},{"value":"08090000","text":"居民服务业"},{"value":"08100000","text":"社会工作"},{"value":"08110000","text":"公共设施管理业"},{"value":"08120000","text":"不动产出租"},{"value":"08130000","text":"商务服务业"},{"value":"08140000","text":"专业技术服务业"},{"value":"08150000","text":"代理业"},{"value":"08990000","text":"其他生活服务业"}]</div>
+</body>
+<style>
+    .anniu{
+        position: fixed;
+        bottom: 0;
+        border-top: 1px solid #ccc;
+        line-height: 62px;
+        height: 62px;
+        width:100%;
+        text-align: center;
+        z-index: 1;
+        background-color: white;
+    }
+    .anniu a{ display:inline-block; width: 30px; margin-right: 100px;}
+</style>
+</html>

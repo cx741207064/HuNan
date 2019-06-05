@@ -1,4 +1,4 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using JlueTaxSystemBeiJingBS.Code;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
@@ -12,8 +12,6 @@ namespace JlueTaxSystemHuNanBS.Code
 {
     public class GTXMethod
     {
-        public static IConfiguration config;
-
         /// <summary>
         /// 获取企业联系人
         /// </summary>
@@ -21,7 +19,7 @@ namespace JlueTaxSystemHuNanBS.Code
         public static GTXResult GetCompanyPerson()
         {
             string companyId = CurrentUser.GetInstance().GetCurrentCompanyId;
-            string path = config["appSettings:Practicepath"];
+            string path = System.Configuration.ConfigurationManager.AppSettings["Practicepath"];
             publicmethod p = new publicmethod();
             string fullpath = path + "/APIPractice/CompanyPerson.asmx/GetByCompanyId?CompanyId=" + companyId;
             string json = p.Get(fullpath);
@@ -35,7 +33,7 @@ namespace JlueTaxSystemHuNanBS.Code
         public static GTXResult GetCompany()
         {
             string companyId = CurrentUser.GetInstance().GetCurrentCompanyId;
-            string path = config["appSettings:Practicepath"];
+            string path = System.Configuration.ConfigurationManager.AppSettings["Practicepath"];
             publicmethod p = new publicmethod();
             string fullpath = path + "/APIPractice/Company.asmx/GetByCompanyId?CompanyId=" + companyId;
             string json = p.Get(fullpath);
@@ -51,7 +49,7 @@ namespace JlueTaxSystemHuNanBS.Code
         {
             string userid = CurrentUser.GetInstance().GetCurrentUserId;
             string classid = CurrentUser.GetInstance().GetCurrentClassId;
-            string path = config["appSettings:tikupath"];
+            string path = System.Configuration.ConfigurationManager.AppSettings["tikupath"];
             publicmethod p = new publicmethod();
             string fullpath = path + "/GTX/GTXUserQuestion/GetEnter?userid=" + userid + "&questionid=" + id + "&classid=" + classid;
             string json = p.Get(fullpath);
@@ -69,7 +67,7 @@ namespace JlueTaxSystemHuNanBS.Code
             string questionId = CurrentUser.GetInstance().GetCurrentQuestionId;
             string classid = CurrentUser.GetInstance().GetCurrentClassId;
 
-            string path = config["appSettings:tikupath"];
+            string path = System.Configuration.ConfigurationManager.AppSettings["tikupath"];
             publicmethod p = new publicmethod();
             string fullpath = path + "/GTX/GDTXHuNanUserYSBQC/GetList?userid=" + userid + "&questionId=" + questionId + "&classid=" + classid;
             string json = p.Get(fullpath);
@@ -85,7 +83,7 @@ namespace JlueTaxSystemHuNanBS.Code
         {
             string classid = CurrentUser.GetInstance().GetCurrentClassId;
             string userId = CurrentUser.GetInstance().GetCurrentUserId;
-            string path = config["appSettings:tikupath"];
+            string path = System.Configuration.ConfigurationManager.AppSettings["tikupath"];
             publicmethod p = new publicmethod();
             string json = p.HttpPost(path + "/GTX/GDTXHuNanUserYSBQCReportData/Add", string.Format("classid={0}&jsonReportData={1}&userYsbqcId={2}&reportCode={3}&userId={4}"
                 , classid, jsonReportData, userYsbqcId, reportCode, userId));
@@ -99,7 +97,7 @@ namespace JlueTaxSystemHuNanBS.Code
         public static GTXResult GetUserReportData(string userYsbqcId, string reportCode)
         {
             string classid = CurrentUser.GetInstance().GetCurrentClassId;
-            string path = config["appSettings:tikupath"];
+            string path = System.Configuration.ConfigurationManager.AppSettings["tikupath"];
             publicmethod p = new publicmethod();
             string json = p.HttpPost(path + "/GTX/GDTXHuNanUserYSBQCReportData/GetListByCode", string.Format("classid={0}&userYsbqcId={1}&reportCode={2}"
                 , classid, userYsbqcId, reportCode));
@@ -112,7 +110,7 @@ namespace JlueTaxSystemHuNanBS.Code
         public static GTXResult UpdateYSBQC(string userYSBQCId, string SBZT)
         {
             string classid = CurrentUser.GetInstance().GetCurrentClassId;
-            string path = config["appSettings:tikupath"];
+            string path = System.Configuration.ConfigurationManager.AppSettings["tikupath"];
             publicmethod p = new publicmethod();
             string fullpath = path + "/GTX/GDTXHuNanUserYSBQC/UpdateSBZT?Id=" + userYSBQCId + "&classid=" + classid + "&SBZT=" + SBZT;
             string json = p.Get(fullpath);
@@ -126,7 +124,7 @@ namespace JlueTaxSystemHuNanBS.Code
         public static GTXResult UpdateSBSE(string userYSBQCId, string SBSE)
         {
             string classid = CurrentUser.GetInstance().GetCurrentClassId;
-            string path = config["appSettings:tikupath"];
+            string path = System.Configuration.ConfigurationManager.AppSettings["tikupath"];
             publicmethod p = new publicmethod();
             string fullpath = path + "/GTX/GDTXHuNanUserYSBQC/UpdateSBSE?Id=" + userYSBQCId + "&classid=" + classid + "&SBSE=" + SBSE;
             string json = p.Get(fullpath);
@@ -144,7 +142,7 @@ namespace JlueTaxSystemHuNanBS.Code
                 nowtbzt = tbzt;
             }
             string classid = CurrentUser.GetInstance().GetCurrentClassId;
-            string path = config["appSettings:tikupath"];
+            string path = System.Configuration.ConfigurationManager.AppSettings["tikupath"];
             publicmethod p = new publicmethod();
             string fullpath = path + "/GTX/GDTXHuNanUserYSBQC/Updatetbzt?Id=" + userYSBQCId + "&classid=" + classid + "&tbzt=" + nowtbzt;
             string json = p.Get(fullpath);
@@ -159,7 +157,7 @@ namespace JlueTaxSystemHuNanBS.Code
         {
             string classid = CurrentUser.GetInstance().GetCurrentClassId;
             string userId = CurrentUser.GetInstance().GetCurrentUserId;
-            string path = config["appSettings:tikupath"];
+            string path = System.Configuration.ConfigurationManager.AppSettings["tikupath"];
             publicmethod p = new publicmethod();
             string json = p.HttpPost(path + "/GTX/GDTXHuNanUserYSBQCReportData/Delete", string.Format("classid={0}&userYsbqcId={1}&userId={2}&reportCode={3}"
                 , classid, userYsbqcId, userId, reportCode));
