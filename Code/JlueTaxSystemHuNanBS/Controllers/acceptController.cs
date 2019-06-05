@@ -209,16 +209,17 @@ namespace JlueTaxSystemHuNanBS.Controllers
         {
             QysdsYjdAModel model;
             qc = set.getUserYSBQC(set.BDDM.Qysds);
+            JToken hdxxvojsons = set.getQysdsyjdHdxxvojsons();
             JToken reportData = set.getUserYSBQCReportData(qc.Id, qc.BDDM);
             Nsrxx xx = set.getNsrxx();
             GDTXDate gd = set.getGDTXDate(qc.BDDM);
             if (reportData.HasValues)
             {
-                model = new QysdsYjdAModel { Nsrxx = xx, GDTXDate = gd, reportData = reportData };
+                model = new QysdsYjdAModel { Nsrxx = xx, GDTXDate = gd, QcsData = hdxxvojsons, reportData = reportData };
             }
             else
             {
-                model = new QysdsYjdAModel { Nsrxx = xx, GDTXDate = gd, reportData = new JArray() };
+                model = new QysdsYjdAModel { Nsrxx = xx, GDTXDate = gd, QcsData = hdxxvojsons, reportData = new JArray() };
             }
             return View(model);
         }

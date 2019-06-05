@@ -486,6 +486,9 @@
     <Content Include="web-accept\wssb\main\indexBbcxForPage.04.json" />
     <Content Include="web-accept\wssb\10104e\smsave.json" />
     <Content Include="web-accept\wssb\10104e\hdxxvojsons.industry.json" />
+    <Content Include="web-accept\wssb\10435e\hdxxvojsons.industry.json" />
+    <Content Include="web-accept\wssb\10435e\hdxxvojsons.commerce.json" />
+    <Content Include="web-accept\wssb\10104e\hdxxvojsons.commerce.json" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\ActionFilterConfig.cs" />

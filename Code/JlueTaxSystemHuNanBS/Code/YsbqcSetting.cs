@@ -254,6 +254,19 @@ namespace JlueTaxSystemHuNanBS.Code
             //in_jo.Merge(bnlj, new JsonMergeSettings { MergeArrayHandling = MergeArrayHandling.Union });
         }
 
+        public JToken getQysdsyjdHdxxvojsons()
+        {
+            string Name = HttpContext.Current.Session["Name"].ToString();
+            XmlDocument doc = new XmlDocument();
+            doc.LoadXml(File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + "industry.xml"));
+            JToken industry = JsonConvert.DeserializeObject<JToken>(JsonConvert.SerializeXmlNode(doc));
+            industry = industry.SelectToken("root.industry").Where(a => a["name"].ToString() == Name).ToList()[0];
+
+            JToken bnlj = JsonConvert.DeserializeObject<JToken>(File.ReadAllText(HttpContext.Current.Server.MapPath("hdxxvojsons" + "." + industry["value"] + ".json")));
+            return bnlj;
+            //in_jo.Merge(bnlj, new JsonMergeSettings { MergeArrayHandling = MergeArrayHandling.Union });
+        }
+
         public JObject getYbnsrzzsDataConfig(object in_obj, string dm)
         {
             string Name = HttpContext.Current.Session["Name"].ToString();
