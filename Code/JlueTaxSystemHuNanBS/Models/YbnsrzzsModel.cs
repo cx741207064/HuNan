@@ -14,5 +14,7 @@ namespace JlueTaxSystemHuNanBS.Models
 
         public JToken reportData { get; set; }
 
+        public JToken QcsData { get; set; }
+
     }
 }

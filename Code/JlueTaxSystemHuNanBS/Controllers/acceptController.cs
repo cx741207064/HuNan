@@ -163,9 +163,20 @@ namespace JlueTaxSystemHuNanBS.Controllers
         public System.Web.Mvc.ActionResult edit_10104()
         {
             qc = set.getUserYSBQC(set.BDDM.YbnsrZzs);
-            JToken reportData = set.getUserYSBQCReportData(qc.Id, qc.BDDM);
+            JToken reportData;
+            JToken hdxxvojsons;
+            hdxxvojsons = set.getYbnsrzzsHdxxvojsons();
+            if (qc.SBZT == set.SBZT.WTX)
+            {
+                reportData = new JArray();
+            }
+            else
+            {
+                reportData = set.getUserYSBQCReportData(qc.Id, qc.BDDM);
+            }
             YbnsrzzsModel model = new YbnsrzzsModel();
             model.reportData = reportData;
+            model.QcsData = hdxxvojsons;
             model.GDTXDate = set.getGDTXDate(set.BDDM.YbnsrZzs);
             model.Nsrxx = set.getNsrxx();
             return View(model);

@@ -121,6 +121,7 @@
     <Content Include="gy\ywpt\ywpt_zypz_gy.js" />
     <Content Include="image\kxrzd.png" />
     <Content Include="image\zdyjb.png" />
+    <Content Include="industry.xml" />
     <Content Include="Instruction.html" />
     <Content Include="jspt\styles\dlds\change.css" />
     <Content Include="jspt\styles\dlds\images\icon_collapse.png" />
@@ -484,6 +485,7 @@
     <Content Include="wsbs\virtual-login.js" />
     <Content Include="web-accept\wssb\main\indexBbcxForPage.04.json" />
     <Content Include="web-accept\wssb\10104e\smsave.json" />
+    <Content Include="web-accept\wssb\10104e\hdxxvojsons.industry.json" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\ActionFilterConfig.cs" />

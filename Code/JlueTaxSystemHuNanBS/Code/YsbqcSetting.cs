@@ -241,7 +241,7 @@ namespace JlueTaxSystemHuNanBS.Code
             return X;
         }
 
-        public void getYbnsrzzsBnlj(ref JObject in_jo, string dm)
+        public JToken getYbnsrzzsHdxxvojsons()
         {
             string Name = HttpContext.Current.Session["Name"].ToString();
             XmlDocument doc = new XmlDocument();
@@ -249,11 +249,9 @@ namespace JlueTaxSystemHuNanBS.Code
             JToken industry = JsonConvert.DeserializeObject<JToken>(JsonConvert.SerializeXmlNode(doc));
             industry = industry.SelectToken("root.industry").Where(a => a["name"].ToString() == Name).ToList()[0];
 
-            XmlDocument xml_bnlj = new XmlDocument();
-            xml_bnlj.LoadXml(File.ReadAllText(HttpContext.Current.Server.MapPath(dm + "." + industry["value"] + ".xml")));
-            JToken bnlj = JsonConvert.DeserializeObject<JToken>(JsonConvert.SerializeXmlNode(xml_bnlj));
-            bnlj = bnlj.SelectToken("root." + dm);
-            in_jo.Merge(bnlj, new JsonMergeSettings { MergeArrayHandling = MergeArrayHandling.Union });
+            JToken bnlj = JsonConvert.DeserializeObject<JToken>(File.ReadAllText(HttpContext.Current.Server.MapPath("hdxxvojsons" + "." + industry["value"] + ".json")));
+            return bnlj;
+            //in_jo.Merge(bnlj, new JsonMergeSettings { MergeArrayHandling = MergeArrayHandling.Union });
         }
 
         public JObject getYbnsrzzsDataConfig(object in_obj, string dm)
