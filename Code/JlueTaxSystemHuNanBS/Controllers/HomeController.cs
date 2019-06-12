@@ -205,7 +205,7 @@ namespace JlueTaxSystemHuNanBS.Controllers
             return View(set.functionNotOpen);
         }
 
-        [Route("QuestionMain")]
+        [Route("QuestionMain.aspx")]
         public System.Web.Mvc.ActionResult QuestionMain()
         {
             return View();
