@@ -267,24 +267,6 @@ namespace JlueTaxSystemHuNanBS.Code
             //in_jo.Merge(bnlj, new JsonMergeSettings { MergeArrayHandling = MergeArrayHandling.Union });
         }
 
-        public JObject getYbnsrzzsDataConfig(object in_obj, string dm)
-        {
-            string Name = HttpContext.Current.Session["Name"].ToString();
-            XmlDocument doc = new XmlDocument();
-            doc.LoadXml(File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + "industry.xml"));
-            JToken industry = JsonConvert.DeserializeObject<JToken>(JsonConvert.SerializeXmlNode(doc));
-            industry = industry.SelectToken("root.industry").Where(a => a["name"].ToString() == Name).ToList()[0];
-
-            JObject in_jo = JsonConvert.DeserializeObject<JObject>(JsonConvert.SerializeObject(in_obj));
-
-            XmlDocument xml_config = new XmlDocument();
-            xml_config.LoadXml(File.ReadAllText(HttpContext.Current.Server.MapPath(dm + "." + industry["value"] + ".xml")));
-            JToken config = JsonConvert.DeserializeObject<JToken>(JsonConvert.SerializeXmlNode(xml_config));
-            config = config.SelectToken("root." + dm);
-            in_jo.Merge(config, new JsonMergeSettings { MergeArrayHandling = MergeArrayHandling.Union });
-            return in_jo;
-        }
-
         public GDTXDate getGDTXDate(Type type)
         {
             GDTXDate gd = new GDTXDate();
@@ -412,27 +394,6 @@ namespace JlueTaxSystemHuNanBS.Code
             ja.Add(jo15);
 
             return ja;
-        }
-
-        public void deleteYhsData(int id, string reportCode, string xh)
-        {
-            JArray data_ja = (JArray)getUserYSBQCReportData(id, reportCode);
-            data_ja.Where(a => a["guid"].ToString() == xh).FirstOrDefault().Remove();
-            saveUserYSBQCReportData(data_ja, id.ToString(), reportCode);
-        }
-
-        public string getBDDMFromTABLE_NAME(string TABLE_NAME)
-        {
-            JObject jo = JsonConvert.DeserializeObject<JObject>(File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + "wssb/TABLE_NAME.json"));
-            foreach (JProperty jp in jo.Properties())
-            {
-                int count = jp.Value.Where(a => a.ToString() == TABLE_NAME).Count();
-                if (count > 0)
-                {
-                    return jp.Name;
-                }
-            }
-            return "";
         }
 
         public string getYhsZspmMc(string zspmDm)
