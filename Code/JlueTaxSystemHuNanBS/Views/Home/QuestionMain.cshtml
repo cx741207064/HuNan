@@ -15,7 +15,9 @@
     <script type="text/javascript" src="js/database.js"></script>
     <script type="text/javascript" src="js/json2.js"></script>
     <script type="text/javascript" src="js/dump_src.js"></script>
-
+    <script type="text/javascript" src="/wsbs/virtual-login.js"></script>
+    <script type="text/javascript" src="/wsbs/js/store.min.js"></script>
+    
     <link href="/css/H-ui.css" rel="stylesheet" />
     <link href="/css/ksindex.css" rel="stylesheet" />
     <link href="/css/stylenew.css" rel="stylesheet" />
@@ -154,9 +156,7 @@
                         }
                         var Gtxpath = "wsbs/toMainIndex.do?userid=" + userId + "&username=" + username + "&classid=" + ClassId + "&courseid=" + courseid + "&sortid=" + sortid + "&questionId=" + v.QuestionId + "&userquestionId=" + v.Id + "&CompanyId=" + v.CompanyId + "&Name=" + encodeURIComponent(v.Name) + "&rand=" + new Date().getTime();
                         var Dtxpath = '<%=System.Web.Configuration.WebConfigurationManager.AppSettings["Dtxpath"]%>' + "/MainAction.php?sessionId=" + v.NSRSBH + ";timestamp&questionid=" + v.QuestionId + "&happenddate=" + v.HappenDate + "&userid=" + userId + "&classid=" + ClassId + "&CompanyId=" + v.CompanyId;
-                        debugger;
                         var FPpath = "GotoFP.ashx?sessionId=" + v.NSRSBH + ";timestamp&questionId=" + v.QuestionId + "&happenDate=" + v.HappenDate + "&userId=" + userId + "&classId=" + ClassId + "&companyId=" + v.CompanyId + "&sortid=" + sortid;
-                        debugger;
                         var str = '<li class="ksmc-sj5"><div class="ksmc-sj1-title">';
                         str += '<table class="fulltable">';
                         str += '<tbody>';
@@ -198,7 +198,6 @@
                         dataType: "text",
                         async: false,
                         success: function (result) {
-                            debugger;
                             var na = JSON.parse(result);
                             if (na.IsSuccess) {
                                 location.reload();
@@ -261,10 +260,8 @@
             dataType: "text",
             async: false,
             success: function (result) {
-                debugger
                 var na = JSON.parse(result);
                 if (na.IsSuccess) {
-                    debugger;
                     alert("初始化成功");
                     location.reload();
                 }

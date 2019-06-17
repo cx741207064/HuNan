@@ -1,1 +1,1 @@
-﻿<%@ WebHandler Language="C#" CodeBehind="GetVideo.ashx.cs" Class="JlueTaxSystemBeiJingBS.VideoManage.GetVideo" %>
+﻿<%@ WebHandler Language="C#" CodeBehind="GetVideo.ashx.cs" Class="JlueTaxSystemHuNanBS.VideoManage.GetVideo" %>
