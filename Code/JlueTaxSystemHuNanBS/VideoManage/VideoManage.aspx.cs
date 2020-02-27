@@ -1,5 +1,4 @@
-﻿using JlueTaxSystemBeiJingBS.Code;
-using JlueTaxSystemHuNanBS.Code;
+﻿using JlueTaxSystemHuNanBS.Code;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
